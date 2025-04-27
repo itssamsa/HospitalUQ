@@ -1,4 +1,4 @@
-public class Medico extends Usuario {
+public class Medico extends Usuario implements HistorialMedico {
 
     private String especialidad;
     private String numeroLicencia;
@@ -9,8 +9,17 @@ public class Medico extends Usuario {
         this.numeroLicencia = numeroLicencia;
     }
 
-    // Getters y setters...
+    @Override
+    public void registrarDiagnostico(String diagnostico) {
+        System.out.println("Registrando diagnóstico para el paciente: " + diagnostico);
+    }
 
+    @Override
+    public void actualizarHistorial(String actualizacion) {
+        System.out.println("Actualizando historial médico: " + actualizacion);
+    }
+
+    // Getters y setters
 
     public String getEspecialidad() {
         return especialidad;
@@ -27,5 +36,4 @@ public class Medico extends Usuario {
     public void setNumeroLicencia(String numeroLicencia) {
         this.numeroLicencia = numeroLicencia;
     }
-
 }
