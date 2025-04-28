@@ -1,6 +1,6 @@
 public interface GestionCitas {
 
-    void solicitarCita(String fechaHora);
-    void cancelarCita();
-    void consultarCita();
+    void asignarCita(Paciente paciente, Medico medico, String fechaHora);
+    void cancelarCita(Paciente paciente);
+    void modificarCita(Paciente paciente, String nuevaFechaHora);
 }

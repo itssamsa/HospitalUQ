@@ -1,4 +1,5 @@
 public class Medico extends Usuario {
+
     private String especialidad;
     private String horariosDisponibles;
 
