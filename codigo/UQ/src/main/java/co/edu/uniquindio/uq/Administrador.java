@@ -1,33 +1,35 @@
+package co.edu.uniquindio.uq;
+
 public class Administrador extends Usuario implements GestionSalas, GestionCitas {
 
     public Administrador(String nombre, String cedula, String direccion, String telefono) {
         super(nombre, cedula, direccion, telefono);
     }
 
-    // Métodos del Administrador
+    // Métodos del co.edu.uniquindio.uq.Administrador
     public void registrarMedico(Medico medico) {
         System.out.println("Médico registrado: " + medico.getNombre());
     }
 
     public void registrarPaciente(Paciente paciente) {
-        System.out.println("Paciente registrado: " + paciente.getNombre());
+        System.out.println("co.edu.uniquindio.uq.Paciente registrado: " + paciente.getNombre());
     }
 
     public void generarReporte() {
         System.out.println("Generando reporte de citas médicas.");
     }
 
-    // metodos de GestionSalas
+    // metodos de co.edu.uniquindio.uq.GestionSalas
     @Override
     public void asignarSala(Sala sala) {
         // Lógica para asignar la sala
-        System.out.println("Sala " + sala.getNombre() + " asignada.");
+        System.out.println("co.edu.uniquindio.uq.Sala " + sala.getNombre() + " asignada.");
     }
 
     @Override
     public void liberarSala(Sala sala) {
         // Lógica para liberar la sala
-        System.out.println("Sala " + sala.getNombre() + " liberada.");
+        System.out.println("co.edu.uniquindio.uq.Sala " + sala.getNombre() + " liberada.");
     }
 
     @Override
@@ -37,7 +39,7 @@ public class Administrador extends Usuario implements GestionSalas, GestionCitas
         System.out.println("Estado de la sala " + sala.getNombre() + " cambiado a: " + nuevoEstado);
     }
 
-    // métodos de GestionCitas
+    // métodos de co.edu.uniquindio.uq.GestionCitas
     @Override
     public void asignarCita(Paciente paciente, Medico medico, String fechaHora) {
         // Lógica para asignar una cita médica

@@ -1,3 +1,5 @@
+package co.edu.uniquindio.uq;
+
 public class HistorialMedico {
 
     private String fecha;
@@ -50,7 +52,7 @@ public class HistorialMedico {
 
     @Override
     public String toString() {
-        return "HistorialMedico{" +
+        return "co.edu.uniquindio.uq.HistorialMedico{" +
                 "fecha='" + fecha + '\'' +
                 ", diagnostico='" + diagnostico + '\'' +
                 ", tratamiento='" + tratamiento + '\'' +

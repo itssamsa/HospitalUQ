@@ -1,3 +1,5 @@
+package co.edu.uniquindio.uq;
+
 public class Paciente extends Usuario {
 
     private String historialMedico;
@@ -26,7 +28,7 @@ public class Paciente extends Usuario {
         this.citasProgramadas = citasProgramadas;
     }
 
-    // Métodos del Paciente
+    // Métodos del co.edu.uniquindio.uq.Paciente
     public void solicitarCita(Medico medico, String fechaHora) {
         // Lógica para solicitar una cita con un médico
         citasProgramadas = fechaHora;  // Ejemplo simplificado

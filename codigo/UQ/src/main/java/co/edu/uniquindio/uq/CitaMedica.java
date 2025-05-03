@@ -1,3 +1,5 @@
+package co.edu.uniquindio.uq;
+
 public class CitaMedica {
 
     private Paciente paciente;
@@ -46,7 +48,8 @@ public class CitaMedica {
 
     @Override
     public String toString() {
-        return "CitaMedica{" +
+        return "" +
+                "co.edu.uniquindio.uq.CitaMedica{" +
                 "paciente=" + paciente.getNombre() +
                 ", medico=" + medico.getNombre() +
                 ", fechaHora='" + fechaHora + '\'' +

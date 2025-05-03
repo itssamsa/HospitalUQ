@@ -1,3 +1,5 @@
+package co.edu.uniquindio.uq;
+
 public class Sala {
 
     private String nombre;
@@ -37,6 +39,6 @@ public class Sala {
 
     // Metodo para mostrar información de la sala
     public void mostrarInformacion() {
-        System.out.println("Sala: " + nombre + ", Tipo: " + tipo + ", Estado: " + estado);
+        System.out.println("co.edu.uniquindio.uq.Sala: " + nombre + ", Tipo: " + tipo + ", Estado: " + estado);
     }
 }

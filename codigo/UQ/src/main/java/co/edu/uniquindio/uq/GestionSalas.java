@@ -1,3 +1,5 @@
+package co.edu.uniquindio.uq;
+
 public interface GestionSalas {
 
     void asignarSala(Sala sala);
