@@ -1,4 +1,4 @@
-package co.edu.uniquindio.uq;
+package co.edu.uniquindio.uq.model;
 
 public enum EstadoSala {
 

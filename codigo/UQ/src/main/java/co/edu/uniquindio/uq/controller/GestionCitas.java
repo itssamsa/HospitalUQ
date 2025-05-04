@@ -1,4 +1,7 @@
-package co.edu.uniquindio.uq;
+package co.edu.uniquindio.uq.controller;
+
+import co.edu.uniquindio.uq.model.Medico;
+import co.edu.uniquindio.uq.model.Paciente;
 
 public interface GestionCitas {
 

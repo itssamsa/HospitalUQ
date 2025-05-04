@@ -9,4 +9,10 @@ module co.edu.uniquindio.uq {
 
     opens co.edu.uniquindio.uq to javafx.fxml;
     exports co.edu.uniquindio.uq;
+    opens co.edu.uniquindio.uq.controller to javafx.fxml;
+    exports co.edu.uniquindio.uq.controller;
+    exports co.edu.uniquindio.uq.model;
+    opens co.edu.uniquindio.uq.model to javafx.fxml;
+    exports co.edu.uniquindio.uq.viewController;
+    opens co.edu.uniquindio.uq.viewController to javafx.fxml;
 }

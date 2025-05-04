@@ -1,4 +1,4 @@
-package co.edu.uniquindio.uq;
+package co.edu.uniquindio.uq.model;
 
 public class Medico extends Usuario {
 
@@ -28,7 +28,7 @@ public class Medico extends Usuario {
         this.horariosDisponibles = horariosDisponibles;
     }
 
-    // Métodos específicos de co.edu.uniquindio.uq.Medico
+    // Métodos específicos de co.edu.uniquindio.uq.model.Medico
     public void accederHistorial(Paciente paciente) {
         // Lógica para acceder al historial médico de un paciente
     }

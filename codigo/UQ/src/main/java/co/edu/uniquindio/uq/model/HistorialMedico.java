@@ -1,4 +1,4 @@
-package co.edu.uniquindio.uq;
+package co.edu.uniquindio.uq.model;
 
 public class HistorialMedico {
 
@@ -52,7 +52,7 @@ public class HistorialMedico {
 
     @Override
     public String toString() {
-        return "co.edu.uniquindio.uq.HistorialMedico{" +
+        return "co.edu.uniquindio.uq.model.HistorialMedico{" +
                 "fecha='" + fecha + '\'' +
                 ", diagnostico='" + diagnostico + '\'' +
                 ", tratamiento='" + tratamiento + '\'' +

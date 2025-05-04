@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Text?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="co.edu.uniquindio.uq.viewController.LoginController">
+   <Pane prefHeight="451.0" prefWidth="638.0">
+      <children>
+      
+          <Button fx:id="btnPaciente" layoutX="279.0" layoutY="325.0" onAction="#ingresarComoPaciente" style="-fx-font-size: 16px; -fx-padding: 10px; -fx-margin-top: 20px;" text="Paciente" />
+      
+          <Button fx:id="btnAdministrador" layoutX="259.0" layoutY="171.0" onAction="#ingresarComoAdministrador" style="-fx-font-size: 16px; -fx-padding: 10px; -fx-margin-top: 20px;" text="Administrador" />
+      
+          <Button fx:id="btnMedico" layoutX="283.0" layoutY="245.0" onAction="#ingresarComoMedico" style="-fx-font-size: 16px; -fx-padding: 10px; -fx-margin-top: 20px;" text="Médico" />
+          <Text layoutX="217.0" layoutY="97.0" style="-fx-font-size: 20px; -fx-padding: 10px;" text="¿Quién desea ingresar?" />
+      </children>
+   </Pane>
+</StackPane>

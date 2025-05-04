@@ -1,4 +1,4 @@
-package co.edu.uniquindio.uq;
+package co.edu.uniquindio.uq.controller;
 
 public class SistemaHospitalario {
 

@@ -1,4 +1,7 @@
-package co.edu.uniquindio.uq;
+package co.edu.uniquindio.uq.controller;
+
+import co.edu.uniquindio.uq.model.EstadoSala;
+import co.edu.uniquindio.uq.model.Sala;
 
 public interface GestionSalas {
 

@@ -1,4 +1,7 @@
-package co.edu.uniquindio.uq;
+package co.edu.uniquindio.uq.model;
+
+import co.edu.uniquindio.uq.controller.GestionCitas;
+import co.edu.uniquindio.uq.controller.GestionSalas;
 
 public class Administrador extends Usuario implements GestionSalas, GestionCitas {
 
@@ -6,30 +9,30 @@ public class Administrador extends Usuario implements GestionSalas, GestionCitas
         super(nombre, cedula, direccion, telefono);
     }
 
-    // Métodos del co.edu.uniquindio.uq.Administrador
+    // Métodos del co.edu.uniquindio.uq.model.Administrador
     public void registrarMedico(Medico medico) {
         System.out.println("Médico registrado: " + medico.getNombre());
     }
 
     public void registrarPaciente(Paciente paciente) {
-        System.out.println("co.edu.uniquindio.uq.Paciente registrado: " + paciente.getNombre());
+        System.out.println("co.edu.uniquindio.uq.model.Paciente registrado: " + paciente.getNombre());
     }
 
     public void generarReporte() {
         System.out.println("Generando reporte de citas médicas.");
     }
 
-    // metodos de co.edu.uniquindio.uq.GestionSalas
+    // metodos de co.edu.uniquindio.uq.controller.GestionSalas
     @Override
     public void asignarSala(Sala sala) {
         // Lógica para asignar la sala
-        System.out.println("co.edu.uniquindio.uq.Sala " + sala.getNombre() + " asignada.");
+        System.out.println("co.edu.uniquindio.uq.model.Sala " + sala.getNombre() + " asignada.");
     }
 
     @Override
     public void liberarSala(Sala sala) {
         // Lógica para liberar la sala
-        System.out.println("co.edu.uniquindio.uq.Sala " + sala.getNombre() + " liberada.");
+        System.out.println("co.edu.uniquindio.uq.model.Sala " + sala.getNombre() + " liberada.");
     }
 
     @Override
@@ -39,7 +42,7 @@ public class Administrador extends Usuario implements GestionSalas, GestionCitas
         System.out.println("Estado de la sala " + sala.getNombre() + " cambiado a: " + nuevoEstado);
     }
 
-    // métodos de co.edu.uniquindio.uq.GestionCitas
+    // métodos de co.edu.uniquindio.uq.controller.GestionCitas
     @Override
     public void asignarCita(Paciente paciente, Medico medico, String fechaHora) {
         // Lógica para asignar una cita médica
