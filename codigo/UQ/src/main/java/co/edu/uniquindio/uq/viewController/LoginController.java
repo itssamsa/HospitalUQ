@@ -1,24 +1,27 @@
 package co.edu.uniquindio.uq.viewController;
 
+import co.edu.uniquindio.uq.App;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 public class LoginController {
 
     @FXML
-    private void ingresarComoPaciente() {
-        // Lógica cuando se hace clic en el botón de "Paciente"
-        System.out.println("Iniciando sesión como Paciente");
+    private void ingresarComoPaciente(ActionEvent event) {
+        try {
+            App.cambiarEscena("/resources/SeleccionarRegistrarIngresar.fxml", "Opciones de Paciente");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    private void ingresarComoMedico() {
-        // Lógica cuando se hace clic en el botón de "Médico"
-        System.out.println("Iniciando sesión como Médico");
+    private void ingresarComoAdministrador(ActionEvent event) {
+        // Aquí también puedes agregar navegación a la vista de administrador
     }
 
     @FXML
-    private void ingresarComoAdministrador() {
-        // Lógica cuando se hace clic en el botón de "Administrador"
-        System.out.println("Iniciando sesión como Administrador");
+    private void ingresarComoMedico(ActionEvent event) {
+        // Aquí también puedes agregar navegación a la vista de médico
     }
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.uq.viewController.IngresarPacienteController"
+            prefWidth="400" prefHeight="400">
+    <children>
+        <Button text="Actualizar Información" layoutX="100" layoutY="50" prefWidth="200" onAction="#handleActualizar"/>
+        <Button text="Consultar Historial" layoutX="100" layoutY="100" prefWidth="200" onAction="#handleHistorial"/>
+        <Button text="Ver Citas Programadas" layoutX="100" layoutY="150" prefWidth="200" onAction="#handleCitas"/>
+        <Button text="Solicitar Cita" layoutX="100" layoutY="200" prefWidth="200" onAction="#handleSolicitarCita"/>
+        <Button text="Cancelar Cita" layoutX="100" layoutY="250" prefWidth="200" onAction="#handleCancelarCita"/>
+    </children>
+</AnchorPane>

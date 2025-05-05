@@ -48,12 +48,10 @@ public class CitaMedica {
 
     @Override
     public String toString() {
-        return "" +
-                "co.edu.uniquindio.uq.model.CitaMedica{" +
-                "paciente=" + paciente.getNombre() +
-                ", medico=" + medico.getNombre() +
-                ", fechaHora='" + fechaHora + '\'' +
-                ", estado=" + estado +
-                '}';
+        return "Cita: " +
+                "Paciente=" + paciente.getNombre() +
+                ", Médico=" + medico.getNombre() +
+                ", Fecha y Hora='" + fechaHora + '\'' +
+                ", Estado=" + estado;
     }
 }
