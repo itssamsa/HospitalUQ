@@ -6,22 +6,19 @@ import javafx.fxml.FXML;
 
 public class LoginController {
 
+    //NO FUNCIONA
     @FXML
     private void ingresarComoPaciente(ActionEvent event) {
-        try {
-            App.cambiarEscena("/resources/SeleccionarRegistrarIngresar.fxml", "Opciones de Paciente");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        App.cambiarEscena("/co/edu/uniquindio/uq/SeleccionarRegistrarIngresar.fxml", "Opciones de ingreso del paciente");
     }
 
     @FXML
     private void ingresarComoAdministrador(ActionEvent event) {
-        // Aquí también puedes agregar navegación a la vista de administrador
+        // FALTA
     }
 
     @FXML
     private void ingresarComoMedico(ActionEvent event) {
-        // Aquí también puedes agregar navegación a la vista de médico
+        // Falta
     }
 }
