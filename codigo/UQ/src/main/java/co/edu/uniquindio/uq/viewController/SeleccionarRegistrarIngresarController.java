@@ -13,7 +13,7 @@ public class SeleccionarRegistrarIngresarController {
     @FXML
     private void handleRegistrarPaciente(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/view/RegistrarPaciente.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/RegistrarPaciente.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
@@ -25,7 +25,7 @@ public class SeleccionarRegistrarIngresarController {
     @FXML
     private void handleIngresarPaciente(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/view/IngresarPaciente.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/IngresarPaciente.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();

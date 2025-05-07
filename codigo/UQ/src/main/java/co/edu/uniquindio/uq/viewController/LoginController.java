@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 
 public class LoginController {
 
-    //NO FUNCIONA
     @FXML
     private void ingresarComoPaciente(ActionEvent event) {
         App.cambiarEscena("/co/edu/uniquindio/uq/SeleccionarRegistrarIngresar.fxml", "Opciones de ingreso del paciente");
