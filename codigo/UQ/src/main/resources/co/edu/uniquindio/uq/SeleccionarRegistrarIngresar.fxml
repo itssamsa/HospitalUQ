@@ -2,11 +2,17 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.uq.viewController.SeleccionarRegistrarIngresarController"
-            prefWidth="400" prefHeight="300">
+<AnchorPane prefHeight="450.0" prefWidth="638.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="co.edu.uniquindio.uq.viewController.SeleccionarRegistrarIngresarController">
     <children>
-        <Button text="Registrar Paciente" layoutX="120" layoutY="100" prefWidth="160" onAction="#handleRegistrarPaciente"/>
-        <Button text="Ingresar Paciente" layoutX="120" layoutY="160" prefWidth="160" onAction="#handleIngresarPaciente"/>
+        <Button layoutX="239.0" layoutY="140.0" onAction="#handleRegistrarPaciente" prefWidth="160" text="Registrar Medico">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+        <Button layoutX="239.0" layoutY="242.0" onAction="#handleIngresarPaciente" prefWidth="160" text="Ingresar Medico">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
     </children>
 </AnchorPane>

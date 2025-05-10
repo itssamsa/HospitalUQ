@@ -1,5 +1,6 @@
 package co.edu.uniquindio.uq;
 
+import co.edu.uniquindio.uq.model.Paciente;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
