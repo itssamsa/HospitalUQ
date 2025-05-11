@@ -1,7 +1,7 @@
 package co.edu.uniquindio.uq.model;
 
 public abstract class Usuario {
-    // Clase bae para co.edu.uniquindio.uq.model.Paciente y Médico
+
     protected String nombre;
     protected String cedula;
     protected String direccion;

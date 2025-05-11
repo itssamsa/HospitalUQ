@@ -1,7 +1,7 @@
 package co.edu.uniquindio.uq.viewController;
 
-import co.edu.uniquindio.uq.model.CRUDPaciente;
 import co.edu.uniquindio.uq.model.Paciente;
+import co.edu.uniquindio.uq.model.SistemaHospitalario;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,13 +18,18 @@ public class IngresarPacienteController {
     @FXML
     private Button btnActualizar, btnEliminar;
 
+    private SistemaHospitalario sistemaHospitalario;
+
     @FXML
     void onActualizar(ActionEvent event) {
         Paciente seleccionado = tblPacientes.getSelectionModel().getSelectedItem();
         if (seleccionado != null) {
-            CRUDPaciente.actualizarPaciente(seleccionado, txtNombre.getText(), txtCedula.getText(), txtDireccion.getText(), txtTelefono.getText());
+            // Actualizar el paciente en el sistema hospitalario
+            sistemaHospitalario.actualizarPaciente(seleccionado.getCedula(), txtNombre.getText(), txtCedula.getText(), txtDireccion.getText(), txtTelefono.getText());
             tblPacientes.refresh();
             mostrarAlerta("Éxito", "Paciente actualizado correctamente.");
+        } else {
+            mostrarAlerta("Error", "Seleccione un paciente para actualizar.");
         }
     }
 
@@ -32,20 +37,26 @@ public class IngresarPacienteController {
     void onEliminar(ActionEvent event) {
         Paciente seleccionado = tblPacientes.getSelectionModel().getSelectedItem();
         if (seleccionado != null) {
-            CRUDPaciente.eliminarPaciente(seleccionado);
+            // Eliminar el paciente en el sistema hospitalario
+            sistemaHospitalario.eliminarPaciente(seleccionado.getCedula());
             tblPacientes.getItems().remove(seleccionado);
             mostrarAlerta("Éxito", "Paciente eliminado.");
+        } else {
+            mostrarAlerta("Error", "Seleccione un paciente para eliminar.");
         }
     }
 
     @FXML
     void initialize() {
+        sistemaHospitalario = SistemaHospitalario.getInstance(); // Acceso a la instancia única
+
         colNombre.setCellValueFactory(cellData -> cellData.getValue().nombreProperty());
         colCedula.setCellValueFactory(cellData -> cellData.getValue().cedulaProperty());
         colDireccion.setCellValueFactory(cellData -> cellData.getValue().direccionProperty());
         colTelefono.setCellValueFactory(cellData -> cellData.getValue().telefonoProperty());
 
-        ObservableList<Paciente> pacientes = CRUDPaciente.obtenerPacientes();
+        // Obtener la lista de pacientes desde el sistema hospitalario
+        ObservableList<Paciente> pacientes = sistemaHospitalario.obtenerPacientes();
         tblPacientes.setItems(pacientes);
     }
 

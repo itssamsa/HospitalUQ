@@ -1,7 +1,7 @@
 package co.edu.uniquindio.uq.viewController;
 
-import co.edu.uniquindio.uq.model.CRUDPaciente;
 import co.edu.uniquindio.uq.model.Paciente;
+import co.edu.uniquindio.uq.model.SistemaHospitalario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +14,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class RegistrarPacienteController {
+
+    // Usar la instancia única de SistemaHospitalario
+    private SistemaHospitalario sistemaHospitalario = SistemaHospitalario.getInstance();
 
     @FXML
     private TextField txtNombre, txtCedula, txtDireccion, txtTelefono;
@@ -33,10 +36,21 @@ public class RegistrarPacienteController {
             return;
         }
 
-        Paciente paciente = new Paciente(nombre, cedula, direccion, telefono);
-        CRUDPaciente.agregarPaciente(paciente);
-        mostrarAlerta("Éxito", "Paciente registrado correctamente.");
-        limpiarCampos();
+        // Verificar si el paciente ya existe
+        if (sistemaHospitalario.existePaciente(cedula)) {
+            mostrarAlerta("Error", "El paciente con esta cédula ya está registrado.");
+            return;
+        }
+
+        // Registrar el paciente en el sistema hospitalario
+        boolean registrado = sistemaHospitalario.registrarPaciente(nombre, cedula, direccion, telefono, "", "");
+
+        if (registrado) {
+            mostrarAlerta("Éxito", "Paciente registrado correctamente.");
+            limpiarCampos();
+        } else {
+            mostrarAlerta("Error", "No se pudo registrar el paciente.");
+        }
     }
 
     @FXML
@@ -48,6 +62,7 @@ public class RegistrarPacienteController {
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo cargar la vista de selección.");
         }
     }
 
