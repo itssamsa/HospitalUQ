@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.ConsultorioMedicoController">
+    <AnchorPane prefHeight="450.0" prefWidth="638.0">
+        <children>
+            <Text layoutX="177.0" layoutY="57.0" style="-fx-font-size: 20px; -fx-padding: 10px;" text="Bienvenido al Consultorio Médico" />
+
+            <Button fx:id="btnHistorial" layoutX="73.0" layoutY="136.0" onAction="#onConsultarHistorial" style="-fx-font-size: 16px; -fx-padding: 10px;" text="Ver Historial Médico" />
+            <Button fx:id="btnRegistrarDiagnostico" layoutX="69.0" layoutY="258.0" onAction="#onRegistrarDiagnostico" style="-fx-font-size: 16px; -fx-padding: 10px;" text="Registrar Diagnóstico" />
+            <Button fx:id="btnAdministrarHorario" layoutX="354.0" layoutY="136.0" onAction="#onAdministrarHorario" style="-fx-font-size: 16px; -fx-padding: 10px;" text="Administrar Horarios" />
+            <Button fx:id="btnNotificaciones" layoutX="354.0" layoutY="258.0" onAction="#onVerNotificaciones" style="-fx-font-size: 16px; -fx-padding: 10px;" text="Ver Notificaciones de Citas" />
+
+            <Button fx:id="btnVolver" layoutX="10.0" layoutY="400.0" onAction="#onVolverAlLogin" style="-fx-font-size: 16px; -fx-padding: 10px;" text="Volver al Login" />
+        </children>
+    </AnchorPane>
+</StackPane>
