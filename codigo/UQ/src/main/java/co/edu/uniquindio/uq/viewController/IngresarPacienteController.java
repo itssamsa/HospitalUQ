@@ -67,14 +67,14 @@ public class IngresarPacienteController {
     @FXML
     void onConsultarHistoria(ActionEvent event) {
         try {
+            // Cargar la vista de ConsultarHistoria.fxml
             Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/ConsultarHistoria.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Consultar Historia Médica");
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
-            mostrarAlerta("Error", "No se pudo cargar la ventana de consulta.");
+            mostrarAlerta("Error", "No se pudo cargar la vista de consulta de historial.");
         }
     }
 

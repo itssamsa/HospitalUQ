@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 public class ConsultarHistoriaController {
 
-    public SistemaHospitalario sistemaHospitalario = new SistemaHospitalario();
+    public SistemaHospitalario sistemaHospitalario = SistemaHospitalario.getInstance();
 
     @FXML
     private TextField txtCedulaConsulta;
@@ -28,16 +28,21 @@ public class ConsultarHistoriaController {
         String cedula = txtCedulaConsulta.getText();
 
         if (cedula.isEmpty()) {
-            mostrarAlerta("Error", "Por favor, ingrese una cédula.");
+            mostrarAlerta("Error", "Por favor ingrese una cédula.");
             return;
         }
 
-        Paciente paciente = sistemaHospitalario.buscarPaciente(cedula);
-        if (paciente != null) {
-            String historia = paciente.getHistorialMedico();
-            txtHistoria.setText(historia.isEmpty() ? "No hay historial disponible." : historia);
+        // Consultar el historial médico usando el metodo del sistema hospitalario
+        String historial = sistemaHospitalario.consultarHistorialMedico(cedula);
+
+        // Verificar el contenido del historial
+        System.out.println("Historial obtenido: " + historial);
+
+        // Mostrar el historial en el TextArea
+        if (!historial.equals("Historial médico no encontrado.")) {
+            txtHistoria.setText("Historial Médico:\n" + historial); // Mostrar en el cuadro de texto
         } else {
-            mostrarAlerta("Error", "Paciente no encontrado.");
+            txtHistoria.setText("No se encontró el historial médico para la cédula ingresada.");
         }
     }
 
