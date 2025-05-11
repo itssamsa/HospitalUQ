@@ -19,6 +19,8 @@
          <Label layoutX="68.0" layoutY="103.0" text="Cedula" />
          <Label layoutX="62.0" layoutY="148.0" text="Direccion" />
          <Label layoutX="63.0" layoutY="198.0" text="Telefono" />
+         <Label layoutX="491.0" layoutY="51.0" text="Historial Medico " />
+         <TextField layoutX="445.0" layoutY="80.0" prefHeight="144.0" prefWidth="185.0" promptText="   Ingrese su historial medico " />
     </children>
 </AnchorPane>
 </StackPane>

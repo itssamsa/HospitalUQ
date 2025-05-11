@@ -9,7 +9,7 @@ public class SistemaHospitalario {
     private ObservableList<Paciente> listaPacientes;
 
     // Constructor privado para implementar el patrón Singleton
-    private SistemaHospitalario() {
+    public SistemaHospitalario() {
         listaPacientes = FXCollections.observableArrayList();
     }
 
@@ -79,6 +79,15 @@ public class SistemaHospitalario {
         // Registrar el paciente (puedes agregarlo a la lista o base de datos según tu lógica)
         listaPacientes.add(nuevoPaciente);
         return true; // El paciente fue registrado correctamente
+    }
+
+    public Paciente buscarPaciente(String cedula) {
+        for (Paciente paciente : listaPacientes) {
+            if (paciente.getCedula().equals(cedula)) {
+                return paciente;
+            }
+        }
+        return null;
     }
 
 }

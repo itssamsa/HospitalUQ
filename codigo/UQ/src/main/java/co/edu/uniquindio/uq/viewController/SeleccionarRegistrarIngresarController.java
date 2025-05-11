@@ -35,4 +35,17 @@ public class SeleccionarRegistrarIngresarController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void setBtnVolver(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/Login.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -5,7 +5,12 @@ import co.edu.uniquindio.uq.model.SistemaHospitalario;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 public class IngresarPacienteController {
 
@@ -45,6 +50,34 @@ public class IngresarPacienteController {
             mostrarAlerta("Error", "Seleccione un paciente para eliminar.");
         }
     }
+
+    @FXML
+    private void setBtnVolver(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/SeleccionarRegistrarIngresar.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo cargar la vista de selección.");
+        }
+    }
+
+    @FXML
+    void onConsultarHistoria(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/ConsultarHistoria.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Consultar Historia Médica");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo cargar la ventana de consulta.");
+        }
+    }
+
 
     @FXML
     void initialize() {
