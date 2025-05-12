@@ -1,7 +1,7 @@
 package co.edu.uniquindio.uq.viewController;
 
+import co.edu.uniquindio.uq.model.CRUDPaciente;
 import co.edu.uniquindio.uq.model.Paciente;
-import co.edu.uniquindio.uq.model.SistemaHospitalario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,20 +10,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class RegistrarPacienteController {
 
-    // Usar la instancia única de SistemaHospitalario
-    private SistemaHospitalario sistemaHospitalario = SistemaHospitalario.getInstance();
-
     @FXML
     private TextField txtNombre, txtCedula, txtDireccion, txtTelefono;
-
-    @FXML
-    private TextArea txtHistorial;
 
     @FXML
     private Button btnGuardar, btnVolver;
@@ -34,30 +27,17 @@ public class RegistrarPacienteController {
         String cedula = txtCedula.getText();
         String direccion = txtDireccion.getText();
         String telefono = txtTelefono.getText();
-        String historialMedico = txtHistorial.getText();
 
-        if (nombre.isEmpty() || cedula.isEmpty() || direccion.isEmpty() || telefono.isEmpty() || historialMedico.isEmpty()) {
+        if (nombre.isEmpty() || cedula.isEmpty() || direccion.isEmpty() || telefono.isEmpty()) {
             mostrarAlerta("Error", "Todos los campos son obligatorios.");
             return;
         }
 
-        // Verificar si el paciente ya existe
-        if (sistemaHospitalario.existePaciente(cedula)) {
-            mostrarAlerta("Error", "El paciente con esta cédula ya está registrado.");
-            return;
-        }
-
-        // Registrar el paciente en el sistema hospitalario
-        boolean registrado = sistemaHospitalario.registrarPaciente(nombre, cedula, direccion, telefono, historialMedico);
-
-        if (registrado) {
-            mostrarAlerta("Éxito", "Paciente registrado correctamente.");
-            limpiarCampos();
-        } else {
-            mostrarAlerta("Error", "No se pudo registrar el paciente.");
-        }
+        Paciente paciente = new Paciente(nombre, cedula, direccion, telefono);
+        CRUDPaciente.agregarPaciente(paciente);
+        mostrarAlerta("Éxito", "Paciente registrado correctamente.");
+        limpiarCampos();
     }
-
 
     @FXML
     private void setBtnVolver(ActionEvent event) {
@@ -68,7 +48,6 @@ public class RegistrarPacienteController {
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
-            mostrarAlerta("Error", "No se pudo cargar la vista de selección.");
         }
     }
 
@@ -77,7 +56,6 @@ public class RegistrarPacienteController {
         txtCedula.clear();
         txtDireccion.clear();
         txtTelefono.clear();
-        txtHistorial.clear();
     }
 
     private void mostrarAlerta(String titulo, String mensaje) {

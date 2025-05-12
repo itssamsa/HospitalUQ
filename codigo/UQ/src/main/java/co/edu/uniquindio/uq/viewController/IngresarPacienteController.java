@@ -1,16 +1,11 @@
 package co.edu.uniquindio.uq.viewController;
 
+import co.edu.uniquindio.uq.model.CRUDPaciente;
 import co.edu.uniquindio.uq.model.Paciente;
-import co.edu.uniquindio.uq.model.SistemaHospitalario;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 
 public class IngresarPacienteController {
 
@@ -23,18 +18,13 @@ public class IngresarPacienteController {
     @FXML
     private Button btnActualizar, btnEliminar;
 
-    private SistemaHospitalario sistemaHospitalario;
-
     @FXML
     void onActualizar(ActionEvent event) {
         Paciente seleccionado = tblPacientes.getSelectionModel().getSelectedItem();
         if (seleccionado != null) {
-            // Actualizar el paciente en el sistema hospitalario
-            sistemaHospitalario.actualizarPaciente(seleccionado.getCedula(), txtNombre.getText(), txtCedula.getText(), txtDireccion.getText(), txtTelefono.getText());
+            CRUDPaciente.actualizarPaciente(seleccionado, txtNombre.getText(), txtCedula.getText(), txtDireccion.getText(), txtTelefono.getText());
             tblPacientes.refresh();
             mostrarAlerta("Éxito", "Paciente actualizado correctamente.");
-        } else {
-            mostrarAlerta("Error", "Seleccione un paciente para actualizar.");
         }
     }
 
@@ -42,54 +32,20 @@ public class IngresarPacienteController {
     void onEliminar(ActionEvent event) {
         Paciente seleccionado = tblPacientes.getSelectionModel().getSelectedItem();
         if (seleccionado != null) {
-            // Eliminar el paciente en el sistema hospitalario
-            sistemaHospitalario.eliminarPaciente(seleccionado.getCedula());
+            CRUDPaciente.eliminarPaciente(seleccionado);
             tblPacientes.getItems().remove(seleccionado);
             mostrarAlerta("Éxito", "Paciente eliminado.");
-        } else {
-            mostrarAlerta("Error", "Seleccione un paciente para eliminar.");
         }
     }
-
-    @FXML
-    private void setBtnVolver(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/SeleccionarRegistrarIngresar.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-            mostrarAlerta("Error", "No se pudo cargar la vista de selección.");
-        }
-    }
-
-    @FXML
-    void onConsultarHistoria(ActionEvent event) {
-        try {
-            // Cargar la vista de ConsultarHistoria.fxml
-            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/ConsultarHistoria.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-            mostrarAlerta("Error", "No se pudo cargar la vista de consulta de historial.");
-        }
-    }
-
 
     @FXML
     void initialize() {
-        sistemaHospitalario = SistemaHospitalario.getInstance(); // Acceso a la instancia única
-
         colNombre.setCellValueFactory(cellData -> cellData.getValue().nombreProperty());
         colCedula.setCellValueFactory(cellData -> cellData.getValue().cedulaProperty());
         colDireccion.setCellValueFactory(cellData -> cellData.getValue().direccionProperty());
         colTelefono.setCellValueFactory(cellData -> cellData.getValue().telefonoProperty());
 
-        // Obtener la lista de pacientes desde el sistema hospitalario
-        ObservableList<Paciente> pacientes = sistemaHospitalario.obtenerPacientes();
+        ObservableList<Paciente> pacientes = CRUDPaciente.obtenerPacientes();
         tblPacientes.setItems(pacientes);
     }
 

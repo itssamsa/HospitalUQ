@@ -4,19 +4,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="450.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.SeleccionarRegistrarIngresarController">
+<AnchorPane prefHeight="450.0" prefWidth="638.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="co.edu.uniquindio.uq.viewController.SeleccionarRegistrarIngresarController">
     <children>
-        <Button layoutX="239.0" layoutY="140.0" onAction="#handleRegistrarPaciente" prefWidth="160" text="Registrar Paciente">
+        <Button layoutX="239.0" layoutY="140.0" onAction="#handleRegistrarPaciente" prefWidth="160" text="Registrar Medico">
          <font>
             <Font size="14.0" />
          </font></Button>
-        <Button layoutX="239.0" layoutY="242.0" onAction="#handleIngresarPaciente" prefWidth="160" text="Ingresar Paciente">
+        <Button layoutX="239.0" layoutY="242.0" onAction="#handleIngresarPaciente" prefWidth="160" text="Ingresar Medico">
          <font>
             <Font size="14.0" />
-         </font></Button>
-      <Button fx:id="btnVolver" layoutX="284.0" layoutY="390.0" mnemonicParsing="false" onAction="#setBtnVolver" prefHeight="30.0" prefWidth="71.0" text="volver">
-         <font>
-            <Font size="13.0" />
          </font></Button>
     </children>
 </AnchorPane>
