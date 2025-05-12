@@ -1,30 +1,22 @@
 package co.edu.uniquindio.uq.viewController;
 
-import co.edu.uniquindio.uq.model.Paciente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import co.edu.uniquindio.uq.App;
-import co.edu.uniquindio.uq.model.SistemaHospitalario;
-
 
 public class ConsultorioMedicoController {
 
+    // Acción para ver historial médico
     @FXML
-    void onConsultarHistoria(ActionEvent event) {
-        try {
-            // Cargar la vista de ConsultarHistoria.fxml
-            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/ConsultarHistoria.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    private void onConsultarHistorial(ActionEvent event) {
+        // Aquí puedes enlazar con la vista de historial médico
+        // App.cambiarEscena("/path/to/VerHistorialPaciente.fxml", "Historial Médico");
     }
 
     // Acción para registrar diagnóstico
@@ -53,4 +45,26 @@ public class ConsultorioMedicoController {
     private void onVolverAlLogin(ActionEvent event) {
         App.cambiarEscena("/co/edu/uniquindio/uq/Login.fxml", "Login");
     }
+
+    @FXML
+    void onConsultarHistoria(ActionEvent event) {
+        try {
+            // Cargar la vista de ConsultarHistoria.fxml
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/ConsultarHistoria.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo cargar la vista de consulta de historial.");
+        }
+    }
+
+    private void mostrarAlerta(String titulo, String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titulo);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
 }
+

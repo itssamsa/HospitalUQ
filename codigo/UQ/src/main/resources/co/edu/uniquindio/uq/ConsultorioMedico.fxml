@@ -1,21 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Text?>
 
 <StackPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.ConsultorioMedicoController">
+=======
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.ConsultorioMedicoController">
+>>>>>>> 7e32cb0b8fe25b64412fae290fb0420369ddc485
     <AnchorPane prefHeight="450.0" prefWidth="638.0">
         <children>
             <Text layoutX="177.0" layoutY="57.0" style="-fx-font-size: 20px; -fx-padding: 10px;" text="Bienvenido al Consultorio Médico" />
 
+<<<<<<< HEAD
             <Button fx:id="btnHistorial" layoutX="261.0" layoutY="118.0" mnemonicParsing="false" onAction="#onConsultarHistoria" text="Consultar Historial " />
             <Button fx:id="btnRegistrarDiagnostico" layoutX="254.0" layoutY="245.0" onAction="#onRegistrarDiagnostico" text="Registrar Diagnóstico" />
             <Button fx:id="btnAdministrarHorario" layoutX="256.0" layoutY="183.0" onAction="#onAdministrarHorario" text="Administrar Horarios" />
             <Button fx:id="btnNotificaciones" layoutX="231.0" layoutY="315.0" onAction="#onVerNotificaciones" prefHeight="25.0" prefWidth="190.0" text="Ver Notificaciones de Citas" />
 
             <Button fx:id="btnVolver" layoutX="35.0" layoutY="391.0" onAction="#onVolverAlLogin" prefHeight="27.0" prefWidth="68.0" text="volver" />
+=======
+
+            <Button fx:id="btnHistorial" layoutX="11.0" layoutY="240.0" mnemonicParsing="false" onAction="#onConsultarHistoria" text="Consultar Historial " />
+            <Button fx:id="btnRegistrarDiagnostico" layoutX="69.0" layoutY="258.0" onAction="#onRegistrarDiagnostico" style="-fx-font-size: 16px; -fx-padding: 10px;" text="Registrar Diagnóstico" />
+            <Button fx:id="btnAdministrarHorario" layoutX="354.0" layoutY="136.0" onAction="#onAdministrarHorario" style="-fx-font-size: 16px; -fx-padding: 10px;" text="Administrar Horarios" />
+            <Button fx:id="btnNotificaciones" layoutX="354.0" layoutY="258.0" onAction="#onVerNotificaciones" style="-fx-font-size: 16px; -fx-padding: 10px;" text="Ver Notificaciones de Citas" />
+
+            <Button fx:id="btnVolver" layoutX="10.0" layoutY="400.0" onAction="#onVolverAlLogin" style="-fx-font-size: 16px; -fx-padding: 10px;" text="Volver al Login" />
+>>>>>>> 7e32cb0b8fe25b64412fae290fb0420369ddc485
         </children>
     </AnchorPane>
 </StackPane>
