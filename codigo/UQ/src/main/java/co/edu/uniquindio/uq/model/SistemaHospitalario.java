@@ -8,6 +8,7 @@ public class SistemaHospitalario {
     private static SistemaHospitalario instancia;
     private ObservableList<Paciente> listaPacientes;
 
+
     // Constructor privado para implementar el patrón Singleton
     public SistemaHospitalario() {
         listaPacientes = FXCollections.observableArrayList();
