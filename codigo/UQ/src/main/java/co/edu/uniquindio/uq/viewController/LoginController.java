@@ -18,11 +18,8 @@ public class LoginController {
 
     @FXML
     private void ingresarComoMedico(ActionEvent event) {
-<<<<<<< HEAD
-    App.cambiarEscena("/co/edu/uniquindio/uq/ConsultorioMedico.fxml", "Opciones de ingreso del medico");
-=======
-        App.cambiarEscena("/co/edu/uniquindio/uq/ConsultorioMedico.fxml", "Consultorio Médico");
->>>>>>> 7e32cb0b8fe25b64412fae290fb0420369ddc485
+        App.cambiarEscena("/co/edu/uniquindio/uq/ConsultorioMedico.fxml", "Opciones de ingreso del medico");
     }
+
 
 }
