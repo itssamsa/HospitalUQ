@@ -1,43 +1,47 @@
 package co.edu.uniquindio.uq.model;
 
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
+
 public class Medico extends Usuario {
 
-    private String especialidad;
-    private String horariosDisponibles;
+    private StringProperty especialidad;
+    private StringProperty horario;
 
-    public Medico(String nombre, String cedula, String direccion, String telefono, String especialidad, String horariosDisponibles) {
+    public Medico(String nombre, String cedula, String direccion, String telefono, String especialidad, String horario) {
         super(nombre, cedula, direccion, telefono);
-        this.especialidad = especialidad;
-        this.horariosDisponibles = horariosDisponibles;
+        this.especialidad = new SimpleStringProperty(especialidad);
+        this.horario = new SimpleStringProperty(horario);
     }
 
-    // Getters y setters
-    public String getEspecialidad() {
+    public StringProperty especialidadProperty() {
         return especialidad;
     }
 
+    public String getEspecialidad() {
+        return especialidad.get();
+    }
+
     public void setEspecialidad(String especialidad) {
-        this.especialidad = especialidad;
+        this.especialidad.set(especialidad);
     }
 
-    public String getHorariosDisponibles() {
-        return horariosDisponibles;
+    public StringProperty horarioProperty() {
+        return horario;
+
+    }
+    public String getHorario() {
+        return horario.get();
     }
 
-    public void setHorariosDisponibles(String horariosDisponibles) {
-        this.horariosDisponibles = horariosDisponibles;
+    public void setHorario(String horario) {
+        this.horario.set(horario);
     }
 
-    // Métodos específicos de co.edu.uniquindio.uq.model.Medico
-    public void accederHistorial(Paciente paciente) {
-        // Lógica para acceder al historial médico de un paciente
-    }
-
-    public void registrarDiagnostico(Paciente paciente, String diagnostico) {
-        // Lógica para registrar el diagnóstico de un paciente
-    }
-
-    public void administrarHorarios(String nuevosHorarios) {
-        // Lógica para administrar horarios de consulta
+    @Override
+    public String toString() {
+        return nombre + " - " + especialidad.get();
     }
 }

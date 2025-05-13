@@ -78,6 +78,34 @@ public class IngresarPacienteController {
         }
     }
 
+    @FXML
+    void onSolicitudCita(ActionEvent event) {
+        try {
+            // Cargar la vista
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/SolicitudCita.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo cargar la vista.");
+        }
+    }
+
+    @FXML
+    void onCancelarCita(ActionEvent event) {
+        try {
+            // Cargar la vista
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/CancelarCita.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo cargar la vista de consulta de historial.");
+        }
+    }
+
 
     @FXML
     void initialize() {
