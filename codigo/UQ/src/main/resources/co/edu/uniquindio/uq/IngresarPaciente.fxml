@@ -18,12 +18,14 @@
                 <TableColumn fx:id="colTelefono" prefWidth="148.0" text="Teléfono" />
             </columns>
         </TableView>
-        <TextField fx:id="txtNombre" layoutX="14.0" layoutY="186.0" promptText="Nombre" />
-        <TextField fx:id="txtCedula" layoutX="14.0" layoutY="216.0" promptText="Cédula" />
-        <TextField fx:id="txtDireccion" layoutX="14.0" layoutY="247.0" promptText="Dirección" />
-        <TextField fx:id="txtTelefono" layoutX="14.0" layoutY="278.0" promptText="Teléfono" />
-        <Button layoutX="15.0" layoutY="81.0" onAction="#onActualizar" text="Actualizar" />
-        <Button layoutX="15.0" layoutY="38.0" onAction="#onEliminar" text="Eliminar" />
+        <TextField fx:id="txtNombre" layoutX="5.0" layoutY="66.0" promptText="Nombre" />
+        <TextField fx:id="txtCedula" layoutX="5.0" layoutY="99.0" promptText="Cédula" />
+        <TextField fx:id="txtDireccion" layoutX="5.0" layoutY="133.0" promptText="Dirección" />
+        <TextField fx:id="txtTelefono" layoutX="5.0" layoutY="167.0" promptText="Teléfono" />
+        <Button layoutX="10.0" layoutY="20.0" onAction="#onActualizar" text="Actualizar" />
+         <Button fx:id="btnVolver" layoutX="19.0" layoutY="393.0" mnemonicParsing="false" onAction="#setBtnVolver" text="Volver" />
+         <Button fx:id="btnHistorial" layoutX="11.0" layoutY="240.0" mnemonicParsing="false" onAction="#onConsultarHistoria" text="Consultar Historial " />
+         <Button layoutX="10.0" layoutY="282.0" mnemonicParsing="false" text="Solicitar Cita" />
     </children>
 </AnchorPane>
 </StackPane>
