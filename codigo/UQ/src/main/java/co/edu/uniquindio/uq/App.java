@@ -83,6 +83,10 @@ public class App extends Application {
         Paciente p10 = new Paciente("Lucía Ramírez", "110", "Calle 38", "3010001122");
         p10.setHistorialMedico("Historial de Lucía Ramírez: seguimiento por migrañas.");
         sistema.agregarPaciente(p10);
+
+        Paciente p11 = new Paciente("Lucio Vasquez", "111", "Calle 51", "3010012335");
+        p10.setHistorialMedico("Historial de Lucía Ramírez: seguimiento por fuerte dolor abdominal.");
+        sistema.agregarPaciente(p11);
     }
 
 }
