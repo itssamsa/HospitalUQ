@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -22,11 +24,14 @@
         <!-- Tabla para mostrar las citas -->
         <TableView fx:id="tablaCitas" layoutX="50.0" layoutY="120.0" prefHeight="200.0" prefWidth="550.0">
             <columns>
-                <TableColumn fx:id="colCita" text="Detalles de la Cita" prefWidth="500.0" />
+                <TableColumn fx:id="colCita" prefWidth="500.0" text="Detalles de la Cita" />
             </columns>
         </TableView>
 
         <!-- Botón para cancelar la cita -->
         <Button fx:id="btnCancelarCita" layoutX="240.0" layoutY="340.0" onAction="#onCancelarCita" text="Cancelar Cita" />
+      <Accordion />
+      <ButtonBar layoutX="210.0" layoutY="333.0" prefHeight="40.0" prefWidth="200.0" />
+    <Button fx:id="btonVolver" layoutX="540.0" layoutY="379.0" mnemonicParsing="false" onAction="#onVolver" text="Volver" />
     </children>
 </AnchorPane>
