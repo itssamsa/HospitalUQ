@@ -1,6 +1,7 @@
 package co.edu.uniquindio.uq.viewController;
 
 import co.edu.uniquindio.uq.model.Cita;
+import co.edu.uniquindio.uq.model.Medico;
 import co.edu.uniquindio.uq.model.Paciente;
 import co.edu.uniquindio.uq.model.SistemaHospitalario;
 import javafx.event.ActionEvent;
@@ -49,19 +50,30 @@ public class SolicitudCitaController {
         String medico = comboMedico.getValue();
         String horario = comboHorario.getValue();
 
-        if (cedula.isEmpty() || especialidad == null || medico == null || horario == null) {
+        if (cedula.isEmpty() || especialidad == null || medico == null || horario == null || horario.isEmpty()) {
             mostrarAlerta("Error", "Todos los campos son obligatorios.");
             return;
         }
 
         Paciente paciente = sistemaHospitalario.buscarPaciente(cedula);
         if (paciente != null) {
-            Cita nuevaCita = new Cita(especialidad, medico, horario, cedula);
-            if (sistemaHospitalario.registrarCita(nuevaCita)) {
-                paciente.setHistorialMedico(paciente.getHistorialMedico() + "\n" + nuevaCita);
-                mostrarAlerta("Éxito", "Cita guardada correctamente.");
+            Medico medicoSeleccionado = sistemaHospitalario.buscarMedicoPorNombre(medico);
+            if (medicoSeleccionado != null) {
+                // Crear la cita con el horario correctamente asignado
+                Cita nuevaCita = new Cita(especialidad, medico, horario, cedula);
+
+                // Verificar si la cita ya está registrada en el historial
+                String citaInfo = "Cita: Especialidad: " + especialidad + ", Médico: " + medico + ", Horario: " + horario;
+                String historial = paciente.getHistorialMedico();
+
+                if (!historial.contains(citaInfo)) {  // Verificar duplicidad
+                    paciente.setHistorialMedico(historial + "\n" + citaInfo);
+                    mostrarAlerta("Éxito", "Cita guardada correctamente.");
+                } else {
+                    mostrarAlerta("Advertencia", "La cita ya está registrada.");
+                }
             } else {
-                mostrarAlerta("Error", "No se pudo registrar la cita.");
+                mostrarAlerta("Error", "Médico no encontrado.");
             }
         } else {
             mostrarAlerta("Error", "El paciente no está registrado.");
@@ -69,39 +81,44 @@ public class SolicitudCitaController {
     }
 
     @FXML
+    void onSeleccionarMedico(ActionEvent event) {
+        String nombreMedico = comboMedico.getValue();
+        if (nombreMedico != null) {
+            Medico medicoSeleccionado = sistemaHospitalario.buscarMedicoPorNombre(nombreMedico);
+            if (medicoSeleccionado != null) {
+                String horario = medicoSeleccionado.getHorario();
+                if (horario != null && !horario.isEmpty()) {
+                    comboHorario.getItems().clear();
+                    comboHorario.getItems().add(horario);
+                    comboHorario.setValue(horario);
+                    comboHorario.setDisable(false);
+                } else {
+                    mostrarAlerta("Error", "El médico seleccionado no tiene un horario disponible.");
+                }
+            } else {
+                mostrarAlerta("Error", "No se encontró el médico seleccionado.");
+            }
+        }
+    }
+
+    @FXML
     public void initialize() {
-        comboEspecialidad.getItems().addAll("Medicina General", "Pediatría", "Cardiología");
+        comboEspecialidad.getItems().addAll("Medicina General", "Pediatria", "Cardiologia");
         comboMedico.setDisable(true);
         comboHorario.setDisable(true);
+
         comboEspecialidad.setOnAction(e -> {
             comboMedico.getItems().clear();
             String especialidad = comboEspecialidad.getValue();
-            switch (especialidad) {
-                case "Medicina General":
-                    comboMedico.getItems().addAll("Dr. Juan Pérez", "Dra. Ana Ruiz");
-                    break;
-                case "Pediatría":
-                    comboMedico.getItems().addAll("Dra. Marta López", "Dr. Pedro Ortega");
-                    break;
-                case "Cardiología":
-                    comboMedico.getItems().addAll("Dr. Carlos Gómez", "Dra. Laura Gutiérrez");
-                    break;
-                default:
-                    mostrarAlerta("Advertencia", "Especialidad no válida.");
-                    break;
+            for (Medico medico : sistemaHospitalario.obtenerMedicos()) {
+                if (medico.getEspecialidad().equals(especialidad)) {
+                    comboMedico.getItems().add(medico.getNombre());
+                }
             }
             comboMedico.setDisable(false);
         });
-        comboMedico.setOnAction(e -> {
-            comboHorario.getItems().clear();
-            comboHorario.getItems().addAll(
-                    "Lunes de 09:00 - 09:30",
-                    "Martes de 10:00 - 10:30",
-                    "Miércoles de 11:00 - 11:30",
-                    "Viernes de 15:00 - 15:30"
-            );
-            comboHorario.setDisable(false);
-        });
+
+        comboMedico.setOnAction(this::onSeleccionarMedico);
     }
 
     @FXML
@@ -119,8 +136,6 @@ public class SolicitudCitaController {
 
     private void mostrarAlerta(String titulo, String mensaje) {
         Alert.AlertType alertType;
-
-
         switch (titulo) {
             case "Error":
                 alertType = Alert.AlertType.ERROR;

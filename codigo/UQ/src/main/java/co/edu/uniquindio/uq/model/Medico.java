@@ -1,9 +1,7 @@
 package co.edu.uniquindio.uq.model;
 
-
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-
 
 public class Medico extends Usuario {
 

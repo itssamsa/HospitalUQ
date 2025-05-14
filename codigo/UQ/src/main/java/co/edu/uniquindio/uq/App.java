@@ -1,5 +1,6 @@
 package co.edu.uniquindio.uq;
 
+import co.edu.uniquindio.uq.model.Medico;
 import co.edu.uniquindio.uq.model.Paciente;
 import co.edu.uniquindio.uq.model.SistemaHospitalario;
 import javafx.application.Application;
@@ -41,6 +42,7 @@ public class App extends Application {
         }
     }
 
+    // CREACION PACIENTES
     private void inicializarDatos() {
         SistemaHospitalario sistema = SistemaHospitalario.getInstance();
 
@@ -87,6 +89,33 @@ public class App extends Application {
         Paciente p11 = new Paciente("Lucio Vasquez", "111", "Calle 51", "3010012335");
         p11.setHistorialMedico("Historial de Lucía Ramírez: seguimiento por fuerte dolor abdominal.");
         sistema.agregarPaciente(p11);
+
+        // Creación de médicos (CUIDADO CON LAS TILDES POR QUE O SINO QUEDA MAL)
+        Medico m1 = new Medico("Andrés López", "201", "Carrera 10", "3101112233", "Medicina General", "8:00 AM - 4:00 PM");
+        sistema.agregarMedico(m1);
+
+        Medico m2 = new Medico("Carolina Rodríguez", "202", "Calle 22", "3102223344", "Medicina General", "9:00 AM - 5:00 PM");
+        sistema.agregarMedico(m2);
+
+        Medico m3 = new Medico("Santiago Ríos", "203", "Avenida 15", "3103334455", "Pediatria", "10:00 AM - 6:00 PM");
+        sistema.agregarMedico(m3);
+
+        Medico m4 = new Medico("Luisa Vélez", "204", "Calle 30", "3104445566", "Pediatria", "1:00 PM - 7:00 PM");
+        sistema.agregarMedico(m4);
+
+        Medico m5 = new Medico("Daniel Gutiérrez", "205", "Carrera 5", "3105556677", "Cardiologia", "7:00 AM - 3:00 PM");
+        sistema.agregarMedico(m5);
+
+        Medico m6 = new Medico("María Fernanda Ruiz", "206", "Avenida 7", "3106667788", "Cardiologia", "9:00 AM - 5:00 PM");
+        sistema.agregarMedico(m6);
     }
 
 }
+
+
+
+
+
+
+
+

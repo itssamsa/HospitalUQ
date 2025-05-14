@@ -12,13 +12,6 @@ import co.edu.uniquindio.uq.App;
 
 public class ConsultorioMedicoController {
 
-    // Acción para ver historial médico
-    @FXML
-    private void onConsultarHistorial(ActionEvent event) {
-        // Aquí puedes enlazar con la vista de historial médico
-        // App.cambiarEscena("/path/to/VerHistorialPaciente.fxml", "Historial Médico");
-    }
-
     // Acción para registrar diagnóstico
     @FXML
     private void onRegistrarDiagnostico(ActionEvent event) {

@@ -3,16 +3,19 @@ package co.edu.uniquindio.uq.model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+
 public class SistemaHospitalario {
 
     private static SistemaHospitalario instancia;
     private ObservableList<Paciente> listaPacientes;
     private ObservableList<Cita> listaCitas;
+    private ObservableList<Medico> listaMedicos;
 
     // Constructor privado para implementar el patrón Singleton
     private SistemaHospitalario() {
         listaPacientes = FXCollections.observableArrayList();
         listaCitas = FXCollections.observableArrayList();
+        listaMedicos = FXCollections.observableArrayList();
     }
 
     //  obtener la instancia única de SistemaHospitalario
@@ -92,6 +95,24 @@ public class SistemaHospitalario {
         return "Historial médico no encontrado.";
     }
 
+    //MEDICOS
+    public void agregarMedico(Medico medico) {
+        listaMedicos.add(medico);
+    }
+
+    public ObservableList<Medico> obtenerMedicos() {
+        return listaMedicos;
+    }
+
+    public Medico buscarMedicoPorNombre(String nombre) {
+        for (Medico medico : listaMedicos) {
+            if (medico.getNombre().equals(nombre)) {
+                return medico;
+            }
+        }
+        return null;
+    }
+
     // registrar una cita
     public boolean registrarCita(Cita cita) {
         Paciente paciente = buscarPaciente(cita.getCedulaPaciente());
@@ -134,11 +155,10 @@ public class SistemaHospitalario {
             if (!historial.isEmpty()) {
                 String[] citasArray = historial.split("\n");
                 for (String cita : citasArray) {
-                    // Filtrar solo las líneas que contienen información de la cita (no el diagnóstico)
+                    // Filtrar solo las líneas que contienen información de la cita
                     if (cita.startsWith("Cita: ")) {
-                        // Extraer solo la parte que contiene la especialidad, médico y horario
-                        String[] partes = cita.split(", Diagnóstico: ");
-                        citas.add(partes[0]);  // Solo agregar la parte antes del diagnóstico
+                        // Agregar la cita completa, incluyendo el horario
+                        citas.add(cita);
                     }
                 }
             }
