@@ -69,6 +69,7 @@ public class SolicitudCitaController {
                 if (!historial.contains(citaInfo)) {  // Verificar duplicidad
                     paciente.setHistorialMedico(historial + "\n" + citaInfo);
                     mostrarAlerta("Éxito", "Cita guardada correctamente.");
+                    limpiarCampos();
                 } else {
                     mostrarAlerta("Advertencia", "La cita ya está registrada.");
                 }
@@ -80,13 +81,20 @@ public class SolicitudCitaController {
         }
     }
 
+    private void limpiarCampos() {
+        txtCedula.clear();
+        comboEspecialidad.setValue(null);
+        comboMedico.setValue(null);
+        comboHorario.setValue(null);
+    }
+
     @FXML
     void onSeleccionarMedico(ActionEvent event) {
         String nombreMedico = comboMedico.getValue();
         if (nombreMedico != null) {
             Medico medicoSeleccionado = sistemaHospitalario.buscarMedicoPorNombre(nombreMedico);
             if (medicoSeleccionado != null) {
-                String horario = medicoSeleccionado.getHorario();
+                String horario = String.valueOf(medicoSeleccionado.getHorario());
                 if (horario != null && !horario.isEmpty()) {
                     comboHorario.getItems().clear();
                     comboHorario.getItems().add(horario);
