@@ -4,14 +4,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="450.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.Administrador">
    <children>
-      <Button fx:id="btonControlSalasYHorarios" layoutX="257.0" layoutY="213.0" mnemonicParsing="false" onAction="#onControlSalasYHorarios" text="Control de Salas y Horarios " />
-      <Button fx:id="btonReportes" layoutX="307.0" layoutY="149.0" mnemonicParsing="false" onAction="#onReportes" text="Reportes" />
-      <Button fx:id="btonAdministracionMedicosYPacientes" layoutX="227.0" layoutY="336.0" mnemonicParsing="false" onAction="#onAdministracion" text="Administración de Médicos y Pacientes" />
-      <Button fx:id="btonDisponibilidadYAsignacion" layoutX="255.0" layoutY="276.0" mnemonicParsing="false" onAction="#onDisponibilidad" text="Disponibilidad y Asignación " />
+      <Button fx:id="btonControlSalasYHorarios" layoutX="238.0" layoutY="213.0" mnemonicParsing="false" onAction="#onControlSalasYHorarios" text="Control de Salas y Horarios " />
+      <Button fx:id="btonReportes" layoutX="287.0" layoutY="149.0" mnemonicParsing="false" onAction="#onReportes" text="Reportes" />
+      <Button fx:id="btonAdministracionMedicosYPacientes" layoutX="209.0" layoutY="335.0" mnemonicParsing="false" onAction="#onAdministracion" text="Administración de Médicos y Pacientes" />
+      <Button fx:id="btonDisponibilidadYAsignacion" layoutX="237.0" layoutY="276.0" mnemonicParsing="false" onAction="#onDisponibilidad" text="Disponibilidad y Asignación " />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Text layoutX="211.0" layoutY="83.0" strokeType="OUTSIDE" style="-fx-font-size: 20; -fx-padding: 10;" text="¿Que acción desea ejecutar? " />
+      <Button fx:id="btonVolver" layoutX="557.0" layoutY="398.0" mnemonicParsing="false" onAction="#onVolver" text="Volver" />
    </children>
 </AnchorPane>
