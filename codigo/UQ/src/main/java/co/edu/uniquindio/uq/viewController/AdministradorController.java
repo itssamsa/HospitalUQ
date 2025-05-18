@@ -44,9 +44,16 @@ public class AdministradorController {
 
     @FXML
     void onReportes(ActionEvent event) {
+        mostrarAlerta("Control de Salas y Horarios", "Aquí se gestionan las salas y los horarios.");
+        // Llamar a la vista correspondiente
+    }
+
+
+    @FXML
+    void administrarAPaciente(ActionEvent event) {
         try {
             // Cargar la vista reportes
-            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/Reportes.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/AdmIngresoPaciente.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
@@ -55,7 +62,6 @@ public class AdministradorController {
             mostrarAlerta("Error", "No se pudo cargar la vista de consulta de historial.");
         }
     }
-
 
 
     @FXML
@@ -94,4 +100,5 @@ public class AdministradorController {
         alert.showAndWait();
     }
 }
+
 

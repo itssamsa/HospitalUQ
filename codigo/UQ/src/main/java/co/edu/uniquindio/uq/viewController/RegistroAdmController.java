@@ -73,7 +73,7 @@ public class RegistroAdmController {
     @FXML
     private void onVolver(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/Reportes.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/AdmIngresoPaciente.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
