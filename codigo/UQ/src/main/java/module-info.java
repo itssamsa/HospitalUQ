@@ -6,6 +6,8 @@ module co.edu.uniquindio.uq {
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
     requires org.kordamp.bootstrapfx.core;
+    requires javafx.graphics;
+    requires javafx.base;
 
     opens co.edu.uniquindio.uq to javafx.fxml;
     exports co.edu.uniquindio.uq;
@@ -15,7 +17,4 @@ module co.edu.uniquindio.uq {
     opens co.edu.uniquindio.uq.model to javafx.fxml;
     exports co.edu.uniquindio.uq.viewController;
     opens co.edu.uniquindio.uq.viewController to javafx.fxml;
-    exports co.epackage;
-    opens co.epackage to javafx.fxml;
-
 }

@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="450.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.Administrador">
+
+<AnchorPane prefHeight="450.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.AdministradorController">
    <children>
-      <Button fx:id="btonControlSalasYHorarios" layoutX="238.0" layoutY="213.0" mnemonicParsing="false" onAction="#onControlSalasYHorarios" text="Control de Salas y Horarios " />
-      <Button fx:id="btonReportes" layoutX="287.0" layoutY="149.0" mnemonicParsing="false" onAction="#onReportes" text="Reportes" />
-      <Button fx:id="btonAdministracionMedicosYPacientes" layoutX="209.0" layoutY="335.0" mnemonicParsing="false" onAction="#onAdministracion" text="Administración de Médicos y Pacientes" />
-      <Button fx:id="btonDisponibilidadYAsignacion" layoutX="237.0" layoutY="276.0" mnemonicParsing="false" onAction="#onDisponibilidad" text="Disponibilidad y Asignación " />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text layoutX="211.0" layoutY="83.0" strokeType="OUTSIDE" style="-fx-font-size: 20; -fx-padding: 10;" text="¿Que acción desea ejecutar? " />
-      <Button fx:id="btonVolver" layoutX="557.0" layoutY="398.0" mnemonicParsing="false" onAction="#setBtonVolver" text="Volver" />
+      <Text layoutX="180.0" layoutY="74.0" strokeType="OUTSIDE" style="-fx-font-size: 24; -fx-padding: 10;" text="¿Qué acción desea ejecutar?" />
+      <Button fx:id="btnReportes" layoutX="265.0" layoutY="155.0" mnemonicParsing="false" onAction="#onReportes" text="Generar Reportes" />
+      <Button fx:id="btnControlSalasYHorarios" layoutX="240.0" layoutY="333.0" mnemonicParsing="false" onAction="#onControlSalasYHorarios" text="Control de Salas y Horarios" />
+      <Button fx:id="btnAdministracionMedicosYPacientes" layoutX="208.0" layoutY="213.0" mnemonicParsing="false" onAction="#onAdministracion" text="Administración de Médicos y Pacientes" />
+
+
+      <Button fx:id="btnVolver" layoutX="557.0" layoutY="398.0" mnemonicParsing="false" onAction="#onVolver" text="Volver" />
+      <Button fx:id="btnDisponibilidadYAsignacion" layoutX="238.0" layoutY="274.0" mnemonicParsing="false" onAction="#onDisponibilidad" text="Disponibilidad y Asignación" />
    </children>
 </AnchorPane>
+
