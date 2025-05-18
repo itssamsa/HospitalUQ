@@ -13,8 +13,9 @@ public class LoginController {
 
     @FXML
     private void ingresarComoAdministrador(ActionEvent event) {
-        // FALTA
+        App.cambiarEscena("/co/edu/uniquindio/uq/Administrador.fxml", "");
     }
+
 
     @FXML
     private void ingresarComoMedico(ActionEvent event) {
