@@ -4,9 +4,14 @@ package co.edu.uniquindio.uq.viewController;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import co.edu.uniquindio.uq.model.Paciente;
 import co.edu.uniquindio.uq.model.SistemaHospitalario;
+import javafx.stage.Stage;
 
 
 public class ReportesController {
@@ -72,6 +77,22 @@ public class ReportesController {
             mostrarAlerta("Error", "Seleccione un paciente para eliminar.");
         }
     }
+
+
+    @FXML
+    private void onVolver(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/Administrador.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo cargar la vista de selección.");
+        }
+    }
+
+
 
 
     private void mostrarAlerta(String titulo, String mensaje) {

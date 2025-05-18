@@ -31,6 +31,8 @@
                 <TableColumn fx:id="colTelefono" prefWidth="122.0" text="Teléfono" />
             </columns>
         </TableView>
+        <Button fx:id="btnVolver" layoutX="14.0" layoutY="411.0" mnemonicParsing="false" onAction="#onVolver" text="Volver" />
     </children>
 </AnchorPane>
+
 
