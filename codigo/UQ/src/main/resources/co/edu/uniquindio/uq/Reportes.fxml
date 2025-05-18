@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="450.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.ReportesController">
+    <children>
+        <Text layoutX="17.0" layoutY="29.0" style="-fx-font-size: 20;" text="Gestión de Pacientes" wrappingWidth="113.0">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Text>
+        <TextField fx:id="txtCedula" layoutX="7.0" layoutY="177.0" prefHeight="25.0" prefWidth="129.0" promptText="Cédula" />
+        <TextField fx:id="txtNombre" layoutX="7.0" layoutY="141.0" prefHeight="25.0" prefWidth="129.0" promptText="Nombre" />
+        <TextField fx:id="txtDireccion" layoutX="7.0" layoutY="213.0" prefHeight="25.0" prefWidth="129.0" promptText="Dirección" />
+        <TextField fx:id="txtTelefono" layoutX="7.0" layoutY="247.0" prefHeight="25.0" prefWidth="129.0" promptText="Teléfono" />
+        <Button fx:id="btnActualizar" layoutX="10.0" layoutY="101.0" onAction="#onActualizarPaciente" text="Actualizar" />
+        <Button fx:id="btnEliminar" layoutX="15.0" layoutY="310.0" onAction="#onEliminarPaciente" text="Eliminar" />
+        <TableView fx:id="tblPacientes" layoutX="139.0" prefHeight="450.0" prefWidth="499.0">
+            <columns>
+                <TableColumn fx:id="colNombre" prefWidth="127.0" text="Nombre" />
+                <TableColumn fx:id="colCedula" prefWidth="131.0" text="Cédula" />
+                <TableColumn fx:id="colDireccion" minWidth="0.0" prefWidth="118.0" text="Dirección" />
+                <TableColumn fx:id="colTelefono" prefWidth="122.0" text="Teléfono" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
+

@@ -44,9 +44,18 @@ public class AdministradorController {
 
     @FXML
     void onReportes(ActionEvent event) {
-        mostrarAlerta("Generación de Reportes", "Aquí se generan reportes del sistema.");
-        // Llamar a la vista correspondiente
+        try {
+            // Cargar la vista reportes
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/Reportes.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo cargar la vista de consulta de historial.");
+        }
     }
+
 
 
     @FXML
