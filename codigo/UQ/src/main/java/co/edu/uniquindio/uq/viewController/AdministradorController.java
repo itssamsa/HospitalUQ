@@ -65,6 +65,21 @@ public class AdministradorController {
 
 
     @FXML
+    void administrarAMedico(ActionEvent event) {
+        try {
+            // Cargar la vista reportes
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/RegistroAdmMedicos.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo cargar la vista de consulta de historial.");
+        }
+    }
+
+
+    @FXML
     void onAdministracion(ActionEvent event) {
         mostrarAlerta("Administración de Médicos y Pacientes", "Aquí se administran médicos y pacientes.");
         // Llamar a la vista correspondiente
@@ -100,5 +115,3 @@ public class AdministradorController {
         alert.showAndWait();
     }
 }
-
-

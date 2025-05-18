@@ -14,7 +14,7 @@ import co.edu.uniquindio.uq.model.SistemaHospitalario;
 import javafx.stage.Stage;
 
 
-public class ReportesController {
+public class AdmIngresoPacienteController {
 
 
     private SistemaHospitalario sistemaHospitalario;
