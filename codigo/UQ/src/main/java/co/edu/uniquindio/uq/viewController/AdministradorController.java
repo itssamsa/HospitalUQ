@@ -87,9 +87,17 @@ public class AdministradorController {
 
 
     @FXML
-    void onDisponibilidad(ActionEvent event) {
-        mostrarAlerta("Disponibilidad y Asignación", "Aquí se gestionan la disponibilidad y la asignación.");
-        // Llamar a la vista correspondiente
+    void onDisponibilidadYAsiganacion(ActionEvent event) {
+        try {
+            // Cargar la vista reportes
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/DisponibilidadYAsignacion.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo cargar la vista de consulta de historial.");
+        }
     }
 
 

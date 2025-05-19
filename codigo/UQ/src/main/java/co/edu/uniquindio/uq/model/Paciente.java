@@ -44,4 +44,10 @@ public class Paciente extends Usuario {
     public void accederHistorial() {
         System.out.println("Accediendo al historial médico: " + getHistorialMedico());
     }
+
+    @Override
+    public String toString() {
+        return nombre + " - " + cedula;
+    }
+
 }

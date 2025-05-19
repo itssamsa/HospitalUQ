@@ -1,20 +1,14 @@
 package co.edu.uniquindio.uq.model;
 
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-
-
-
 public class SistemaHospitalario {
-
 
     private static SistemaHospitalario instancia;
     private ObservableList<Paciente> listaPacientes;
     private ObservableList<Cita> listaCitas;
     private ObservableList<Medico> listaMedicos;
-
 
     // Constructor privado para implementar el patrón Singleton
     private SistemaHospitalario() {
@@ -242,5 +236,42 @@ public class SistemaHospitalario {
             }
         }
         return false;
+    }
+
+    // Gestión de salas
+    public void gestionarSalas(String sala, String horario) {
+        System.out.println("Sala: " + sala + " asignada en horario: " + horario);
+    }
+
+    // Monitoreo de disponibilidad de médicos
+    public void monitorearDisponibilidadMedicos() {
+        for (Medico medico : listaMedicos) {
+            System.out.println("Médico: " + medico.getNombre() + " - Especialidad: " + medico.getEspecialidad());
+        }
+    }
+
+    // Asignación de pacientes a médicos
+    public void asignarPacienteAMedico(String cedulaPaciente, String cedulaMedico) {
+        Paciente paciente = buscarPaciente(cedulaPaciente);
+        Medico medico = buscarMedicoPorCedula(cedulaMedico);
+
+        if (paciente != null && medico != null) {
+            System.out.println("Asignación exitosa: " + paciente.getNombre() + " -> " + medico.getNombre());
+        } else {
+            System.out.println("Error en la asignación: paciente o médico no encontrado.");
+        }
+    }
+
+    // Generación de reportes
+    public void generarReporteCitas() {
+        for (Cita cita : listaCitas) {
+            System.out.println("Cita: " + cita.getCedulaPaciente() + " con el médico: " + cita.getCedulaMedico());
+        }
+    }
+
+    public void generarReporteOcupacion() {
+        System.out.println("Número de médicos disponibles: " + listaMedicos.size());
+        System.out.println("Número de pacientes registrados: " + listaPacientes.size());
+        System.out.println("Número de citas activas: " + listaCitas.size());
     }
 }

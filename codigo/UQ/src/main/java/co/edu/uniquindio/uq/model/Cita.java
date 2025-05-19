@@ -6,6 +6,7 @@ public class Cita {
     private String medico;
     private String cedulaPaciente;
     private String horario;
+    private String cedulaMedico;
 
     public Cita(String especialidad, String medico, String horario, String cedulaPaciente) {
         this.especialidad = especialidad;
@@ -45,6 +46,14 @@ public class Cita {
 
     public void setHorario(String horario) {
         this.horario = horario;
+    }
+
+    public String getCedulaMedico() {
+        return cedulaMedico;
+    }
+
+    public void setCedulaMedico(String cedulaMedico) {
+        this.cedulaMedico = cedulaMedico;
     }
 
     @Override
