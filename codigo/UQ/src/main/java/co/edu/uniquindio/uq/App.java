@@ -2,6 +2,8 @@ package co.edu.uniquindio.uq;
 
 import co.edu.uniquindio.uq.model.Medico;
 import co.edu.uniquindio.uq.model.Paciente;
+import co.edu.uniquindio.uq.model.Sala;
+import co.edu.uniquindio.uq.model.EstadoSala;
 import co.edu.uniquindio.uq.model.SistemaHospitalario;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -108,6 +110,22 @@ public class App extends Application {
 
         Medico m6 = new Medico("María Fernanda Ruiz", "206", "Avenida 7", "3106667788", "Cardiologia", "9:00 AM - 5:00 PM");
         sistema.agregarMedico(m6);
+
+        //Creacion Salas
+        Sala s1 = new Sala("Sala de rayos X", "8:00 AM - 12:00 PM", EstadoSala.DISPONIBLE);
+        sistema.agregarSala(s1);
+
+        Sala s2 = new Sala("Sala de cirugía", "1:00 PM - 5:00 PM", EstadoSala.OCUPADA);
+        sistema.agregarSala(s2);
+
+        Sala s3 = new Sala("Sala de cuidados intensivos", "9:00 AM - 3:00 PM", EstadoSala.ENMANTENIMIENTO);
+        sistema.agregarSala(s3);
+
+        Sala s4 = new Sala("Sala de pediatría", "10:00 AM - 2:00 PM", EstadoSala.DISPONIBLE);
+        sistema.agregarSala(s4);
+
+        Sala s5 = new Sala("Sala de emergencias", "24 horas", EstadoSala.OCUPADA);
+        sistema.agregarSala(s5);
     }
 
 }

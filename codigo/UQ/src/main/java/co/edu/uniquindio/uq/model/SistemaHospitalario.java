@@ -9,12 +9,14 @@ public class SistemaHospitalario {
     private ObservableList<Paciente> listaPacientes;
     private ObservableList<Cita> listaCitas;
     private ObservableList<Medico> listaMedicos;
+    private ObservableList<Sala> listaSalas;
 
     // Constructor privado para implementar el patrón Singleton
     private SistemaHospitalario() {
         listaPacientes = FXCollections.observableArrayList();
         listaCitas = FXCollections.observableArrayList();
         listaMedicos = FXCollections.observableArrayList();
+        listaSalas = FXCollections.observableArrayList();
     }
 
 
@@ -261,6 +263,47 @@ public class SistemaHospitalario {
             System.out.println("Error en la asignación: paciente o médico no encontrado.");
         }
     }
+
+    //GESTION DE LAS SALAS
+
+    // agregar una sala
+    public void agregarSala(Sala sala) {
+        listaSalas.add(sala);
+    }
+
+    // obtener la lista de salas
+    public ObservableList<Sala> obtenerSalas() {
+        return listaSalas;
+    }
+
+    // Verificar si una sala está disponible
+    public boolean estaSalaDisponible(String nombreSala, String horario) {
+        if (listaSalas == null) {
+            listaSalas = FXCollections.observableArrayList();
+        }
+        return listaSalas.stream().anyMatch(s -> s.getNombreSala().equals(nombreSala) && s.getHorarioSala().equals(horario) && s.getEstadoSala() == EstadoSala.DISPONIBLE);
+    }
+
+    // Reservar una sala
+    public boolean reservarSala(String nombreSala, String horario) {
+        for (Sala sala : listaSalas) {
+            if (sala.getNombreSala().equals(nombreSala) && sala.getHorarioSala().equals(horario) && sala.getEstadoSala() == EstadoSala.DISPONIBLE) {
+                sala.setEstadoSala(EstadoSala.OCUPADA);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Gestionar una sala
+    public void gestionarSalas(String nombreSala, String horario, EstadoSala estado) {
+        if (listaSalas == null) {
+            listaSalas = FXCollections.observableArrayList();
+        }
+        Sala nuevaSala = new Sala(nombreSala, horario, estado);
+        listaSalas.add(nuevaSala);
+    }
+
 
     // Generación de reportes
     public void generarReporteCitas() {

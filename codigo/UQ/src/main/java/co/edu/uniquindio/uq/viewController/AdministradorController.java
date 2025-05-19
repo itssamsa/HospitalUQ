@@ -37,8 +37,16 @@ public class AdministradorController {
 
     @FXML
     void onControlSalasYHorarios(ActionEvent event) {
-        mostrarAlerta("Control de Salas y Horarios", "Aquí se gestionan las salas y los horarios.");
-        // Llamar a la vista correspondiente
+        try {
+            // Cargar la vista reportes
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/GestionSalas.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo cargar la vista de consulta de historial.");
+        }
     }
 
 
@@ -89,7 +97,6 @@ public class AdministradorController {
     @FXML
     void onDisponibilidadYAsiganacion(ActionEvent event) {
         try {
-            // Cargar la vista reportes
             Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/DisponibilidadYAsignacion.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
