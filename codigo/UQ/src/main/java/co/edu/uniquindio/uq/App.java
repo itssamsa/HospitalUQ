@@ -127,7 +127,6 @@ public class App extends Application {
         Sala s5 = new Sala("Sala de emergencias", "24 horas", EstadoSala.OCUPADA);
         sistema.agregarSala(s5);
     }
-
 }
 
 

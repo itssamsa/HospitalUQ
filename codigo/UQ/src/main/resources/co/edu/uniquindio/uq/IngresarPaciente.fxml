@@ -8,25 +8,25 @@
 <?import javafx.scene.layout.StackPane?>
 
 <StackPane prefHeight="600.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.IngresarPacienteController">
-<AnchorPane prefHeight="600.0" prefWidth="770.0">
-    <children>
-        <TableView fx:id="tblPacientes" layoutX="251.0" layoutY="103.0" prefHeight="432.0" prefWidth="476.0">
-            <columns>
-                <TableColumn fx:id="colNombre" prefWidth="115.0" text="Nombre" />
-                <TableColumn fx:id="colCedula" prefWidth="118.0" text="Cédula" />
-                <TableColumn fx:id="colDireccion" prefWidth="109.0" text="Dirección" />
-                <TableColumn fx:id="colTelefono" prefWidth="135.0" text="Teléfono" />
-            </columns>
-        </TableView>
-        <Button layoutX="79.0" layoutY="120.0" onAction="#onActualizar" text="Actualizar" />
-        <TextField fx:id="txtCedula" layoutX="39.0" layoutY="197.0" promptText="Cédula" />
-        <TextField fx:id="txtDireccion" layoutX="39.0" layoutY="231.0" promptText="Dirección" />
-        <TextField fx:id="txtTelefono" layoutX="39.0" layoutY="265.0" promptText="Teléfono" />
-        <TextField fx:id="txtNombre" layoutX="39.0" layoutY="164.0" promptText="Nombre" />
-         <Button fx:id="btnVolver" layoutX="29.0" layoutY="535.0" mnemonicParsing="false" onAction="#setBtnVolver" text="Volver" />
-         <Button fx:id="btnSolicitar" layoutX="72.0" layoutY="374.0" mnemonicParsing="false" onAction="#onSolicitudCita" text="Solicitar Cita" />
-         <Button fx:id="btnCancelar" layoutX="70.0" layoutY="429.0" mnemonicParsing="false" onAction="#onCancelarCita" text="Cancelar Cita" />
-         <Button fx:id="btnHistorial" layoutX="55.0" layoutY="330.0" mnemonicParsing="false" onAction="#onConsultarHistoria" text="Consultar Historial " />
-    </children>
-</AnchorPane>
+    <AnchorPane prefHeight="600.0" prefWidth="770.0">
+        <children>
+            <TableView fx:id="tblPacientes" layoutX="251.0" layoutY="103.0" prefHeight="432.0" prefWidth="476.0">
+                <columns>
+                    <TableColumn fx:id="colNombre" prefWidth="115.0" text="Nombre" />
+                    <TableColumn fx:id="colCedula" prefWidth="118.0" text="Cédula" />
+                    <TableColumn fx:id="colDireccion" prefWidth="109.0" text="Dirección" />
+                    <TableColumn fx:id="colTelefono" prefWidth="135.0" text="Teléfono" />
+                </columns>
+            </TableView>
+            <Button layoutX="79.0" layoutY="120.0" onAction="#onActualizar" text="Actualizar" />
+            <TextField fx:id="txtCedula" layoutX="39.0" layoutY="197.0" promptText="Cédula" />
+            <TextField fx:id="txtDireccion" layoutX="39.0" layoutY="231.0" promptText="Dirección" />
+            <TextField fx:id="txtTelefono" layoutX="39.0" layoutY="265.0" promptText="Teléfono" />
+            <TextField fx:id="txtNombre" layoutX="39.0" layoutY="164.0" promptText="Nombre" />
+            <Button fx:id="btnVolver" layoutX="29.0" layoutY="535.0" mnemonicParsing="false" onAction="#setBtnVolver" text="Volver" />
+            <Button fx:id="btnSolicitar" layoutX="72.0" layoutY="374.0" mnemonicParsing="false" onAction="#onSolicitudCita" text="Solicitar Cita" />
+            <Button fx:id="btnCancelar" layoutX="70.0" layoutY="429.0" mnemonicParsing="false" onAction="#onCancelarCita" text="Cancelar Cita" />
+            <Button fx:id="btnHistorial" layoutX="55.0" layoutY="330.0" mnemonicParsing="false" onAction="#onConsultarHistoria" text="Consultar Historial " />
+        </children>
+    </AnchorPane>
 </StackPane>
