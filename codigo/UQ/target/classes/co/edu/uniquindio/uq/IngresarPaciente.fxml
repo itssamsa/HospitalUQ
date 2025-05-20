@@ -6,27 +6,35 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
 
 <StackPane prefHeight="600.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.IngresarPacienteController">
-    <AnchorPane prefHeight="600.0" prefWidth="770.0">
+    <AnchorPane prefHeight="600.0" prefWidth="770.0" style="-fx-background-color: white;">
         <children>
-            <TableView fx:id="tblPacientes" layoutX="251.0" layoutY="103.0" prefHeight="432.0" prefWidth="476.0">
+            <TableView fx:id="tblPacientes" layoutX="239.0" layoutY="29.0" prefHeight="492.0" prefWidth="510.0">
                 <columns>
-                    <TableColumn fx:id="colNombre" prefWidth="115.0" text="Nombre" />
-                    <TableColumn fx:id="colCedula" prefWidth="118.0" text="Cédula" />
-                    <TableColumn fx:id="colDireccion" prefWidth="109.0" text="Dirección" />
-                    <TableColumn fx:id="colTelefono" prefWidth="135.0" text="Teléfono" />
+                    <TableColumn fx:id="colNombre" prefWidth="141.0" text="Nombre" />
+                    <TableColumn fx:id="colCedula" prefWidth="128.0" text="Cédula" />
+                    <TableColumn fx:id="colDireccion" prefWidth="130.0" text="Dirección" />
+                    <TableColumn fx:id="colTelefono" prefWidth="126.0" text="Teléfono" />
                 </columns>
             </TableView>
-            <Button layoutX="79.0" layoutY="120.0" onAction="#onActualizar" text="Actualizar" />
-            <TextField fx:id="txtCedula" layoutX="39.0" layoutY="197.0" promptText="Cédula" />
-            <TextField fx:id="txtDireccion" layoutX="39.0" layoutY="231.0" promptText="Dirección" />
-            <TextField fx:id="txtTelefono" layoutX="39.0" layoutY="265.0" promptText="Teléfono" />
-            <TextField fx:id="txtNombre" layoutX="39.0" layoutY="164.0" promptText="Nombre" />
-            <Button fx:id="btnVolver" layoutX="29.0" layoutY="535.0" mnemonicParsing="false" onAction="#setBtnVolver" text="Volver" />
-            <Button fx:id="btnSolicitar" layoutX="72.0" layoutY="374.0" mnemonicParsing="false" onAction="#onSolicitudCita" text="Solicitar Cita" />
-            <Button fx:id="btnCancelar" layoutX="70.0" layoutY="429.0" mnemonicParsing="false" onAction="#onCancelarCita" text="Cancelar Cita" />
-            <Button fx:id="btnHistorial" layoutX="55.0" layoutY="330.0" mnemonicParsing="false" onAction="#onConsultarHistoria" text="Consultar Historial " />
+         <AnchorPane layoutX="56.0" layoutY="14.0" prefHeight="96.0" prefWidth="119.0" style="-fx-background-color: white;">
+            <children>
+               <Circle fill="#0b6dc9" layoutX="59.0" layoutY="82.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+               <Circle fill="#0b6dc9" layoutX="59.0" layoutY="30.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
+               <AnchorPane layoutY="85.0" prefHeight="32.0" prefWidth="119.0" style="-fx-background-color: white;" />
+            </children>
+         </AnchorPane>
+            <Button layoutX="78.0" layoutY="133.0" onAction="#onActualizar" style="-fx-background-color: #263F73;" text="Actualizar" textFill="WHITE" />
+            <TextField fx:id="txtCedula" layoutX="38.0" layoutY="221.0" promptText="Cédula" />
+            <TextField fx:id="txtDireccion" layoutX="38.0" layoutY="253.0" promptText="Dirección" />
+            <TextField fx:id="txtTelefono" layoutX="39.0" layoutY="287.0" promptText="Teléfono" />
+            <TextField fx:id="txtNombre" layoutX="39.0" layoutY="182.0" promptText="Nombre" />
+            <Button fx:id="btnVolver" layoutX="695.0" layoutY="547.0" mnemonicParsing="false" onAction="#setBtnVolver" style="-fx-background-color: #263F73;" text="Volver" textFill="WHITE" />
+            <Button fx:id="btnSolicitar" layoutX="39.0" layoutY="415.0" mnemonicParsing="false" onAction="#onSolicitudCita" prefHeight="30.0" prefWidth="128.0" style="-fx-background-color: #263F73;" text="Solicitar Cita" textFill="WHITE" />
+            <Button fx:id="btnCancelar" layoutX="39.0" layoutY="476.0" mnemonicParsing="false" onAction="#onCancelarCita" prefHeight="30.0" prefWidth="128.0" style="-fx-background-color: #263F73;" text="Cancelar Cita" textFill="WHITE" />
+            <Button fx:id="btnHistorial" layoutX="38.0" layoutY="362.0" mnemonicParsing="false" onAction="#onConsultarHistoria" style="-fx-background-color: #263F73;" text="Consultar Historial " textFill="WHITE" />
         </children>
     </AnchorPane>
 </StackPane>

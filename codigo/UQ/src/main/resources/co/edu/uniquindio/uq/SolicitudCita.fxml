@@ -5,25 +5,70 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="450.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.SolicitudCitaController">
+<AnchorPane prefHeight="600.0" prefWidth="770.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.SolicitudCitaController">
     <children>
-        <!-- Título -->
-        <Label layoutX="50.0" layoutY="20.0" style="-fx-font-size: 18px;" text="Solicitud de Cita Médica" />
         <!-- Campo para ingresar la cédula -->
-        <Label layoutX="50.0" layoutY="70.0" text="Ingrese la cédula del paciente:" />
-        <TextField fx:id="txtCedula" layoutX="240.0" layoutY="65.0" promptText="Cédula" />
+        <Label layoutX="141.0" layoutY="203.0" text="Ingrese la cédula del paciente:">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font></Label>
+        <TextField fx:id="txtCedula" layoutX="419.0" layoutY="198.0" promptText="Cédula" />
         <!-- Selección de Especialidad -->
-        <Label layoutX="50.0" layoutY="120.0" text="Especialidad:" />
-        <ComboBox fx:id="comboEspecialidad" layoutX="240.0" layoutY="115.0" prefWidth="200.0" promptText="Seleccionar Especialidad" />
+        <Label layoutX="141.0" layoutY="271.0" prefHeight="17.0" prefWidth="220.0" text="Especialidad:">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font></Label>
+        <ComboBox fx:id="comboEspecialidad" layoutX="419.0" layoutY="267.0" prefWidth="200.0" promptText="Seleccionar Especialidad" style="-fx-background-color: #c6e4ff;" />
         <!-- Selección de Médico -->
-        <Label layoutX="50.0" layoutY="170.0" text="Médico:" />
-        <ComboBox fx:id="comboMedico" disable="true" layoutX="240.0" layoutY="165.0" prefWidth="200.0" promptText="Seleccionar Médico" />
+        <Label layoutX="141.0" layoutY="328.0" prefHeight="17.0" prefWidth="68.0" text="Médico:">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font></Label>
+        <ComboBox fx:id="comboMedico" disable="true" layoutX="419.0" layoutY="324.0" prefWidth="200.0" promptText="Seleccionar Médico" style="-fx-background-color: #c6e4ff;" />
         <!-- Selección de Horario -->
-        <Label layoutX="50.0" layoutY="220.0" text="Horario:" />
-        <ComboBox fx:id="comboHorario" disable="true" layoutX="240.0" layoutY="215.0" prefWidth="200.0" promptText="Seleccionar Horario" />
+        <Label layoutX="141.0" layoutY="433.0" prefHeight="17.0" prefWidth="68.0" text="Horario:">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font></Label>
+        <ComboBox fx:id="comboHorario" disable="true" layoutX="419.0" layoutY="429.0" prefWidth="200.0" promptText="Seleccionar Horario" style="-fx-background-color: #c6e4ff;" />
         <!-- Botón para guardar la cita -->
-        <Button fx:id="btnGuardarCita" layoutX="240.0" layoutY="280.0" onAction="#onGuardarCita" text="Guardar Cita" />
-        <Button fx:id="btnVolver" layoutX="350.0" layoutY="280.0" onAction="#onVolver" text="Volver" />
+        <Button fx:id="btnGuardarCita" layoutX="359.0" layoutY="535.0" onAction="#onGuardarCita" style="-fx-background-color: #263F73;" text="Guardar Cita" textFill="WHITE" />
+        <Button fx:id="btnVolver" layoutX="691.0" layoutY="547.0" onAction="#onVolver" style="-fx-background-color: #263F73;" text="Volver" textFill="WHITE" />
+      <AnchorPane layoutY="-2.0" prefHeight="102.0" prefWidth="801.0" style="-fx-background-color: #263F73;">
+         <children>
+              <!-- Título -->
+              <Label layoutX="286.0" layoutY="38.0" style="-fx-font-size: 18px;" text="SOLICITUD DE CITAS MEDICAS" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="20.0" />
+               </font>
+            </Label>
+            <Circle fill="WHITE" layoutX="38.0" layoutY="44.0" radius="24.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="#263f73" layoutX="38.0" layoutY="44.0" radius="17.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="104.0" layoutY="51.0" radius="17.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="171.0" layoutY="56.0" radius="14.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="#263f73" layoutX="104.0" layoutY="51.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#263f73" layoutX="171.0" layoutY="56.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="738.0" layoutY="48.0" radius="24.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="#263f73" layoutX="738.0" layoutY="48.0" radius="17.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="669.0" layoutY="51.0" radius="17.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="607.0" layoutY="56.0" radius="14.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="#263f73" layoutX="607.0" layoutY="56.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#263f73" layoutX="669.0" layoutY="51.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+         </children>
+      </AnchorPane>
+      <Text layoutX="165.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Por favor, complete la siguiente información para solicitar una cita médica.">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="62.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recuerde que la disponibilidad de citas puede variar según la especialidad y el médico seleccionado.">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

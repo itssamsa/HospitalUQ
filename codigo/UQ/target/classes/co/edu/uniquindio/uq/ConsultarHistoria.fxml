@@ -5,15 +5,48 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="450.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.ConsultarHistoriaController">
-    <Label layoutX="46.0" layoutY="47.0" text="Porfavor ingrece una cedula ">
+<AnchorPane prefHeight="600.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.ConsultarHistoriaController">
+    <TextField fx:id="txtCedulaConsulta" layoutX="228.0" layoutY="231.0" prefWidth="200.0" />
+    <Button layoutX="479.0" layoutY="232.0" onAction="#onConsultar" style="-fx-background-color: #263F73;" text="Consultar" textFill="WHITE">
       <font>
-         <Font size="14.0" />
-      </font></Label>
-    <TextField fx:id="txtCedulaConsulta" layoutX="46.0" layoutY="89.0" prefWidth="200.0" />
-    <Button layoutX="268.0" layoutY="89.0" onAction="#onConsultar" text="Consultar" />
-    <TextArea fx:id="txtHistoria" editable="false" layoutX="46.0" layoutY="171.0" prefHeight="223.0" prefWidth="376.0" />
-   <Button fx:id="btnVolver" layoutX="552.0" layoutY="394.0" mnemonicParsing="false" onAction="#setBtnVolver" text="volver" />
+         <Font name="Verdana Bold" size="12.0" />
+      </font></Button>
+    <TextArea fx:id="txtHistoria" editable="false" layoutX="197.0" layoutY="291.0" prefHeight="223.0" prefWidth="404.0" />
+   <Button fx:id="btnVolver" layoutX="694.0" layoutY="552.0" mnemonicParsing="false" onAction="#setBtnVolver" style="-fx-background-color: #263F73;" text="volver" textFill="WHITE">
+      <font>
+         <Font name="Verdana Bold" size="12.0" />
+      </font></Button>
+   <AnchorPane prefHeight="102.0" prefWidth="801.0" style="-fx-background-color: #263F73;">
+      <children>
+         <Label layoutX="261.0" layoutY="38.0" style="-fx-font-size: 18px;" text="CONSULTAR HISTORIAL MEDICO" textFill="WHITE">
+            <font>
+               <Font name="Verdana Bold" size="20.0" />
+            </font>
+         </Label>
+         <Circle fill="WHITE" layoutX="38.0" layoutY="44.0" radius="24.0" stroke="WHITE" strokeType="INSIDE" />
+         <Circle fill="#263f73" layoutX="38.0" layoutY="44.0" radius="17.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+         <Circle fill="WHITE" layoutX="104.0" layoutY="51.0" radius="17.0" stroke="WHITE" strokeType="INSIDE" />
+         <Circle fill="WHITE" layoutX="171.0" layoutY="56.0" radius="14.0" stroke="WHITE" strokeType="INSIDE" />
+         <Circle fill="#263f73" layoutX="104.0" layoutY="51.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+         <Circle fill="#263f73" layoutX="171.0" layoutY="56.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+         <Circle fill="WHITE" layoutX="738.0" layoutY="48.0" radius="24.0" stroke="WHITE" strokeType="INSIDE" />
+         <Circle fill="#263f73" layoutX="738.0" layoutY="48.0" radius="17.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+         <Circle fill="WHITE" layoutX="669.0" layoutY="51.0" radius="17.0" stroke="WHITE" strokeType="INSIDE" />
+         <Circle fill="WHITE" layoutX="607.0" layoutY="56.0" radius="14.0" stroke="WHITE" strokeType="INSIDE" />
+         <Circle fill="#263f73" layoutX="607.0" layoutY="56.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+         <Circle fill="#263f73" layoutX="669.0" layoutY="51.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      </children>
+   </AnchorPane>
+   <Circle fill="#263f73" layoutX="38.0" layoutY="527.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+   <Circle fill="#263f73" layoutX="42.0" layoutY="560.0" radius="28.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+   <Circle fill="#263f73" layoutX="70.0" layoutY="564.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+   <Text layoutX="281.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Porfavor ingrece una cedula para poder acceder a su historial medico " textAlignment="CENTER" wrappingWidth="236.0">
+      <font>
+         <Font size="13.0" />
+      </font>
+   </Text>
 </AnchorPane>

@@ -3,19 +3,67 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <StackPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.ConsultorioMedicoController">
-    <AnchorPane prefHeight="450.0" prefWidth="638.0">
+    <AnchorPane prefHeight="600.0" prefWidth="770.0">
         <children>
-            <Text layoutX="177.0" layoutY="82.0" style="-fx-font-size: 20px; -fx-padding: 10px;" text="Bienvenido al Consultorio Médico" />
 
-            <Button fx:id="btnHistorial" layoutX="262.0" layoutY="142.0" mnemonicParsing="false" onAction="#onConsultarHistoria" text="Consultar Historial" />
-            <Button fx:id="btnRegistrarDiagnostico" layoutX="254.0" layoutY="259.0" onAction="#onRegistrarDiagnostico" text="Registrar Diagnóstico" />
-            <Button fx:id="btnAdministrarHorario" layoutX="256.0" layoutY="200.0" onAction="#onAdministrarHorario" text="Administrar Horarios" />
-            <Button fx:id="btnNotificaciones" layoutX="231.0" layoutY="315.0" onAction="#onVerNotificaciones" prefHeight="25.0" prefWidth="190.0" text="Ver Notificaciones de Citas" />
+            <Button fx:id="btnVolver" ellipsisString="" layoutX="673.0" layoutY="551.0" onAction="#onVolverAlLogin" prefHeight="27.0" prefWidth="77.0" style="-fx-background-color: #263F73;" text="Volver " textFill="WHITE">
+            <font>
+               <Font name="Verdana Bold" size="12.0" />
+            </font></Button>
+            <Button fx:id="btnAdministrarHorario" layoutX="488.0" layoutY="260.0" onAction="#onAdministrarHorario" prefHeight="23.0" prefWidth="196.0" style="-fx-background-color: #263F73;" text="Administrar Horarios" textFill="WHITE">
+            <font>
+               <Font name="Verdana Bold" size="12.0" />
+            </font>
+         </Button>
 
-            <Button fx:id="btnVolver" ellipsisString="" layoutX="35.0" layoutY="391.0" onAction="#onVolverAlLogin" prefHeight="27.0" prefWidth="108.0" text="Volver " />
+                        <Button fx:id="btnHistorial" layoutX="488.0" layoutY="193.0" mnemonicParsing="false" onAction="#onConsultarHistoria" prefHeight="23.0" prefWidth="196.0" style="-fx-background-color: #263F73;" text="Consultar Historial" textFill="WHITE">
+            <font>
+               <Font name="Verdana Bold" size="12.0" />
+            </font>
+         </Button>
+            <Button fx:id="btnNotificaciones" layoutX="488.0" layoutY="401.0" onAction="#onVerNotificaciones" prefHeight="23.0" prefWidth="196.0" style="-fx-background-color: #263F73;" text="Notificaciones" textFill="WHITE">
+            <font>
+               <Font name="Verdana Bold" size="12.0" />
+            </font>
+         </Button>
+         <AnchorPane prefHeight="600.0" prefWidth="354.0" style="-fx-background-color: #263F73;">
+            <children>
+               <Text fill="WHITE" layoutX="53.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USTED A INGRESADO COMO " wrappingWidth="247.76953125">
+                  <font>
+                     <Font name="Verdana Bold" size="15.0" />
+                  </font>
+               </Text>
+               <Text fill="WHITE" layoutX="85.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BIENVENIDO ">
+                  <font>
+                     <Font name="Verdana Bold" size="24.0" />
+                  </font>
+               </Text>
+               <Text fill="WHITE" layoutX="134.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MEDICO" wrappingWidth="86.0">
+                  <font>
+                     <Font name="Verdana Bold" size="15.0" />
+                  </font>
+               </Text>
+               <Text fill="WHITE" layoutX="18.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Cual acción desea ejecutar?" textAlignment="CENTER" wrappingWidth="318.76953125">
+                  <font>
+                     <Font name="Verdana Bold" size="12.0" />
+                  </font>
+               </Text>
+               <Circle fill="WHITE" layoutX="32.0" layoutY="563.0" radius="14.0" stroke="WHITE" strokeType="INSIDE" />
+               <Circle fill="WHITE" layoutX="53.0" layoutY="541.0" radius="28.0" stroke="WHITE" strokeType="INSIDE" />
+            </children>
+         </AnchorPane>
+         <Circle fill="#263f73" layoutX="712.0" layoutY="60.0" radius="28.0" stroke="#263f73" strokeType="INSIDE" />
+         <Circle fill="#263f73" layoutX="738.0" layoutY="32.0" radius="18.0" stroke="#263f73" strokeType="INSIDE" />
+         <Button fx:id="btnRegistrarDiagnostico" layoutX="488.0" layoutY="331.0" onAction="#onRegistrarDiagnostico" prefHeight="23.0" prefWidth="196.0" style="-fx-background-color: #263F73;" text="Registrar Diagnostico" textFill="WHITE">
+            <font>
+               <Font name="Verdana Bold" size="12.0" />
+            </font>
+         </Button>
         </children>
     </AnchorPane>
 </StackPane>
