@@ -13,12 +13,24 @@
 <Pane prefHeight="600.0" prefWidth="770.0">
     <children>
 
-        <Button fx:id="btnPaciente" layoutX="550.0" layoutY="415.0" onAction="#ingresarComoPaciente" style="-fx-font-size: 16px; -fx-padding: 10px; -fx-margin-top: 20px;" text="Paciente" />
+        <Button fx:id="btnPaciente" layoutX="484.0" layoutY="415.0" onAction="#ingresarComoPaciente" prefHeight="40.0" prefWidth="206.0" style="-fx-background-color: #263F73; -fx-padding: 10px; -fx-margin-top: 20px;" text="Paciente" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font></Button>
 
-        <Button fx:id="btnAdministrador" layoutX="525.0" layoutY="215.0" onAction="#ingresarComoAdministrador" style="-fx-font-size: 16px; -fx-padding: 10px; -fx-margin-top: 20px;" text="Administrador" />
+        <Button fx:id="btnAdministrador" layoutX="483.0" layoutY="239.0" onAction="#ingresarComoAdministrador" prefHeight="40.0" prefWidth="206.0" style="-fx-background-color: #263F73; -fx-padding: 10px; -fx-margin-top: 20px;" text="Administrador" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font></Button>
 
-        <Button fx:id="btnMedico" layoutX="550.0" layoutY="319.0" onAction="#ingresarComoMedico" style="-fx-font-size: 16px; -fx-padding: 10px; -fx-margin-top: 20px;" text="Médico" />
-        <Text layoutX="483.0" layoutY="129.0" style="-fx-font-size: 20px; -fx-padding: 10px;" text="¿Quién desea ingresar?" />
+        <Button fx:id="btnMedico" layoutX="483.0" layoutY="330.0" onAction="#ingresarComoMedico" prefHeight="40.0" prefWidth="206.0" style="-fx-background-color: #263F73; -fx-padding: 10px; -fx-margin-top: 20px;" text="Médico" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font></Button>
+        <Text layoutX="483.0" layoutY="129.0" style="-fx-font-size: 20px; -fx-padding: 10px;" text="¿Quién desea ingresar?">
+            <font>
+               <Font name="Verdana Bold" size="12.0" />
+            </font></Text>
          <AnchorPane layoutY="-8.0" prefHeight="614.0" prefWidth="354.0" style="-fx-background-color: #263F73;">
             <children>
                <Circle fill="#ffffff00" layoutX="182.0" layoutY="316.0" radius="126.0" stroke="#c3bbbb" strokeType="INSIDE" />
