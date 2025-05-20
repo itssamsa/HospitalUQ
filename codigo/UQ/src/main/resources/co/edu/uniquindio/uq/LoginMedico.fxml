@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="300" prefWidth="400" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="co.edu.uniquindio.uq.viewController.LoginMedicoController">
+
+    <VBox alignment="CENTER" spacing="15" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20">
+
+        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Inicio de Sesión - Médico" />
+
+        <HBox alignment="CENTER" spacing="10">
+            <Label minWidth="80" text="Médico:" />
+            <ComboBox fx:id="comboMedicos" prefWidth="200" promptText="Seleccione un médico" />
+        </HBox>
+
+        <HBox alignment="CENTER" spacing="10">
+            <Label minWidth="80" text="Contraseña:" />
+            <PasswordField fx:id="txtPassword" prefWidth="200" promptText="Ingrese la contraseña" />
+        </HBox>
+
+        <Button fx:id="btnIniciarSecion" onAction="#onIniciarSecion" prefWidth="150" text="Iniciar Seción" />
+
+        <Label fx:id="lblMensaje" style="-fx-font-size: 12px;" textFill="red" wrapText="true" />
+
+    </VBox>
+
+</AnchorPane>

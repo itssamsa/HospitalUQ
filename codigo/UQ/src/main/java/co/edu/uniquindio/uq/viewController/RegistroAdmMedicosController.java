@@ -44,6 +44,9 @@ public class RegistroAdmMedicosController {
     @FXML
     private TextField txtHorario;
 
+    @FXML
+    private TextField txtPassword;
+
 
     @FXML
     private Button btnGuardar;
@@ -61,6 +64,7 @@ public class RegistroAdmMedicosController {
         String telefono = txtTelefono.getText();
         String especialidad = txtEspecialidad.getText();
         String horario = txtHorario.getText();
+        String password = txtPassword.getText();
 
 
         if (nombre.isEmpty() || cedula.isEmpty() || direccion.isEmpty() || telefono.isEmpty() || especialidad.isEmpty() || horario.isEmpty()) {
@@ -77,7 +81,7 @@ public class RegistroAdmMedicosController {
 
 
         // Registrar el paciente en el sistema hospitalario
-        boolean registrado = sistemaHospitalario.registrarMedico(nombre, cedula, direccion, telefono, especialidad, horario);
+        boolean registrado = sistemaHospitalario.registrarMedico(nombre, cedula, direccion, telefono, especialidad, horario,password);
 
 
         if (registrado) {
@@ -110,6 +114,7 @@ public class RegistroAdmMedicosController {
         txtTelefono.clear();
         txtEspecialidad.clear();
         txtHorario.clear();
+        txtPassword.clear();
     }
 
 

@@ -7,11 +7,13 @@ public class Medico extends Usuario {
 
     private StringProperty especialidad;
     private StringProperty horario;
+    private StringProperty password; // Nuevo atributo
 
-    public Medico(String nombre, String cedula, String direccion, String telefono, String especialidad, String horario) {
+    public Medico(String nombre, String cedula, String direccion, String telefono, String especialidad, String horario, String password) {
         super(nombre, cedula, direccion, telefono);
         this.especialidad = new SimpleStringProperty(especialidad);
         this.horario = new SimpleStringProperty(horario);
+        this.password = new SimpleStringProperty(password); // Inicialización
     }
 
     public StringProperty especialidadProperty() {
@@ -28,14 +30,27 @@ public class Medico extends Usuario {
 
     public StringProperty horarioProperty() {
         return horario;
-
     }
+
     public String getHorario() {
         return horario.get();
     }
 
     public void setHorario(String horario) {
         this.horario.set(horario);
+    }
+
+    // Getters y Setters para password
+    public String getPassword() {
+        return password.get();
+    }
+
+    public void setPassword(String password) {
+        this.password.set(password);
+    }
+
+    public StringProperty passwordProperty() {
+        return password;
     }
 
     @Override

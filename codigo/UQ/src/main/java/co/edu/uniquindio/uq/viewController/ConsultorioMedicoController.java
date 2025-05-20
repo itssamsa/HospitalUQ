@@ -43,7 +43,7 @@ public class ConsultorioMedicoController {
     void onConsultarHistoria(ActionEvent event) {
         try {
             // Cargar la vista de ConsultarHistoria.fxml
-            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/ConsultarHistoria.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/ConsultarHistoriaVistaMedico.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();

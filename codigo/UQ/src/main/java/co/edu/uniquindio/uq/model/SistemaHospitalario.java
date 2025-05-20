@@ -42,6 +42,11 @@ public class SistemaHospitalario {
         }
     }
 
+    public ObservableList<Medico> getListaMedicos() {
+        return listaMedicos;
+    }
+
+
 
     // actualizar los datos de un paciente
     public void actualizarPaciente(String cedula, String nombre, String nuevaCedula, String direccion, String telefono) {
@@ -122,11 +127,11 @@ public class SistemaHospitalario {
 
 
     // Registrar un nuevo médico
-    public boolean registrarMedico(String nombre, String cedula, String direccion, String telefono, String especialidad, String horario) {
+    public boolean registrarMedico(String nombre, String cedula, String direccion, String telefono, String especialidad, String horario, String password) {
         if (existeMedico(cedula)) {
             return false;
         }
-        Medico medico = new Medico(nombre, cedula, direccion, telefono, especialidad, horario);
+        Medico medico = new Medico(nombre, cedula, direccion, telefono, especialidad, horario,password);
         agregarMedico(medico);
         return true;
     }
@@ -316,5 +321,13 @@ public class SistemaHospitalario {
         System.out.println("Número de médicos disponibles: " + listaMedicos.size());
         System.out.println("Número de pacientes registrados: " + listaPacientes.size());
         System.out.println("Número de citas activas: " + listaCitas.size());
+    }
+
+    public boolean validarLoginMedico(String nombre, String password) {
+        Medico medico = buscarMedicoPorNombre(nombre);
+        if (medico != null && medico.getPassword().equals(password)) {
+            return true;
+        }
+        return false;
     }
 }
