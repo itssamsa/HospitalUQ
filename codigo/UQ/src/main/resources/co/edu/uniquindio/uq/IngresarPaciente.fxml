@@ -34,7 +34,7 @@
             <Button fx:id="btnVolver" layoutX="695.0" layoutY="547.0" mnemonicParsing="false" onAction="#setBtnVolver" style="-fx-background-color: #263F73;" text="Volver" textFill="WHITE" />
             <Button fx:id="btnSolicitar" layoutX="39.0" layoutY="415.0" mnemonicParsing="false" onAction="#onSolicitudCita" prefHeight="30.0" prefWidth="128.0" style="-fx-background-color: #263F73;" text="Solicitar Cita" textFill="WHITE" />
             <Button fx:id="btnCancelar" layoutX="39.0" layoutY="476.0" mnemonicParsing="false" onAction="#onCancelarCita" prefHeight="30.0" prefWidth="128.0" style="-fx-background-color: #263F73;" text="Cancelar Cita" textFill="WHITE" />
-            <Button fx:id="btnHistorial" layoutX="38.0" layoutY="362.0" mnemonicParsing="false" onAction="#onConsultarHistoria" style="-fx-background-color: #263F73;" text="Consultar Historial " textFill="WHITE" />
+            <Button fx:id="btnHistorial" layoutX="38.0" layoutY="362.0" mnemonicParsing="false" onAction="#onConsultarHistoria" prefHeight="30.0" prefWidth="128.0" style="-fx-background-color: #263F73;" text="Consultar Historial " textFill="WHITE" />
         </children>
     </AnchorPane>
 </StackPane>

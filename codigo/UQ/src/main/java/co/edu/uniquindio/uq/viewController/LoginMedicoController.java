@@ -9,7 +9,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -37,7 +36,7 @@ public class LoginMedicoController {
     }
 
     @FXML
-    private void onIniciarSecion() {  // debe coincidir exactamente con el FXML
+    private void onIniciarSecion() {
         Medico medicoSeleccionado = comboMedicos.getValue();
         String password = txtPassword.getText().trim();
 
@@ -48,22 +47,21 @@ public class LoginMedicoController {
 
         if (medicoSeleccionado.getPassword().equals(password)) {
             lblMensaje.setText("Bienvenido, Dr(a). " + medicoSeleccionado.getNombre());
-            ConsultorioMedico();
+            abrirConsultorioMedico();
         } else {
             lblMensaje.setText("Contraseña incorrecta.");
         }
     }
 
-    private void ConsultorioMedico() {
+    private void abrirConsultorioMedico() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/uq/ConsultorioMedico.fxml")); // Ajusta la ruta según tu estructura de carpetas
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/uq/ConsultorioMedico.fxml"));
             Parent root = loader.load();
-
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+            stage.setTitle("Consultorio Médico");
             stage.show();
-
 
             // Cierra la ventana actual de login
             Stage ventanaActual = (Stage) btnIniciarSecion.getScene().getWindow();
@@ -74,9 +72,4 @@ public class LoginMedicoController {
             e.printStackTrace();
         }
     }
-
-
-
-
 }
-

@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Text?>
 
 <StackPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.LoginController">
-<Pane prefHeight="600.0" prefWidth="770.0">
+<Pane prefHeight="600.0" prefWidth="770.0" style="-fx-background-color: white;">
     <children>
 
         <Button fx:id="btnPaciente" layoutX="484.0" layoutY="415.0" onAction="#ingresarComoPaciente" prefHeight="40.0" prefWidth="206.0" style="-fx-background-color: #263F73; -fx-padding: 10px; -fx-margin-top: 20px;" text="Paciente" textFill="WHITE">
@@ -27,7 +27,7 @@
             <font>
                <Font size="14.0" />
             </font></Button>
-        <Text layoutX="483.0" layoutY="129.0" style="-fx-font-size: 20px; -fx-padding: 10px;" text="¿Quién desea ingresar?">
+        <Text layoutX="446.0" layoutY="131.0" style="-fx-font-size: 20px; -fx-padding: 10px;" text="¿Quién desea ingresar?">
             <font>
                <Font name="Verdana Bold" size="12.0" />
             </font></Text>
