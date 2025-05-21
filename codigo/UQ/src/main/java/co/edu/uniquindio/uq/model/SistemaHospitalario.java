@@ -9,6 +9,7 @@ public class SistemaHospitalario {
     private ObservableList<Paciente> listaPacientes;
     private ObservableList<Cita> listaCitas;
     private ObservableList<Medico> listaMedicos;
+    private ObservableList<Administrador> listaAdministradores;
     private ObservableList<Sala> listaSalas;
 
     // Constructor privado para implementar el patrón Singleton
@@ -16,6 +17,7 @@ public class SistemaHospitalario {
         listaPacientes = FXCollections.observableArrayList();
         listaCitas = FXCollections.observableArrayList();
         listaMedicos = FXCollections.observableArrayList();
+        listaAdministradores = FXCollections.observableArrayList();
         listaSalas = FXCollections.observableArrayList();
     }
 
@@ -46,6 +48,9 @@ public class SistemaHospitalario {
         return listaMedicos;
     }
 
+    public ObservableList<Administrador> getListaAdministradores() {
+        return listaAdministradores;
+    }
 
 
     // actualizar los datos de un paciente
@@ -169,6 +174,55 @@ public class SistemaHospitalario {
         }
         return null;
     }
+
+
+    // Administradores
+
+
+    // Verificar si un Administrador ya está registrado (por cédula)
+    public boolean existeAdministrador(String cedula) {
+        for (Administrador administrador : listaAdministradores) {
+            if (administrador.getCedula().equals(cedula)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    // Registrar un nuevo Administrador
+    public boolean RegistrarAdministrador(String nombre, String cedula, String direccion, String telefono,  String password) {
+        if (existeAdministrador(cedula)) {
+            return false;
+        }
+        Administrador administrador = new Administrador(nombre, cedula, direccion, telefono, password);
+        agregarAdministrador(administrador);
+        return true;
+    }
+
+
+    // agregar un Administrador a la lista
+    public void agregarAdministrador(Administrador administrador) {
+        listaAdministradores.add(administrador);
+    }
+
+
+    // Obtener la lista de Administradores
+    public ObservableList<Administrador> obtenerAdministradores() {
+        return listaAdministradores;
+    }
+
+
+    // Buscar un Administrador por nombre
+    public Administrador buscarAdministradorPorNombre(String nombre) {
+        for (Administrador administrador : listaAdministradores) {
+            if (administrador.getNombre().equalsIgnoreCase(nombre)) {
+                return administrador;
+            }
+        }
+        return null;
+    }
+
 
 
     // registrar una cita
@@ -326,6 +380,15 @@ public class SistemaHospitalario {
     public boolean validarLoginMedico(String nombre, String password) {
         Medico medico = buscarMedicoPorNombre(nombre);
         if (medico != null && medico.getPassword().equals(password)) {
+            return true;
+        }
+        return false;
+    }
+
+
+    public boolean validarLoginAdministrador(String nombre, String password) {
+        Administrador administrador = buscarAdministradorPorNombre(nombre);
+        if (administrador != null && administrador.getPassword().equals(password)) {
             return true;
         }
         return false;

@@ -1,10 +1,6 @@
 package co.edu.uniquindio.uq;
 
-import co.edu.uniquindio.uq.model.Medico;
-import co.edu.uniquindio.uq.model.Paciente;
-import co.edu.uniquindio.uq.model.Sala;
-import co.edu.uniquindio.uq.model.EstadoSala;
-import co.edu.uniquindio.uq.model.SistemaHospitalario;
+import co.edu.uniquindio.uq.model.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -110,6 +106,17 @@ public class App extends Application {
 
         Medico m6 = new Medico("María Fernanda Ruiz", "206", "Avenida 7", "3106667788", "Cardiologia", "9:00 AM - 5:00 PM","1234");
         sistema.agregarMedico(m6);
+
+
+        Administrador a1 = new Administrador("Felipe López", "501", "Carrera 10", "3101112233", "1234");
+        sistema.agregarAdministrador(a1);
+
+        Administrador a2 = new Administrador("Lina Rodríguez", "502", "Calle 22", "3102223344", "1234");
+        sistema.agregarAdministrador(a2);
+
+        Administrador a3 = new Administrador("Leonardo Ríos", "503333", "Avenida 15", "3103334455","1234");
+        sistema.agregarAdministrador(a3);
+
 
         //Creacion Salas
         Sala s1 = new Sala("Sala de rayos X", "8:00 AM - 12:00 PM", EstadoSala.DISPONIBLE);

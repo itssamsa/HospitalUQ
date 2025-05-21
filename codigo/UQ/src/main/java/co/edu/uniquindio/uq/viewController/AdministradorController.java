@@ -26,6 +26,9 @@ public class AdministradorController {
     @FXML
     private Button btnAdministracionMedicosYPacientes;
 
+    @FXML
+    private Button btnRegistrarAdministrador;
+
 
     @FXML
     private Button btnDisponibilidadYAsignacion;
@@ -87,6 +90,8 @@ public class AdministradorController {
     }
 
 
+
+
     @FXML
     void onAdministracion(ActionEvent event) {
         mostrarAlerta("Administración de Médicos y Pacientes", "Aquí se administran médicos y pacientes.");
@@ -118,6 +123,20 @@ public class AdministradorController {
         } catch (Exception e) {
             e.printStackTrace();
             mostrarAlerta("Error", "No se pudo cargar la vista.");
+        }
+    }
+
+    @FXML
+    void RegistrarAdministrador(ActionEvent event) {
+        try {
+            // Cargar la vista reportes
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/RegistrarAdministrador.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo cargar la vista de consulta de historial.");
         }
     }
 

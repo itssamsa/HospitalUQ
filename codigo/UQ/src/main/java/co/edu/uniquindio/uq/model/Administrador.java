@@ -1,11 +1,28 @@
 package co.edu.uniquindio.uq.model;
 
 import co.edu.uniquindio.uq.controller.IAdministrador;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class Administrador extends Usuario implements IAdministrador {
 
-    public Administrador(String nombre, String cedula, String direccion, String telefono) {
+    private StringProperty password;
+
+    public Administrador(String nombre, String cedula, String direccion, String telefono, String password) {
         super(nombre, cedula, direccion, telefono);
+        this.password = new SimpleStringProperty(password);
+    }
+
+    public String getPassword() {
+        return password.get();
+    }
+
+    public void setPassword(String password) {
+        this.password.set(password);
+    }
+
+    public StringProperty passwordProperty() {
+        return password;
     }
 
     @Override
@@ -31,5 +48,10 @@ public class Administrador extends Usuario implements IAdministrador {
     @Override
     public void generarReporteOcupacion() {
         System.out.println("Generando reporte de ocupación hospitalaria...");
+    }
+
+    @Override
+    public String toString() {
+        return  " Admin: " + nombre;
     }
 }

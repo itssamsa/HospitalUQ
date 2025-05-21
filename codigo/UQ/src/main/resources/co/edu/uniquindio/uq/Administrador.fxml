@@ -8,11 +8,11 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="770.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.AdministradorController">
    <children>
-      <Button fx:id="btnReportes" layoutX="478.0" layoutY="371.0" mnemonicParsing="false" onAction="#onReportes" prefHeight="23.0" prefWidth="224.0" style="-fx-background-color: #263F73;" text="Generar Reportes" textFill="WHITE">
+      <Button fx:id="btnReportes" layoutX="478.0" layoutY="370.0" mnemonicParsing="false" onAction="#onReportes" prefHeight="23.0" prefWidth="224.0" style="-fx-background-color: #263F73;" text="Generar Reportes" textFill="WHITE">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font></Button>
-      <Button fx:id="btnControlSalasYHorarios" layoutX="478.0" layoutY="459.0" mnemonicParsing="false" onAction="#onControlSalasYHorarios" prefHeight="23.0" prefWidth="224.0" style="-fx-background-color: #263F73;" text="Control de Salas y Horarios" textFill="WHITE">
+      <Button fx:id="btnControlSalasYHorarios" layoutX="478.0" layoutY="447.0" mnemonicParsing="false" onAction="#onControlSalasYHorarios" prefHeight="23.0" prefWidth="224.0" style="-fx-background-color: #263F73;" text="Control de Salas y Horarios" textFill="WHITE">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font></Button>
@@ -22,11 +22,15 @@
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font></Button>
-      <Button fx:id="btnDisponibilidadYAsignacion" layoutX="478.0" layoutY="277.0" mnemonicParsing="false" onAction="#onDisponibilidadYAsiganacion" prefHeight="23.0" prefWidth="224.0" style="-fx-background-color: #263F73;" text="Disponibilidad y Asignación" textFill="WHITE">
+      <Button fx:id="btnDisponibilidadYAsignacion" layoutX="478.0" layoutY="289.0" mnemonicParsing="false" onAction="#onDisponibilidadYAsiganacion" prefHeight="23.0" prefWidth="224.0" style="-fx-background-color: #263F73;" text="Disponibilidad y Asignación" textFill="WHITE">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font></Button>
-      <Button fx:id="btnAdmMedico" layoutX="478.0" layoutY="182.0" mnemonicParsing="false" onAction="#administrarAMedico" prefHeight="23.0" prefWidth="224.0" style="-fx-background-color: #263F73;" text="Administracion de Medicos" textFill="WHITE">
+      <Button fx:id="btnAdmMedico" layoutX="473.0" layoutY="159.0" mnemonicParsing="false" onAction="#administrarAMedico" prefHeight="23.0" prefWidth="224.0" style="-fx-background-color: #263F73;" text="Administracion de Medicos" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnRegistrarAdministrador" layoutX="473.0" layoutY="85.0" mnemonicParsing="false" onAction="#RegistrarAdministrador" prefHeight="23.0" prefWidth="224.0" style="-fx-background-color: #263F73;" text="RegistrarAdministrador" textFill="WHITE">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font></Button>
@@ -56,7 +60,7 @@
             <Circle fill="WHITE" layoutX="53.0" layoutY="541.0" radius="28.0" stroke="WHITE" strokeType="INSIDE" />
          </children>
       </AnchorPane>
-      <Button fx:id="btnAdmPaciente" layoutX="478.0" layoutY="94.0" mnemonicParsing="false" onAction="#administrarAPaciente" prefHeight="23.0" prefWidth="224.0" style="-fx-background-color: #263F73;" text="Administracion de pacientes" textFill="WHITE">
+      <Button fx:id="btnAdmPaciente" layoutX="478.0" layoutY="218.0" mnemonicParsing="false" onAction="#administrarAPaciente" prefHeight="23.0" prefWidth="224.0" style="-fx-background-color: #263F73;" text="Administracion de pacientes" textFill="WHITE">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font>

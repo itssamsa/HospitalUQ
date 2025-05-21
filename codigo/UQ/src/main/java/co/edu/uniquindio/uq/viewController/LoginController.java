@@ -13,7 +13,7 @@ public class LoginController {
 
     @FXML
     private void ingresarComoAdministrador(ActionEvent event) {
-        App.cambiarEscena("/co/edu/uniquindio/uq/Administrador.fxml", "");
+        App.cambiarEscena("/co/edu/uniquindio/uq/LoginAdministrador.fxml", "");
     }
 
 
