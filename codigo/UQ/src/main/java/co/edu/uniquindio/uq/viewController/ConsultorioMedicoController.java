@@ -36,7 +36,15 @@ public class ConsultorioMedicoController {
     // Acción para volver al login
     @FXML
     private void onVolverAlLogin(ActionEvent event) {
-        App.cambiarEscena("/co/edu/uniquindio/uq/Login.fxml", "Login");
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/Login.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo cargar la vista de selección.");
+        }
     }
 
     @FXML
