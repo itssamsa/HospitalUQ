@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.RegistrarAdministradorController">
+    <children>
+        <Label layoutX="108.0" layoutY="136.0" text="Nombre" />
+        <Label layoutX="112.0" layoutY="205.0" text="Cédula" />
+        <Label layoutX="113.0" layoutY="259.0" text="Dirección" />
+        <Label layoutX="115.0" layoutY="309.0" text="Teléfono" />
+        <Label layoutX="113.0" layoutY="462.0" text="Password" />
+
+
+
+        <TextField fx:id="txtNombre" layoutX="205.0" layoutY="132.0" promptText="Nombre" />
+        <TextField fx:id="txtCedula" layoutX="205.0" layoutY="201.0" promptText="Cédula" />
+        <TextField fx:id="txtDireccion" layoutX="205.0" layoutY="255.0" promptText="Dirección" />
+        <TextField fx:id="txtTelefono" layoutX="205.0" layoutY="305.0" promptText="Teléfono" />
+        <TextField fx:id="txtPassword" layoutX="205.0" layoutY="458.0" promptText="Password" />
+
+
+
+        <Button fx:id="btnGuardar" layoutX="393.0" layoutY="535.0" mnemonicParsing="false" onAction="#onGuardar" text="Guardar" />
+        <Button fx:id="btnVolver" layoutX="671.0" layoutY="535.0" mnemonicParsing="false" onAction="#onVolver" text="Volver" />
+
+
+    </children>
+</AnchorPane>

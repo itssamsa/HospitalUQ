@@ -49,5 +49,12 @@ public abstract class Usuario {
         this.telefono = telefono;
     }
 
-
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "nombre='" + nombre + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", telefono='" + telefono + '\'' +
+                '}';
+    }
 }
