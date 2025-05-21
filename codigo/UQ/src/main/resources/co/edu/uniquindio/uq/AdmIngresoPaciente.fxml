@@ -1,39 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.AdmIngresoPacienteController">
+<AnchorPane prefHeight="600.0" prefWidth="770.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.AdmIngresoPacienteController">
     <children>
-        <Text layoutX="279.0" layoutY="46.0" style="-fx-font-size: 20;" text="Gestión de Pacientes" wrappingWidth="199.0">
-            <font>
-                <Font size="16.0" />
-            </font>
-        </Text>
-        <TextField fx:id="txtCedula" layoutX="45.0" layoutY="288.0" prefHeight="25.0" prefWidth="129.0" promptText="Cédula" />
-        <TextField fx:id="txtNombre" layoutX="45.0" layoutY="250.0" prefHeight="25.0" prefWidth="129.0" promptText="Nombre" />
-        <TextField fx:id="txtDireccion" layoutX="45.0" layoutY="328.0" prefHeight="25.0" prefWidth="129.0" promptText="Dirección" />
-        <TextField fx:id="txtTelefono" layoutX="45.0" layoutY="368.0" prefHeight="25.0" prefWidth="129.0" promptText="Teléfono" />
-        <Button fx:id="btnActualizar" layoutX="70.0" layoutY="208.0" onAction="#onActualizarPaciente" text="Actualizar" />
-        <Button fx:id="btnEliminar" layoutX="75.0" layoutY="433.0" onAction="#onEliminarPaciente" text="Eliminar" />
-        <TableView fx:id="tblPacientes" layoutX="244.0" layoutY="115.0" prefHeight="450.0" prefWidth="499.0">
-            <columns>
-                <TableColumn fx:id="colNombre" prefWidth="127.0" text="Nombre" />
-                <TableColumn fx:id="colCedula" prefWidth="129.0" text="Cédula" />
-                <TableColumn fx:id="colDireccion" minWidth="0.0" prefWidth="120.0" text="Dirección" />
-                <TableColumn fx:id="colTelefono" prefWidth="122.0" text="Teléfono" />
-            </columns>
-        </TableView>
-        <Button fx:id="btnVolver" layoutX="20.0" layoutY="553.0" mnemonicParsing="false" onAction="#onVolver" text="Volver" />
-        <Button layoutX="72.0" layoutY="158.0" mnemonicParsing="false" onAction="#handleRegistrarPaciente" text="Registrar" />
+        <TextField fx:id="txtCedula" layoutX="53.0" layoutY="260.0" prefHeight="25.0" prefWidth="129.0" promptText="Cédula" />
+        <TextField fx:id="txtNombre" layoutX="54.0" layoutY="218.0" prefHeight="25.0" prefWidth="129.0" promptText="Nombre" />
+        <TextField fx:id="txtDireccion" layoutX="54.0" layoutY="307.0" prefHeight="25.0" prefWidth="129.0" promptText="Dirección" />
+        <TextField fx:id="txtTelefono" layoutX="53.0" layoutY="350.0" prefHeight="25.0" prefWidth="129.0" promptText="Teléfono" />
+        <Button fx:id="btnActualizar" layoutX="66.0" layoutY="170.0" onAction="#onActualizarPaciente" prefHeight="23.0" prefWidth="103.0" style="-fx-background-color: #263F73;" text="Actualizar" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font></Button>
+        <Button fx:id="btnEliminar" layoutX="66.0" layoutY="464.0" onAction="#onEliminarPaciente" prefHeight="23.0" prefWidth="103.0" style="-fx-background-color: #263F73;" text="Eliminar" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font></Button>
+        <Button fx:id="btnVolver" layoutX="688.0" layoutY="552.0" mnemonicParsing="false" onAction="#onVolver" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: #263F73;" text="Volver" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font></Button>
+        <Button layoutX="67.0" layoutY="413.0" mnemonicParsing="false" onAction="#handleRegistrarPaciente" prefHeight="23.0" prefWidth="103.0" style="-fx-background-color: #263F73;" text="Registrar" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font></Button>
+      <AnchorPane layoutX="66.0" layoutY="24.0" prefHeight="96.0" prefWidth="119.0" style="-fx-background-color: white;">
+         <children>
+            <Circle fill="#0b6dc9" layoutX="59.0" layoutY="82.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#0b6dc9" layoutX="59.0" layoutY="30.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
+            <AnchorPane layoutY="85.0" prefHeight="32.0" prefWidth="119.0" style="-fx-background-color: white;" />
+         </children>
+      </AnchorPane>
+      <TableView fx:id="tblPacientes" layoutX="249.0" layoutY="39.0" prefHeight="492.0" prefWidth="510.0">
+         <columns>
+            <TableColumn fx:id="colNombre" prefWidth="141.0" text="Nombre" />
+            <TableColumn fx:id="colCedula" prefWidth="128.0" text="Cédula" />
+            <TableColumn fx:id="colDireccion" prefWidth="130.0" text="Dirección" />
+            <TableColumn fx:id="colTelefono" prefWidth="126.0" text="Teléfono" />
+         </columns>
+      </TableView>
     </children>
 </AnchorPane>
-
-

@@ -17,7 +17,7 @@
             <TextField fx:id="txtCedula" layoutX="220.0" layoutY="246.0" promptText="Cédula" />
             <TextField fx:id="txtDireccion" layoutX="220.0" layoutY="317.0" promptText="Dirección" />
             <TextField fx:id="txtTelefono" layoutX="220.0" layoutY="380.0" prefWidth="149.0" promptText="Teléfono" />
-            <Button layoutX="358.0" layoutY="493.0" onAction="#onGuardar" style="-fx-background-color: #263F73;" text="Guardar" textFill="WHITE">
+            <Button layoutX="385.0" layoutY="484.0" onAction="#onGuardar" style="-fx-background-color: #263F73;" text="Guardar" textFill="WHITE">
             <font>
                <Font name="Verdana Bold" size="12.0" />
             </font></Button>
