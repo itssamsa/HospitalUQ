@@ -5,26 +5,73 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="770.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="co.edu.uniquindio.uq.viewController.DisponibilidadYAsignacionController">
+<AnchorPane prefHeight="600.0" prefWidth="770.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.DisponibilidadYAsignacionController">
     <children>
         <!-- Desplegable de médicos -->
-        <Label layoutX="108.0" layoutY="80.0" text="Seleccione el Médico:" />
-        <ComboBox fx:id="comboMedicos" layoutX="108.0" layoutY="122.0" prefWidth="200" />
+        <Label layoutX="176.0" layoutY="274.0" text="Seleccione el Médico:">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font></Label>
+        <ComboBox fx:id="comboMedicos" layoutX="388.0" layoutY="428.0" prefWidth="200" style="-fx-background-color: c6e4ff;" />
 
         <!-- Desplegable de pacientes -->
-        <Label layoutX="119.0" layoutY="334.0" text="Seleccione el Paciente:" />
-        <ComboBox fx:id="comboPacientes" layoutX="270.0" layoutY="330.0" prefWidth="200" />
+        <Label layoutX="183.0" layoutY="433.0" text="Seleccione el Paciente:">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font></Label>
+        <ComboBox fx:id="comboPacientes" layoutX="388.0" layoutY="269.0" prefWidth="200" style="-fx-background-color: c6e4ff;" />
 
         <!-- Campo para ingresar el nuevo horario del médico -->
-        <Label layoutX="108.0" layoutY="206.0" text="Nuevo Horario:" />
-        <TextField fx:id="campoHorario" layoutX="108.0" layoutY="248.0" prefWidth="200" />
+        <Label layoutX="183.0" layoutY="355.0" text="Nuevo Horario:">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font></Label>
+        <TextField fx:id="campoHorario" layoutX="376.0" layoutY="350.0" prefWidth="200" />
 
         <!-- Botón para actualizar el horario -->
-        <Button layoutX="351.0" layoutY="248.0" onAction="#actualizarHorario" text="Actualizar Horario" />
+        <Button layoutX="614.0" layoutY="351.0" onAction="#actualizarHorario" style="-fx-background-color: #263F73;" text="Actualizar Horario" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font></Button>
 
         <!-- Botón para asignar la cita -->
-        <Button layoutX="311.0" layoutY="431.0" onAction="#asignarCita" text="Asignar Cita" />
-      <Button fx:id="btnVolver" layoutX="670.0" layoutY="527.0" mnemonicParsing="false" onAction="#onVolver" text="Volver" />
+        <Button layoutX="390.0" layoutY="504.0" onAction="#asignarCita" style="-fx-background-color: #263F73;" text="Asignar Cita" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnVolver" layoutX="670.0" layoutY="527.0" mnemonicParsing="false" onAction="#onVolver" style="-fx-background-color: #263F73;" text="Volver" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font></Button>
+      <AnchorPane layoutX="-3.0" layoutY="-6.0" prefHeight="102.0" prefWidth="801.0" style="-fx-background-color: #263F73;">
+         <children>
+            <Label layoutX="270.0" layoutY="38.0" style="-fx-font-size: 18px;" text="DISPONIBILIDAD Y ASIGNACION" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="20.0" />
+               </font>
+            </Label>
+            <Circle fill="WHITE" layoutX="38.0" layoutY="44.0" radius="24.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="#263f73" layoutX="38.0" layoutY="44.0" radius="17.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="104.0" layoutY="51.0" radius="17.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="171.0" layoutY="56.0" radius="14.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="#263f73" layoutX="104.0" layoutY="51.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#263f73" layoutX="171.0" layoutY="56.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="738.0" layoutY="48.0" radius="24.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="#263f73" layoutX="738.0" layoutY="48.0" radius="17.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="669.0" layoutY="51.0" radius="17.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="607.0" layoutY="56.0" radius="14.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="#263f73" layoutX="607.0" layoutY="56.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#263f73" layoutX="669.0" layoutY="51.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+         </children>
+      </AnchorPane>
+      <Text layoutX="95.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Por favor, seleccione un médico, asigne el horario deseado e indique el paciente al que se le programará la cita. Una vez completada la información, haga clic en 'Asignar Cita' para confirmar la asignación." textAlignment="CENTER" wrappingWidth="608.75390625">
+         <font>
+            <Font name="Verdana Bold" size="13.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>
