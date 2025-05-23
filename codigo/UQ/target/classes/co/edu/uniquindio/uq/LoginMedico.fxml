@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="770.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.LoginMedicoController">
 
-   <Button fx:id="btnVolver" ellipsisString="" layoutX="369.0" layoutY="533.0" onAction="#onVolverAlLogin" prefHeight="27.0" prefWidth="77.0" style="-fx-background-color: #263F73;" text="Volver " textFill="WHITE">
+   <Button fx:id="btnVolver" ellipsisString="" layoutX="671.0" layoutY="542.0" onAction="#onVolverAlLogin" prefHeight="27.0" prefWidth="77.0" style="-fx-background-color: #263F73;" text="Volver " textFill="WHITE">
       <font>
          <Font name="Verdana Bold" size="12.0" />
       </font></Button>
@@ -55,9 +55,6 @@
    <Circle fill="#263f73" layoutX="28.0" layoutY="19.0" radius="11.0" stroke="TRANSPARENT" />
    <Circle fill="#263f73" layoutX="23.0" layoutY="38.0" radius="6.0" stroke="TRANSPARENT" />
    <Circle fill="#263f73" layoutX="51.0" layoutY="32.0" radius="9.0" stroke="TRANSPARENT" />
-   <Circle fill="#263f73" layoutX="729.0" layoutY="570.0" radius="16.0" stroke="TRANSPARENT" />
-   <Circle fill="#263f73" layoutX="736.0" layoutY="537.0" radius="9.0" stroke="TRANSPARENT" />
-   <Circle fill="#263f73" layoutX="702.0" layoutY="546.0" radius="11.0" stroke="TRANSPARENT" />
    <AnchorPane layoutX="352.0" layoutY="106.0" prefHeight="96.0" prefWidth="119.0" style="-fx-background-color: white;">
       <children>
          <Circle fill="#0b6dc9" layoutX="59.0" layoutY="82.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />

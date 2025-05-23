@@ -363,19 +363,26 @@ public class SistemaHospitalario {
         listaSalas.add(nuevaSala);
     }
 
+    //REPORTES DE LAS CITAS
 
-    // Generación de reportes
-    public void generarReporteCitas() {
-        for (Cita cita : listaCitas) {
-            System.out.println("Cita: " + cita.getCedulaPaciente() + " con el médico: " + cita.getCedulaMedico());
+    public ObservableList<String> generarReporteCitas() {
+        ObservableList<String> reporte = FXCollections.observableArrayList();
+
+        for (Paciente paciente : listaPacientes) {  // Asumiendo que tienes listaPacientes
+            String historial = paciente.getHistorialMedico();
+            if (historial != null && !historial.isEmpty()) {
+                String[] lineas = historial.split("\n");
+                for (String linea : lineas) {
+                    if (linea.startsWith("Cita: ")) {
+                        reporte.add("Paciente: " + paciente.getNombre() + "\n" + linea + "\n--------------------------");
+                    }
+                }
+            }
         }
+        return reporte;
     }
 
-    public void generarReporteOcupacion() {
-        System.out.println("Número de médicos disponibles: " + listaMedicos.size());
-        System.out.println("Número de pacientes registrados: " + listaPacientes.size());
-        System.out.println("Número de citas activas: " + listaCitas.size());
-    }
+    //-------------------------
 
     public boolean validarLoginMedico(String nombre, String password) {
         Medico medico = buscarMedicoPorNombre(nombre);
