@@ -1,3 +1,4 @@
+
 package co.edu.uniquindio.uq.viewController;
 
 import co.edu.uniquindio.uq.model.Cita;
@@ -15,9 +16,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.util.List;
+import java.util.Map;
+
 public class SolicitudCitaController {
 
-    private SistemaHospitalario sistemaHospitalario = SistemaHospitalario.getInstance();
+    private final SistemaHospitalario sistemaHospitalario = SistemaHospitalario.getInstance();
 
     @FXML
     private TextField txtCedula;
@@ -29,7 +33,10 @@ public class SolicitudCitaController {
     private ComboBox<String> comboMedico;
 
     @FXML
-    private ComboBox<String> comboHorario;
+    private ComboBox<String> comboDia;
+
+    @FXML
+    private ComboBox<String> comboHora;
 
     @FXML
     void onBuscarPaciente(ActionEvent event) {
@@ -47,28 +54,31 @@ public class SolicitudCitaController {
     void onGuardarCita(ActionEvent event) {
         String cedula = txtCedula.getText();
         String especialidad = comboEspecialidad.getValue();
-        String medico = comboMedico.getValue();
-        String horario = comboHorario.getValue();
+        String medicoNombre = comboMedico.getValue();
+        String dia = comboDia.getValue();
+        String hora = comboHora.getValue();
 
-        if (cedula.isEmpty() || especialidad == null || medico == null || horario == null || horario.isEmpty()) {
+        if (cedula.isEmpty() || especialidad == null || medicoNombre == null || dia == null || hora == null) {
             mostrarAlerta("Error", "Todos los campos son obligatorios.");
             return;
         }
 
         Paciente paciente = sistemaHospitalario.buscarPaciente(cedula);
         if (paciente != null) {
-            Medico medicoSeleccionado = sistemaHospitalario.buscarMedicoPorNombre(medico);
-            if (medicoSeleccionado != null) {
-                // Crear la cita con el horario correctamente asignado
-                Cita nuevaCita = new Cita(especialidad, medico, horario, cedula);
+            Medico medico = sistemaHospitalario.buscarMedicoPorNombre(medicoNombre);
+            if (medico != null) {
+                // Registrar la cita
+                Cita nuevaCita = new Cita(especialidad, medicoNombre, dia + " " + hora, cedula);
 
-                // Verificar si la cita ya está registrada en el historial
-                String citaInfo = "Cita: Especialidad: " + especialidad + ", Médico: " + medico + ", Horario: " + horario;
+                // Verificación en historial
+                String citaInfo = "Cita: Especialidad: " + especialidad + ", Médico: " + medicoNombre + ", Día y hora: " + dia + " " + hora;
                 String historial = paciente.getHistorialMedico();
 
-                if (!historial.contains(citaInfo)) {  // Verificar duplicidad
+                if (!historial.contains(citaInfo)) {
                     paciente.setHistorialMedico(historial + "\n" + citaInfo);
-                    mostrarAlerta("Éxito", "Cita guardada correctamente.");
+                    // Eliminar horario de la agenda del médico
+                    medico.getAgenda().get(dia).remove(hora);
+                    mostrarAlerta("Éxito", "Cita registrada correctamente.");
                     limpiarCampos();
                 } else {
                     mostrarAlerta("Advertencia", "La cita ya está registrada.");
@@ -77,43 +87,28 @@ public class SolicitudCitaController {
                 mostrarAlerta("Error", "Médico no encontrado.");
             }
         } else {
-            mostrarAlerta("Error", "El paciente no está registrado.");
+            mostrarAlerta("Error", "Paciente no encontrado.");
         }
     }
 
     private void limpiarCampos() {
         txtCedula.clear();
         comboEspecialidad.setValue(null);
-        comboMedico.setValue(null);
-        comboHorario.setValue(null);
-    }
-
-    @FXML
-    void onSeleccionarMedico(ActionEvent event) {
-        String nombreMedico = comboMedico.getValue();
-        if (nombreMedico != null) {
-            Medico medicoSeleccionado = sistemaHospitalario.buscarMedicoPorNombre(nombreMedico);
-            if (medicoSeleccionado != null) {
-                String horario = String.valueOf(medicoSeleccionado.getHorario());
-                if (horario != null && !horario.isEmpty()) {
-                    comboHorario.getItems().clear();
-                    comboHorario.getItems().add(horario);
-                    comboHorario.setValue(horario);
-                    comboHorario.setDisable(false);
-                } else {
-                    mostrarAlerta("Error", "El médico seleccionado no tiene un horario disponible.");
-                }
-            } else {
-                mostrarAlerta("Error", "No se encontró el médico seleccionado.");
-            }
-        }
+        comboMedico.getItems().clear();
+        comboDia.getItems().clear();
+        comboHora.getItems().clear();
+        comboMedico.setDisable(true);
+        comboDia.setDisable(true);
+        comboHora.setDisable(true);
     }
 
     @FXML
     public void initialize() {
         comboEspecialidad.getItems().addAll("Medicina General", "Pediatria", "Cardiologia");
+
         comboMedico.setDisable(true);
-        comboHorario.setDisable(true);
+        comboDia.setDisable(true);
+        comboHora.setDisable(true);
 
         comboEspecialidad.setOnAction(e -> {
             comboMedico.getItems().clear();
@@ -126,7 +121,34 @@ public class SolicitudCitaController {
             comboMedico.setDisable(false);
         });
 
-        comboMedico.setOnAction(this::onSeleccionarMedico);
+        comboMedico.setOnAction(e -> {
+            comboDia.getItems().clear();
+            comboHora.getItems().clear();
+            String nombreMedico = comboMedico.getValue();
+            Medico medico = sistemaHospitalario.buscarMedicoPorNombre(nombreMedico);
+            if (medico != null) {
+                Map<String, List<String>> agenda = medico.getAgenda();
+                comboDia.getItems().addAll(agenda.keySet());
+                comboDia.setDisable(false);
+                comboHora.setDisable(true);
+            }
+        });
+
+        comboDia.setOnAction(e -> {
+            comboHora.getItems().clear();
+            String nombreMedico = comboMedico.getValue();
+            String dia = comboDia.getValue();
+            Medico medico = sistemaHospitalario.buscarMedicoPorNombre(nombreMedico);
+            if (medico != null && dia != null) {
+                List<String> horas = medico.getAgenda().get(dia);
+                if (horas != null && !horas.isEmpty()) {
+                    comboHora.getItems().addAll(horas);
+                    comboHora.setDisable(false);
+                } else {
+                    mostrarAlerta("Advertencia", "No hay horarios disponibles para ese día.");
+                }
+            }
+        });
     }
 
     @FXML

@@ -132,11 +132,11 @@ public class SistemaHospitalario {
 
 
     // Registrar un nuevo médico
-    public boolean registrarMedico(String nombre, String cedula, String direccion, String telefono, String especialidad, String horario, String password) {
+    public boolean registrarMedico(String nombre, String cedula, String direccion, String telefono, String especialidad, String password) {
         if (existeMedico(cedula)) {
             return false;
         }
-        Medico medico = new Medico(nombre, cedula, direccion, telefono, especialidad, horario,password);
+        Medico medico = new Medico(nombre, cedula, direccion, telefono, especialidad,password);
         agregarMedico(medico);
         return true;
     }

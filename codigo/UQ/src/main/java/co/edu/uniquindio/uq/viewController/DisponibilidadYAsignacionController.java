@@ -88,7 +88,7 @@ public class DisponibilidadYAsignacionController {
             return;
         }
 
-        medico.setHorario(nuevoHorario);
+        medico.setAgendaTurnos(nuevoHorario);
         mostrarAlerta("Horario Actualizado", "El horario del médico ha sido actualizado exitosamente.");
     }
 

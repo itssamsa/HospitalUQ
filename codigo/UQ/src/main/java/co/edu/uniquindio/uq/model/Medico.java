@@ -3,17 +3,24 @@ package co.edu.uniquindio.uq.model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Medico extends Usuario {
 
     private StringProperty especialidad;
-    private StringProperty horario;
-    private StringProperty password; // Nuevo atributo
+    private StringProperty password;
 
-    public Medico(String nombre, String cedula, String direccion, String telefono, String especialidad, String horario, String password) {
+    private List<LocalTime> agendaTurnos; // Nueva agenda
+
+    public Medico(String nombre, String cedula, String direccion, String telefono, String especialidad,  String password) {
         super(nombre, cedula, direccion, telefono);
         this.especialidad = new SimpleStringProperty(especialidad);
-        this.horario = new SimpleStringProperty(horario);
-        this.password = new SimpleStringProperty(password); // Inicialización
+        this.password = new SimpleStringProperty(password);
+        this.agendaTurnos = generarAgenda(); // Genera automáticamente la agenda
     }
 
     public StringProperty especialidadProperty() {
@@ -28,19 +35,8 @@ public class Medico extends Usuario {
         this.especialidad.set(especialidad);
     }
 
-    public StringProperty horarioProperty() {
-        return horario;
-    }
 
-    public String getHorario() {
-        return horario.get();
-    }
 
-    public void setHorario(String horario) {
-        this.horario.set(horario);
-    }
-
-    // Getters y Setters para password
     public String getPassword() {
         return password.get();
     }
@@ -53,8 +49,44 @@ public class Medico extends Usuario {
         return password;
     }
 
+    public List<LocalTime> getAgendaTurnos() {
+        return agendaTurnos;
+    }
+
+    // Generar 40 turnos de 20 minutos entre 8:00 y 16:00
+    private List<LocalTime> generarAgenda() {
+        List<LocalTime> turnos = new ArrayList<>();
+        LocalTime inicio = LocalTime.of(8, 0);
+        for (int i = 0; i < 40; i++) {
+            turnos.add(inicio.plusMinutes(i * 20));
+        }
+        return turnos;
+    }
+
     @Override
     public String toString() {
         return nombre + " - " + especialidad.get();
     }
+
+
+
+    public void setAgendaTurnos(String nuevoHorario) {
+    }
+
+    public void agendarTurno(LocalTime turno) {
+        agendaTurnos.add(turno);
+    }
+
+    private Map<String, List<String>> agenda = new HashMap<>();
+
+    public Map<String, List<String>> getAgenda() {
+        return agenda;
+    }
+
+    public void setAgenda(Map<String, List<String>> agenda) {
+        this.agenda = agenda;
+    }
+
+
+
 }
