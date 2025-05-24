@@ -77,15 +77,16 @@ public class Medico extends Usuario {
         agendaTurnos.add(turno);
     }
 
-    private Map<String, List<String>> agenda = new HashMap<>();
+    private Agenda agenda;
 
-    public Map<String, List<String>> getAgenda() {
+    public void setAgenda(Agenda agenda) {
+        this.agenda = agenda;
+    }
+
+    public Agenda getAgenda() {
         return agenda;
     }
 
-    public void setAgenda(Map<String, List<String>> agenda) {
-        this.agenda = agenda;
-    }
 
 
 

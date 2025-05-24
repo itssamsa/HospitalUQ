@@ -82,14 +82,6 @@ public class RegistroAdmMedicosController implements IRegistroAdmMedicosControll
 
     @FXML
     private void onGuardar(ActionEvent event) {
-
-        // Generar Agenda personalizada
-        Agenda agenda = new Agenda(diasSeleccionados, turnosPorDia);
-        System.out.println("Agenda generada:\n" + agenda);
-
-// Si usas la clase Medico, puedes agregar un nuevo atributo tipo Agenda o adaptarlo
-
-        // Implementar lógica para guardar la información del médico
         String nombre = txtNombre.getText();
         String cedula = txtCedula.getText();
         String direccion = txtDireccion.getText();
@@ -97,30 +89,59 @@ public class RegistroAdmMedicosController implements IRegistroAdmMedicosControll
         String especialidad = txtEspecialidad.getText();
         String password = txtPassword.getText();
 
-
-        //String turnos =
-
-
-
-        if (nombre.isEmpty() || cedula.isEmpty() || direccion.isEmpty() || telefono.isEmpty() || especialidad.isEmpty() || password.isEmpty()) {
+        if (nombre.isEmpty() || cedula.isEmpty() || direccion.isEmpty() ||
+                telefono.isEmpty() || especialidad.isEmpty() || password.isEmpty()) {
             mostrarAlerta("Error", "Todos los campos son obligatorios.");
             return;
         }
 
+        diasSeleccionados.clear();
+        turnosPorDia.clear();
 
+        agregarDiaYTurnos("Lunes", chkLunes, chkLunesTurno1, chkLunesTurno2, chkLunesTurno3);
+        agregarDiaYTurnos("Martes", chkMartes, chkMartesTurno1, chkMartesTurno2, chkMartesTurno3);
+        agregarDiaYTurnos("Miércoles", chkMiercoles, chkMiercolesTurno1, chkMiercolesTurno2, chkMiercolesTurno3);
+        agregarDiaYTurnos("Jueves", chkJueves, chkJuevesTurno1, chkJuevesTurno2, chkJuevesTurno3);
+        agregarDiaYTurnos("Viernes", chkViernes, chkViernesTurno1, chkViernesTurno2, chkViernesTurno3);
+        agregarDiaYTurnos("Sábado", chkSabado, chkSabadoTurno1, chkSabadoTurno2, chkSabadoTurno3);
+        agregarDiaYTurnos("Domingo", chkDomingo, chkDomingoTurno1, chkDomingoTurno2, chkDomingoTurno3);
 
+        try {
+            Agenda agenda = new Agenda(diasSeleccionados, turnosPorDia);
+            System.out.println("Agenda generada:\n" + agenda);
 
-        // Registrar el Administrador en el sistema hospitalario
-        boolean registrado = sistemaHospitalario.registrarMedico(nombre, cedula, direccion, telefono,especialidad,password);
+            boolean registrado = sistemaHospitalario.registrarMedico(nombre, cedula, direccion, telefono, especialidad, password, agenda);
 
-
-        if (registrado) {
-            mostrarAlerta("Éxito", "Medico registrado correctamente.");
-            limpiarCampos();
-        } else {
-            mostrarAlerta("Error", "No se pudo registrar el Administrador.");
+            if (registrado) {
+                mostrarAlerta("Éxito", "Médico registrado correctamente.");
+                limpiarCampos();
+            } else {
+                mostrarAlerta("Error", "No se pudo registrar el médico.");
+            }
+        } catch (Exception e) {
+            mostrarAlerta("Error", "No se pudo crear la agenda: " + e.getMessage());
+            e.printStackTrace();
         }
     }
+
+    private void agregarDiaYTurnos(String dia, CheckBox chkDia, CheckBox turno1, CheckBox turno2, CheckBox turno3) {
+        if (chkDia.isSelected()) {
+            diasSeleccionados.add(dia);
+            List<String> turnos = new ArrayList<>();
+
+            if (turno1.isSelected()) turnos.add("06:00-14:00");
+            if (turno2.isSelected()) turnos.add("14:00-22:00");
+            if (turno3.isSelected()) turnos.add("22:00-06:00");
+
+            if (!turnos.isEmpty()) {
+                // Guardar los turnos separados por coma (o como lo espere tu clase Agenda)
+                turnosPorDia.put(dia, String.join(",", turnos));
+            }
+        }
+    }
+
+
+
 
     @FXML
     private void onVolver(ActionEvent event) {

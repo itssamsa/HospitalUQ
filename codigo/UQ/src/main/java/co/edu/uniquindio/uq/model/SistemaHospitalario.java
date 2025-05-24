@@ -3,6 +3,9 @@ package co.edu.uniquindio.uq.model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.List;
+import java.util.Map;
+
 public class SistemaHospitalario {
 
     private static SistemaHospitalario instancia;
@@ -131,15 +134,25 @@ public class SistemaHospitalario {
     }
 
 
+
+
     // Registrar un nuevo médico
-    public boolean registrarMedico(String nombre, String cedula, String direccion, String telefono, String especialidad, String password) {
+
+
+    public boolean registrarMedico(String nombre, String cedula, String direccion, String telefono, String especialidad, String password, Agenda agenda)  {
         if (existeMedico(cedula)) {
             return false;
         }
-        Medico medico = new Medico(nombre, cedula, direccion, telefono, especialidad,password);
-        agregarMedico(medico);
+
+        Medico medico = new Medico(nombre, cedula, direccion, telefono, especialidad, password);
+        medico.setAgenda(agenda); // ✅ Asignación directa de la agenda
+
+        // Aquí deberías guardar el médico en la lista de médicos del sistema
+        listaMedicos.add(medico); // O lo que uses para almacenar
+
         return true;
     }
+
 
 
     // Buscar un médico por cédula

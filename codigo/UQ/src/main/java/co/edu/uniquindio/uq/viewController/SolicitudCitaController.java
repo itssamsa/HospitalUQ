@@ -67,17 +67,28 @@ public class SolicitudCitaController {
         if (paciente != null) {
             Medico medico = sistemaHospitalario.buscarMedicoPorNombre(medicoNombre);
             if (medico != null) {
-                // Registrar la cita
-                Cita nuevaCita = new Cita(especialidad, medicoNombre, dia + " " + hora, cedula);
+                if (!medico.getEspecialidad().equals(especialidad)) {
+                    mostrarAlerta("Error", "El médico no pertenece a la especialidad seleccionada.");
+                    return;
+                }
 
-                // Verificación en historial
+                List<String> horarios = medico.getAgenda().get(dia);
+                if (horarios == null || !horarios.contains(hora)) {
+                    mostrarAlerta("Advertencia", "El horario ya no está disponible.");
+                    return;
+                }
+
                 String citaInfo = "Cita: Especialidad: " + especialidad + ", Médico: " + medicoNombre + ", Día y hora: " + dia + " " + hora;
                 String historial = paciente.getHistorialMedico();
+                if (historial == null) {
+                    historial = "";
+                }
 
                 if (!historial.contains(citaInfo)) {
+                    Cita nuevaCita = new Cita(especialidad, medicoNombre, dia + " " + hora, cedula);
                     paciente.setHistorialMedico(historial + "\n" + citaInfo);
-                    // Eliminar horario de la agenda del médico
-                    medico.getAgenda().get(dia).remove(hora);
+                    horarios.remove(hora);
+                    // sistemaHospitalario.registrarCita(nuevaCita); // si manejas lista de citas
                     mostrarAlerta("Éxito", "Cita registrada correctamente.");
                     limpiarCampos();
                 } else {
@@ -90,6 +101,7 @@ public class SolicitudCitaController {
             mostrarAlerta("Error", "Paciente no encontrado.");
         }
     }
+
 
     private void limpiarCampos() {
         txtCedula.clear();
@@ -127,7 +139,7 @@ public class SolicitudCitaController {
             String nombreMedico = comboMedico.getValue();
             Medico medico = sistemaHospitalario.buscarMedicoPorNombre(nombreMedico);
             if (medico != null) {
-                Map<String, List<String>> agenda = medico.getAgenda();
+                Map<String, List<String>> agenda = medico.getAgenda().getDisponibilidad();
                 comboDia.getItems().addAll(agenda.keySet());
                 comboDia.setDisable(false);
                 comboHora.setDisable(true);

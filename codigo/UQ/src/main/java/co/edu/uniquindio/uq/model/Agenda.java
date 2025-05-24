@@ -8,39 +8,66 @@ public class Agenda {
 
     private final Map<String, List<String>> disponibilidad; // Día -> Lista de horas disponibles
 
-    private static final int TOTAL_CITAS = 40;
     private static final int INTERVALO_MINUTOS = 20;
     private static final DateTimeFormatter FORMATO_HORA = DateTimeFormatter.ofPattern("HH:mm");
 
     /**
-     * Constructor de Agenda. Crea las citas disponibles por cada día y hora de inicio.
-     *
-
+     * Constructor tradicional: genera las citas disponibles para cada día según los rangos de turno.
+     * Cada rango se expresa como "HH:mm-HH:mm", separados por coma si hay más de uno.
+     * Ejemplo: "06:00-14:00,14:00-22:00"
      */
     public Agenda(Set<String> diasSeleccionados, Map<String, String> turnosPorDia) {
         disponibilidad = new HashMap<>();
         for (Map.Entry<String, String> entry : turnosPorDia.entrySet()) {
             String dia = entry.getKey();
-            String horaInicio = entry.getValue();
-            disponibilidad.put(dia, generarCitasDiarias(horaInicio));
+            String rangos = entry.getValue(); // Ej: "06:00-14:00,14:00-22:00"
+            List<String> citasDelDia = new ArrayList<>();
+
+            for (String rango : rangos.split(",")) {
+                String[] partes = rango.split("-");
+                if (partes.length == 2) {
+                    String horaInicio = partes[0].trim();
+                    String horaFin = partes[1].trim();
+                    citasDelDia.addAll(generarCitasEntreHoras(horaInicio, horaFin));
+                }
+            }
+
+            disponibilidad.put(dia, citasDelDia);
         }
     }
 
     /**
-     * Genera una lista de 40 horarios con intervalos de 20 minutos.
+     * Constructor alternativo: recibe directamente un mapa de días con sus horarios disponibles.
      */
-    private List<String> generarCitasDiarias(String inicio) {
-        List<String> citas = new ArrayList<>();
-        LocalTime hora = LocalTime.parse(inicio);
-        for (int i = 0; i < TOTAL_CITAS; i++) {
-            citas.add(hora.format(FORMATO_HORA));
-            hora = hora.plusMinutes(INTERVALO_MINUTOS);
+    public Agenda(Map<String, List<String>> mapaDisponibilidad) {
+        disponibilidad = new HashMap<>();
+        for (Map.Entry<String, List<String>> entry : mapaDisponibilidad.entrySet()) {
+            disponibilidad.put(entry.getKey(), new ArrayList<>(entry.getValue())); // Copia profunda
         }
+    }
+
+    /**
+     * Genera una lista de horarios con intervalos de 20 minutos entre la hora de inicio y fin.
+     */
+    private List<String> generarCitasEntreHoras(String inicio, String fin) {
+        List<String> citas = new ArrayList<>();
+        LocalTime horaInicio = LocalTime.parse(inicio);
+        LocalTime horaFin = LocalTime.parse(fin);
+
+        while (horaInicio.isBefore(horaFin)) {
+            citas.add(horaInicio.format(FORMATO_HORA));
+            horaInicio = horaInicio.plusMinutes(INTERVALO_MINUTOS);
+        }
+
         return citas;
     }
 
     public Map<String, List<String>> getDisponibilidad() {
         return disponibilidad;
+    }
+
+    public List<String> get(String dia) {
+        return disponibilidad.get(dia);
     }
 
     /**
@@ -81,6 +108,4 @@ public class Agenda {
         }
         return sb.toString();
     }
-
-
 }

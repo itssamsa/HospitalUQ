@@ -94,19 +94,23 @@ public class App extends Application {
 
         // Creación de médicos (CUIDADO CON LAS TILDES POR QUE O SINO QUEDA MAL)
         // Médico 1 - Andrés López (Lunes y Martes)
+
+
         Medico m1 = new Medico("Andrés López", "201", "Carrera 10", "3101112233", "Medicina General", "1234");
         Map<String, List<String>> agenda1 = new HashMap<>();
         agenda1.put("Lunes", List.of("08:00", "08:20", "08:40", "09:00"));
         agenda1.put("Martes", List.of("09:20", "09:40", "10:00", "10:20"));
-        m1.setAgenda(agenda1);
+        m1.setAgenda(new Agenda(agenda1));
         sistema.agregarMedico(m1);
 
+
 // Médico 2 - Carolina Rodríguez (Miércoles y Jueves)
+        // Médico 2 - Carolina Rodríguez (Miércoles y Jueves)
         Medico m2 = new Medico("Carolina Rodríguez", "202", "Calle 22", "3102223344", "Medicina General", "1234");
         Map<String, List<String>> agenda2 = new HashMap<>();
         agenda2.put("Miércoles", List.of("10:00", "10:20", "10:40", "11:00"));
         agenda2.put("Jueves", List.of("11:20", "11:40", "12:00", "12:20"));
-        m2.setAgenda(agenda2);
+        m2.setAgenda(new Agenda(agenda2));
         sistema.agregarMedico(m2);
 
 // Médico 3 - Santiago Ríos (Lunes y Viernes)
@@ -114,7 +118,7 @@ public class App extends Application {
         Map<String, List<String>> agenda3 = new HashMap<>();
         agenda3.put("Lunes", List.of("08:00", "08:20", "08:40", "09:00"));
         agenda3.put("Viernes", List.of("13:00", "13:20", "13:40", "14:00"));
-        m3.setAgenda(agenda3);
+        m3.setAgenda(new Agenda(agenda3));
         sistema.agregarMedico(m3);
 
 // Médico 4 - Luisa Vélez (Martes y Jueves)
@@ -122,7 +126,7 @@ public class App extends Application {
         Map<String, List<String>> agenda4 = new HashMap<>();
         agenda4.put("Martes", List.of("08:00", "08:20", "08:40", "09:00"));
         agenda4.put("Jueves", List.of("10:00", "10:20", "10:40", "11:00"));
-        m4.setAgenda(agenda4);
+        m4.setAgenda(new Agenda(agenda4));
         sistema.agregarMedico(m4);
 
 // Médico 5 - Daniel Gutiérrez (Miércoles y Viernes)
@@ -130,7 +134,7 @@ public class App extends Application {
         Map<String, List<String>> agenda5 = new HashMap<>();
         agenda5.put("Miércoles", List.of("08:00", "08:20", "08:40", "09:00"));
         agenda5.put("Viernes", List.of("09:20", "09:40", "10:00", "10:20"));
-        m5.setAgenda(agenda5);
+        m5.setAgenda(new Agenda(agenda5));
         sistema.agregarMedico(m5);
 
 // Médico 6 - María Fernanda Ruiz (Lunes y Miércoles)
@@ -138,8 +142,9 @@ public class App extends Application {
         Map<String, List<String>> agenda6 = new HashMap<>();
         agenda6.put("Lunes", List.of("11:00", "11:20", "11:40", "12:00"));
         agenda6.put("Miércoles", List.of("12:20", "12:40", "13:00", "13:20"));
-        m6.setAgenda(agenda6);
+        m6.setAgenda(new Agenda(agenda6));
         sistema.agregarMedico(m6);
+
 
 
 
