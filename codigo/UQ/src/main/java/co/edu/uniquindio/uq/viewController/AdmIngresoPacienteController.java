@@ -25,7 +25,7 @@ public class AdmIngresoPacienteController {
     @FXML
     private TableColumn<Paciente, String> colNombre, colCedula, colDireccion, colTelefono;
     @FXML
-    private TextField txtNombre, txtCedula, txtDireccion, txtTelefono;
+    private TextField txtNombre, txtCedula, txtDireccion, txtTelefono, txtPassword;
     @FXML
     private Button btnActualizar, btnEliminar;
 
@@ -56,7 +56,7 @@ public class AdmIngresoPacienteController {
         Paciente seleccionado = tblPacientes.getSelectionModel().getSelectedItem();
         if (seleccionado != null) {
             // Actualizar el paciente en el sistema hospitalario
-            sistemaHospitalario.actualizarPaciente(seleccionado.getCedula(), txtNombre.getText(), txtCedula.getText(), txtDireccion.getText(), txtTelefono.getText());
+            sistemaHospitalario.actualizarPaciente(seleccionado.getCedula(), txtNombre.getText(), txtCedula.getText(), txtDireccion.getText(), txtTelefono.getText(), txtPassword.getText());
             tblPacientes.refresh();
             mostrarAlerta("Éxito", "Paciente actualizado correctamente.");
         } else {

@@ -3,9 +3,6 @@ package co.edu.uniquindio.uq.model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.List;
-import java.util.Map;
-
 public class SistemaHospitalario {
 
     private static SistemaHospitalario instancia;
@@ -57,13 +54,14 @@ public class SistemaHospitalario {
 
 
     // actualizar los datos de un paciente
-    public void actualizarPaciente(String cedula, String nombre, String nuevaCedula, String direccion, String telefono) {
+    public void actualizarPaciente(String cedula, String nombre, String nuevaCedula, String direccion, String telefono, String password) {
         Paciente paciente = buscarPaciente(cedula);
         if (paciente != null) {
             paciente.setNombre(nombre);
             paciente.setCedula(nuevaCedula);
             paciente.setDireccion(direccion);
             paciente.setTelefono(telefono);
+            paciente.setPassword(password);
         }
     }
 
@@ -90,11 +88,11 @@ public class SistemaHospitalario {
 
 
     // registrar un paciente
-    public boolean registrarPaciente(String nombre, String cedula, String direccion, String telefono, String historialMedico) {
+    public boolean registrarPaciente(String nombre, String cedula, String direccion, String telefono,String password, String historialMedico) {
         if (existePaciente(cedula)) {
             return false;
         }
-        Paciente nuevoPaciente = new Paciente(nombre, cedula, direccion, telefono);
+        Paciente nuevoPaciente = new Paciente(nombre, cedula, direccion, telefono, password);
         nuevoPaciente.setHistorialMedico(historialMedico);
         listaPacientes.add(nuevoPaciente);
         return true;

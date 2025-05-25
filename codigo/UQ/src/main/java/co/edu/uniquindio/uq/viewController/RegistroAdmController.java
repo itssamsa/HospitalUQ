@@ -22,7 +22,7 @@ public class RegistroAdmController {
 
 
     @FXML
-    private TextField txtNombre, txtCedula, txtDireccion, txtTelefono;
+    private TextField txtNombre, txtCedula, txtDireccion, txtTelefono, txtPassword;
 
 
     @FXML
@@ -39,10 +39,11 @@ public class RegistroAdmController {
         String cedula = txtCedula.getText();
         String direccion = txtDireccion.getText();
         String telefono = txtTelefono.getText();
+        String password = txtPassword.getText();
         String historialMedico = txtHistorial.getText();
 
 
-        if (nombre.isEmpty() || cedula.isEmpty() || direccion.isEmpty() || telefono.isEmpty() || historialMedico.isEmpty()) {
+        if (nombre.isEmpty() || cedula.isEmpty() || direccion.isEmpty() || telefono.isEmpty() || password.isEmpty() || historialMedico.isEmpty()) {
             mostrarAlerta("Error", "Todos los campos son obligatorios.");
             return;
         }
@@ -56,7 +57,7 @@ public class RegistroAdmController {
 
 
         // Registrar el paciente en el sistema hospitalario
-        boolean registrado = sistemaHospitalario.registrarPaciente(nombre, cedula, direccion, telefono, historialMedico);
+        boolean registrado = sistemaHospitalario.registrarPaciente(nombre, cedula, direccion, telefono, password, historialMedico);
 
 
         if (registrado) {
@@ -89,6 +90,7 @@ public class RegistroAdmController {
         txtCedula.clear();
         txtDireccion.clear();
         txtTelefono.clear();
+        txtPassword.clear();
         txtHistorial.clear();
     }
 

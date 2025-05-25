@@ -22,7 +22,7 @@ public class IngresarPacienteController {
     @FXML
     private TableColumn<Paciente, String> colNombre, colCedula, colDireccion, colTelefono;
     @FXML
-    private TextField txtNombre, txtCedula, txtDireccion, txtTelefono;
+    private TextField txtNombre, txtCedula, txtDireccion, txtTelefono, txtPassword;
     @FXML
     private Button btnActualizar, btnEliminar;
     @FXML
@@ -36,10 +36,11 @@ public class IngresarPacienteController {
         if (seleccionado != null) {
             sistemaHospitalario.actualizarPaciente(
                     seleccionado.getCedula(),
-                    txtNombre.getText(),
-                    txtCedula.getText(),
+                    seleccionado.getNombre(),
+                    seleccionado.getCedula(),
                     txtDireccion.getText(),
-                    txtTelefono.getText()
+                    txtTelefono.getText(),
+                    txtPassword.getText()
             );
             tblPacientes.refresh();
             mostrarAlerta("Éxito", "Paciente actualizado correctamente.");
@@ -114,22 +115,52 @@ public class IngresarPacienteController {
 
     @FXML
     void onBuscarPorCedula(ActionEvent event) {
-        String cedulaIngresada = txtBuscarCedula.getText();
-        Paciente paciente = sistemaHospitalario.buscarPaciente(cedulaIngresada);
+        String cedulaIngresada = txtBuscarCedula.getText().trim();
+        String passwordIngresada = txtPassword.getText().trim();
 
-        if (paciente != null) {
-            ObservableList<Paciente> resultado = FXCollections.observableArrayList(paciente);
-            tblPacientes.setItems(resultado);
-
-            txtNombre.setText(paciente.getNombre());
-            txtCedula.setText(paciente.getCedula());
-            txtDireccion.setText(paciente.getDireccion());
-            txtTelefono.setText(paciente.getTelefono());
-        } else {
-            tblPacientes.setItems(FXCollections.observableArrayList());
-            mostrarAlerta("No encontrado", "No existe un paciente con esa cédula.");
+        // Validación 1: Cédula vacía
+        if (cedulaIngresada.isEmpty()) {
+            mostrarAlerta("Campo vacío", "Por favor ingrese una cédula.");
+            return;
         }
+
+        // Validación 2: Cédula solo debe contener números
+        if (!cedulaIngresada.matches("\\d+")) {
+            mostrarAlerta("Cédula inválida", "La cédula solo debe contener números.");
+            return;
+        }
+
+        // Validación 3: Verificar si el paciente existe
+        Paciente paciente = sistemaHospitalario.buscarPaciente(cedulaIngresada);
+        if (paciente == null) {
+            mostrarAlerta("Paciente no encontrado", "No se encontró ningún paciente con esa cédula.");
+            tblPacientes.setItems(FXCollections.observableArrayList()); // Limpiar tabla
+            return;
+        }
+
+        // Validación 4: Contraseña incorrecta
+        if (!paciente.getPassword().equals(passwordIngresada)) {
+            mostrarAlerta("Contraseña incorrecta", "La contraseña ingresada no es válida.");
+            tblPacientes.setItems(FXCollections.observableArrayList()); // Limpiar tabla
+            return;
+        }
+
+        // Si todo está correcto, mostrar los datos
+        ObservableList<Paciente> resultado = FXCollections.observableArrayList(paciente);
+        tblPacientes.setItems(resultado);
+
+        txtNombre.setText(paciente.getNombre());
+        txtCedula.setText(paciente.getCedula());
+        txtDireccion.setText(paciente.getDireccion());
+        txtTelefono.setText(paciente.getTelefono());
+
+        // Bloquear nombre y cédula
+        txtNombre.setEditable(false);
+        txtCedula.setEditable(false);
     }
+
+
+
 
     @FXML
     void initialize() {
@@ -139,6 +170,8 @@ public class IngresarPacienteController {
         colCedula.setCellValueFactory(cellData -> cellData.getValue().cedulaProperty());
         colDireccion.setCellValueFactory(cellData -> cellData.getValue().direccionProperty());
         colTelefono.setCellValueFactory(cellData -> cellData.getValue().telefonoProperty());
+
+
 
         tblPacientes.setItems(FXCollections.observableArrayList()); // Se inicia vacía
     }

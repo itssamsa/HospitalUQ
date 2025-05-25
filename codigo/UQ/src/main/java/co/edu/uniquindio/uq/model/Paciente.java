@@ -6,10 +6,12 @@ import javafx.beans.property.StringProperty;
 public class Paciente extends Usuario {
 
     private StringProperty historialMedico;
+    private StringProperty password;
 
-    public Paciente(String nombre, String cedula, String direccion, String telefono) {
+    public Paciente(String nombre, String cedula, String direccion, String telefono,String password) {
         super(nombre, cedula, direccion, telefono);
         this.historialMedico = new SimpleStringProperty("");
+        this.password = new SimpleStringProperty(password);
     }
 
     // Getters y Setters para los Property
@@ -44,6 +46,19 @@ public class Paciente extends Usuario {
     public void accederHistorial() {
         System.out.println("Accediendo al historial médico: " + getHistorialMedico());
     }
+
+    public String getPassword() {
+        return password.get();
+    }
+
+    public void setPassword(String password) {
+        this.password.set(password);
+    }
+
+    public StringProperty passwordProperty() {
+        return password;
+    }
+
 
     @Override
     public String toString() {

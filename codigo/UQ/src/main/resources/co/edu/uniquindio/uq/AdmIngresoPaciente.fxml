@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="770.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.AdmIngresoPacienteController">
+<AnchorPane prefHeight="600.0" prefWidth="770.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.AdmIngresoPacienteController">
     <children>
         <TextField fx:id="txtCedula" layoutX="53.0" layoutY="260.0" prefHeight="25.0" prefWidth="129.0" promptText="Cédula" />
         <TextField fx:id="txtNombre" layoutX="54.0" layoutY="218.0" prefHeight="25.0" prefWidth="129.0" promptText="Nombre" />
         <TextField fx:id="txtDireccion" layoutX="54.0" layoutY="307.0" prefHeight="25.0" prefWidth="129.0" promptText="Dirección" />
         <TextField fx:id="txtTelefono" layoutX="53.0" layoutY="350.0" prefHeight="25.0" prefWidth="129.0" promptText="Teléfono" />
+        <TextField fx:id="txtPassword" layoutX="54.0" layoutY="388.0" prefHeight="25.0" prefWidth="129.0" promptText="Password" />
         <Button fx:id="btnActualizar" layoutX="66.0" layoutY="170.0" onAction="#onActualizarPaciente" prefHeight="23.0" prefWidth="103.0" style="-fx-background-color: #263F73;" text="Actualizar" textFill="WHITE">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font></Button>
-        <Button fx:id="btnEliminar" layoutX="66.0" layoutY="464.0" onAction="#onEliminarPaciente" prefHeight="23.0" prefWidth="103.0" style="-fx-background-color: #263F73;" text="Eliminar" textFill="WHITE">
+        <Button fx:id="btnEliminar" layoutX="67.0" layoutY="492.0" onAction="#onEliminarPaciente" prefHeight="23.0" prefWidth="103.0" style="-fx-background-color: #263F73;" text="Eliminar" textFill="WHITE">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font></Button>
@@ -26,7 +24,7 @@
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font></Button>
-        <Button layoutX="67.0" layoutY="413.0" mnemonicParsing="false" onAction="#handleRegistrarPaciente" prefHeight="23.0" prefWidth="103.0" style="-fx-background-color: #263F73;" text="Registrar" textFill="WHITE">
+        <Button layoutX="67.0" layoutY="446.0" mnemonicParsing="false" onAction="#handleRegistrarPaciente" prefHeight="23.0" prefWidth="103.0" style="-fx-background-color: #263F73;" text="Registrar" textFill="WHITE">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font></Button>
@@ -45,5 +43,6 @@
             <TableColumn fx:id="colTelefono" prefWidth="126.0" text="Teléfono" />
          </columns>
       </TableView>
+
     </children>
 </AnchorPane>

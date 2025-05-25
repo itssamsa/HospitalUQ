@@ -48,47 +48,47 @@ public class App extends Application {
     private void inicializarDatos() {
         SistemaHospitalario sistema = SistemaHospitalario.getInstance();
 
-        Paciente p1 = new Paciente("Juan Pérez", "101", "Calle 123", "3001112233");
+        Paciente p1 = new Paciente("Juan Pérez", "101", "Calle 123", "3001112233","1234");
         p1.setHistorialMedico("Historial de Juan Pérez: sin antecedentes relevantes.");
         sistema.agregarPaciente(p1);
 
-        Paciente p2 = new Paciente("María Gómez", "102", "Carrera 45", "3002223344");
+        Paciente p2 = new Paciente("María Gómez", "102", "Carrera 45", "3002223344","1234");
         p2.setHistorialMedico("Historial de María Gómez: hipertensión controlada.");
         sistema.agregarPaciente(p2);
 
-        Paciente p3 = new Paciente("Carlos Ruiz", "103", "Avenida 10", "3003334455");
+        Paciente p3 = new Paciente("Carlos Ruiz", "103", "Avenida 10", "3003334455","1234");
         p3.setHistorialMedico("Historial de Carlos Ruiz: fractura de brazo en 2022.");
         sistema.agregarPaciente(p3);
 
-        Paciente p4 = new Paciente("Ana Torres", "104", "Calle 50", "3004445566");
+        Paciente p4 = new Paciente("Ana Torres", "104", "Calle 50", "3004445566","1234");
         p4.setHistorialMedico("Historial de Ana Torres: alergias alimentarias.");
         sistema.agregarPaciente(p4);
 
-        Paciente p5 = new Paciente("Luis Martínez", "105", "Carrera 1", "3005556677");
+        Paciente p5 = new Paciente("Luis Martínez", "105", "Carrera 1", "3005556677","1234");
         p5.setHistorialMedico("Historial de Luis Martínez: diabetes tipo 2.");
         sistema.agregarPaciente(p5);
 
-        Paciente p6 = new Paciente("Laura Restrepo", "106", "Calle 89", "3006667788");
+        Paciente p6 = new Paciente("Laura Restrepo", "106", "Calle 89", "3006667788","1234");
         p6.setHistorialMedico("Historial de Laura Restrepo: cirugía de rodilla en 2020.");
         sistema.agregarPaciente(p6);
 
-        Paciente p7 = new Paciente("Miguel Santos", "107", "Avenida 30", "3007778899");
+        Paciente p7 = new Paciente("Miguel Santos", "107", "Avenida 30", "3007778899","1234");
         p7.setHistorialMedico("Historial de Miguel Santos: asma leve.");
         sistema.agregarPaciente(p7);
 
-        Paciente p8 = new Paciente("Sofía Herrera", "108", "Carrera 20", "3008889900");
+        Paciente p8 = new Paciente("Sofía Herrera", "108", "Carrera 20", "3008889900","1234");
         p8.setHistorialMedico("Historial de Sofía Herrera: sin antecedentes.");
         sistema.agregarPaciente(p8);
 
-        Paciente p9 = new Paciente("Pedro Vargas", "109", "Calle 74", "3009990011");
+        Paciente p9 = new Paciente("Pedro Vargas", "109", "Calle 74", "3009990011","1234");
         p9.setHistorialMedico("Historial de Pedro Vargas: intervención dental en 2023.");
         sistema.agregarPaciente(p9);
 
-        Paciente p10 = new Paciente("Lucía Ramírez", "110", "Calle 38", "3010001122");
+        Paciente p10 = new Paciente("Lucía Ramírez", "110", "Calle 38", "3010001122","1234");
         p10.setHistorialMedico("Historial de Lucía Ramírez: seguimiento por migrañas.");
         sistema.agregarPaciente(p10);
 
-        Paciente p11 = new Paciente("Lucio Vasquez", "111", "Calle 51", "3010012335");
+        Paciente p11 = new Paciente("Lucio Vasquez", "111", "Calle 51", "3010012335","1234");
         p11.setHistorialMedico("Historial de Lucio Vazquez: seguimiento por fuerte dolor abdominal.");
         sistema.agregarPaciente(p11);
 

@@ -1,6 +1,5 @@
 package co.edu.uniquindio.uq.viewController;
 
-import co.edu.uniquindio.uq.model.Paciente;
 import co.edu.uniquindio.uq.model.SistemaHospitalario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,10 +19,11 @@ public class RegistrarPacienteController {
     private SistemaHospitalario sistemaHospitalario = SistemaHospitalario.getInstance();
 
     @FXML
-    private TextField txtNombre, txtCedula, txtDireccion, txtTelefono;
+    private TextField txtNombre, txtCedula, txtDireccion, txtTelefono, txtPassword;
 
     @FXML
     private TextArea txtHistorial;
+
 
     @FXML
     private Button btnGuardar, btnVolver;
@@ -34,9 +34,10 @@ public class RegistrarPacienteController {
         String cedula = txtCedula.getText();
         String direccion = txtDireccion.getText();
         String telefono = txtTelefono.getText();
+        String password = txtPassword.getText();
         String historialMedico = txtHistorial.getText();
 
-        if (nombre.isEmpty() || cedula.isEmpty() || direccion.isEmpty() || telefono.isEmpty() || historialMedico.isEmpty()) {
+        if (nombre.isEmpty() || cedula.isEmpty() || direccion.isEmpty() || telefono.isEmpty() || password.isEmpty() || historialMedico.isEmpty()) {
             mostrarAlerta("Error", "Todos los campos son obligatorios.");
             return;
         }
@@ -48,7 +49,7 @@ public class RegistrarPacienteController {
         }
 
         // Registrar el paciente en el sistema hospitalario
-        boolean registrado = sistemaHospitalario.registrarPaciente(nombre, cedula, direccion, telefono, historialMedico);
+        boolean registrado = sistemaHospitalario.registrarPaciente(nombre, cedula, direccion, telefono, password, historialMedico);
 
         if (registrado) {
             mostrarAlerta("Éxito", "Paciente registrado correctamente.");
@@ -77,7 +78,9 @@ public class RegistrarPacienteController {
         txtCedula.clear();
         txtDireccion.clear();
         txtTelefono.clear();
+        txtPassword.clear();
         txtHistorial.clear();
+
     }
 
     private void mostrarAlerta(String titulo, String mensaje) {
