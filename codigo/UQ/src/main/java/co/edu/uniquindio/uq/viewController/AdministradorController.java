@@ -62,7 +62,7 @@ public class AdministradorController {
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
-            mostrarAlerta("Error", "No se pudo cargar la vista de consulta de historial.");
+            mostrarAlerta("Error", "No se pudo cargar la vista.");
         }
     }
 

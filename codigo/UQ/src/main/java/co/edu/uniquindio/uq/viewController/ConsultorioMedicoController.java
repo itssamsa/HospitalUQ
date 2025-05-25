@@ -15,8 +15,15 @@ public class ConsultorioMedicoController {
     // Acción para registrar diagnóstico
     @FXML
     private void onRegistrarDiagnostico(ActionEvent event) {
-        // Aquí puedes enlazar con la vista de registro de diagnóstico
-        // App.cambiarEscena("/path/to/RegistrarDiagnostico.fxml", "Registrar Diagnóstico");
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/Diagnostico.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo cargar la vista.");
+        }
     }
 
     // Acción para administrar horarios

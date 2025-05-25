@@ -117,6 +117,16 @@ public class SistemaHospitalario {
         return "Historial médico no encontrado.";
     }
 
+    // Poder modificar el Historial Medico
+    public boolean modificarHistorialMedico(String cedula, String nuevoHistorial) {
+        Paciente paciente = buscarPaciente(cedula);
+        if (paciente != null) {
+            paciente.setHistorialMedico(nuevoHistorial);
+            return true;
+        }
+        return false;
+    }
+
 
     // MÉDICOS
 

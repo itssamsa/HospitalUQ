@@ -12,7 +12,7 @@
 <AnchorPane prefHeight="600" prefWidth="770.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.IngresarPacienteController">
     <children>
 
-        <TableView fx:id="tblPacientes" layoutX="139.0" layoutY="155.0" prefHeight="135.0" prefWidth="516.0">
+        <TableView fx:id="tblPacientes" layoutX="139.0" layoutY="181.0" prefHeight="135.0" prefWidth="516.0">
             <columns>
                 <TableColumn fx:id="colNombre" prefWidth="135.0" text="Nombre" />
                 <TableColumn fx:id="colCedula" prefWidth="134.0" text="Cédula" />
@@ -25,20 +25,21 @@
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font></Label>
-        <TextField fx:id="txtNombre" layoutX="235.0" layoutY="343.0" prefWidth="200" />
-        <TextField fx:id="txtCedula" layoutX="235.0" layoutY="383.0" prefWidth="200" />
-        <TextField fx:id="txtDireccion" layoutX="235.0" layoutY="419.0" prefWidth="200" />
-        <TextField fx:id="txtTelefono" layoutX="235.0" layoutY="454.0" prefWidth="200" />
+        <TextField fx:id="txtNombre" layoutX="218.0" layoutY="359.0" prefWidth="200" />
+        <TextField fx:id="txtCedula" layoutX="218.0" layoutY="397.0" prefWidth="200" />
+        <TextField fx:id="txtDireccion" layoutX="218.0" layoutY="433.0" prefWidth="200" />
+        <TextField fx:id="txtTelefono" layoutX="218.0" layoutY="468.0" prefWidth="200" />
 
-        <Button fx:id="btnActualizar" layoutX="298.0" layoutY="514.0" onAction="#onActualizar" style="-fx-background-color: #263F73;" text="Actualizar" textFill="WHITE">
+        <Button fx:id="btnActualizar" layoutX="301.0" layoutY="544.0" onAction="#onActualizar" style="-fx-background-color: #263F73;" text="Actualizar" textFill="WHITE">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font></Button>
 
         <!-- Aquí está el TextField y botón para buscar por cédula separado -->
         <Label layoutX="194.0" layoutY="62.0" />
-        <TextField fx:id="txtBuscarCedula" layoutX="275.0" layoutY="109.0" prefHeight="26.0" prefWidth="189.0" />
-        <Button layoutX="480.0" layoutY="107.0" onAction="#onBuscarPorCedula" style="-fx-background-color: #263F73;" text="Buscar" textFill="WHITE">
+        <TextField fx:id="txtBuscarCedula" layoutX="275.0" layoutY="81.0" prefHeight="26.0" prefWidth="189.0" promptText="Cedula" />
+        <TextField fx:id="txtPassword" layoutX="275.0" layoutY="126.0" prefHeight="26.0" prefWidth="189.0" promptText="Password" />
+        <Button layoutX="500.0" layoutY="111.0" onAction="#onBuscarPorCedula" style="-fx-background-color: #263F73;" text="Buscar" textFill="WHITE">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font></Button>
@@ -48,18 +49,9 @@
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font></Button>
-        <Button layoutX="520.0" layoutY="313.0" onAction="#onConsultarHistoria" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #263F73;" text="Consultar Historia" textFill="WHITE">
-         <font>
-            <Font name="Verdana Bold" size="12.0" />
-         </font></Button>
-        <Button layoutX="520.0" layoutY="368.0" onAction="#onSolicitudCita" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #263F73;" text="Solicitud Cita" textFill="WHITE">
-         <font>
-            <Font name="Verdana Bold" size="12.0" />
-         </font></Button>
-        <Button layoutX="520.0" layoutY="423.0" onAction="#onCancelarCita" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #263F73;" text="Cancelar Cita" textFill="WHITE">
-         <font>
-            <Font name="Verdana Bold" size="12.0" />
-         </font></Button>
+        <Button layoutX="520.0" layoutY="357.0" onAction="#onConsultarHistoria" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #263F73;" text="Consultar Historia" textFill="WHITE" />
+        <Button layoutX="520.0" layoutY="408.0" onAction="#onSolicitudCita" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #263F73;" text="Solicitud Cita" textFill="WHITE" />
+        <Button layoutX="520.0" layoutY="466.0" onAction="#onCancelarCita" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #263F73;" text="Cancelar Cita" textFill="WHITE" />
       <Label layoutX="102.0" layoutY="402.0" text="Cedula">
          <font>
             <Font name="Verdana Bold" size="12.0" />
@@ -75,7 +67,7 @@
             <Font name="Verdana Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="291.0" layoutY="55.0" text="Por favor ingrese su cedula ">
+      <Label layoutX="287.0" layoutY="38.0" text="Por Favor Ingrese sus Datos ">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font>
@@ -87,6 +79,7 @@
             <AnchorPane layoutY="85.0" prefHeight="32.0" prefWidth="119.0" style="-fx-background-color: white;" />
          </children>
       </AnchorPane>
+
 
     </children>
 </AnchorPane>
