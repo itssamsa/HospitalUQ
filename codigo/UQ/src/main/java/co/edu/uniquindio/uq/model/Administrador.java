@@ -45,10 +45,6 @@ public class Administrador extends Usuario implements IAdministrador {
         System.out.println("Generando reporte de citas médicas...");
     }
 
-    @Override
-    public void generarReporteOcupacion() {
-        System.out.println("Generando reporte de ocupación hospitalaria...");
-    }
 
     @Override
     public String toString() {

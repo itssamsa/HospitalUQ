@@ -7,5 +7,4 @@ public interface IAdministrador {
     void monitorearDisponibilidadMedicos();
     void asignarPaciente(String cedulaPaciente, String cedulaMedico);
     void generarReporteCitas();
-    void generarReporteOcupacion();
 }

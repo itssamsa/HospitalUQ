@@ -1,7 +1,10 @@
+// Controlador actualizado: IngresarPacienteController.java
+
 package co.edu.uniquindio.uq.viewController;
 
 import co.edu.uniquindio.uq.model.Paciente;
 import co.edu.uniquindio.uq.model.SistemaHospitalario;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,6 +25,8 @@ public class IngresarPacienteController {
     private TextField txtNombre, txtCedula, txtDireccion, txtTelefono;
     @FXML
     private Button btnActualizar, btnEliminar;
+    @FXML
+    private TextField txtBuscarCedula;
 
     private SistemaHospitalario sistemaHospitalario;
 
@@ -29,8 +34,13 @@ public class IngresarPacienteController {
     void onActualizar(ActionEvent event) {
         Paciente seleccionado = tblPacientes.getSelectionModel().getSelectedItem();
         if (seleccionado != null) {
-            // Actualizar el paciente en el sistema hospitalario
-            sistemaHospitalario.actualizarPaciente(seleccionado.getCedula(), txtNombre.getText(), txtCedula.getText(), txtDireccion.getText(), txtTelefono.getText());
+            sistemaHospitalario.actualizarPaciente(
+                    seleccionado.getCedula(),
+                    txtNombre.getText(),
+                    txtCedula.getText(),
+                    txtDireccion.getText(),
+                    txtTelefono.getText()
+            );
             tblPacientes.refresh();
             mostrarAlerta("Éxito", "Paciente actualizado correctamente.");
         } else {
@@ -42,7 +52,6 @@ public class IngresarPacienteController {
     void onEliminar(ActionEvent event) {
         Paciente seleccionado = tblPacientes.getSelectionModel().getSelectedItem();
         if (seleccionado != null) {
-            // Eliminar el paciente en el sistema hospitalario
             sistemaHospitalario.eliminarPaciente(seleccionado.getCedula());
             tblPacientes.getItems().remove(seleccionado);
             mostrarAlerta("Éxito", "Paciente eliminado.");
@@ -67,7 +76,6 @@ public class IngresarPacienteController {
     @FXML
     void onConsultarHistoria(ActionEvent event) {
         try {
-            // Cargar la vista de ConsultarHistoria.fxml
             Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/ConsultarHistoria.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -81,7 +89,6 @@ public class IngresarPacienteController {
     @FXML
     void onSolicitudCita(ActionEvent event) {
         try {
-            // Cargar la vista
             Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/SolicitudCita.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -95,7 +102,6 @@ public class IngresarPacienteController {
     @FXML
     void onCancelarCita(ActionEvent event) {
         try {
-            // Cargar la vista
             Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/CancelarCita.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -106,19 +112,35 @@ public class IngresarPacienteController {
         }
     }
 
+    @FXML
+    void onBuscarPorCedula(ActionEvent event) {
+        String cedulaIngresada = txtBuscarCedula.getText();
+        Paciente paciente = sistemaHospitalario.buscarPaciente(cedulaIngresada);
+
+        if (paciente != null) {
+            ObservableList<Paciente> resultado = FXCollections.observableArrayList(paciente);
+            tblPacientes.setItems(resultado);
+
+            txtNombre.setText(paciente.getNombre());
+            txtCedula.setText(paciente.getCedula());
+            txtDireccion.setText(paciente.getDireccion());
+            txtTelefono.setText(paciente.getTelefono());
+        } else {
+            tblPacientes.setItems(FXCollections.observableArrayList());
+            mostrarAlerta("No encontrado", "No existe un paciente con esa cédula.");
+        }
+    }
 
     @FXML
     void initialize() {
-        sistemaHospitalario = SistemaHospitalario.getInstance(); // Acceso a la instancia única
+        sistemaHospitalario = SistemaHospitalario.getInstance();
 
         colNombre.setCellValueFactory(cellData -> cellData.getValue().nombreProperty());
         colCedula.setCellValueFactory(cellData -> cellData.getValue().cedulaProperty());
         colDireccion.setCellValueFactory(cellData -> cellData.getValue().direccionProperty());
         colTelefono.setCellValueFactory(cellData -> cellData.getValue().telefonoProperty());
 
-        // Obtener la lista de pacientes desde el sistema hospitalario
-        ObservableList<Paciente> pacientes = sistemaHospitalario.obtenerPacientes();
-        tblPacientes.setItems(pacientes);
+        tblPacientes.setItems(FXCollections.observableArrayList()); // Se inicia vacía
     }
 
     private void mostrarAlerta(String titulo, String mensaje) {
