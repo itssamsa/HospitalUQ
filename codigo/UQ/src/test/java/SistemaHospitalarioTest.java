@@ -25,4 +25,17 @@ public class SistemaHospitalarioTest {
 
         assertEquals(6, sistema.getListaMedicos().size(), "Debe haber 6 médicos registrados");
         }
-}        
+    @Test
+    void testBuscarMedicoPorCedula() {
+        SistemaHospitalario sistema = SistemaHospitalario.getInstance();
+        sistema.getListaMedicos().clear();
+
+        Medico medico = new Medico("Andrés Gómez", "201", "Calle A", "3123456789", "General", "clave123");
+        sistema.agregarMedico(medico);
+
+        Medico resultado = sistema.buscarMedicoPorCedula("201");
+        assertNotNull(resultado);
+        assertEquals("Andrés Gómez", resultado.getNombre());
+    }
+
+}
