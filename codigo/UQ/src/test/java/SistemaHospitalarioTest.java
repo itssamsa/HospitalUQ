@@ -67,5 +67,18 @@ public class SistemaHospitalarioTest {
         Medico medico = sistema.buscarMedicoPorCedula("999");
         assertNull(medico, "Debe retornar null si el médico no existe");
     }
+    @Test
+    void testAgregarNuevoMedico() {
+        SistemaHospitalario sistema = SistemaHospitalario.getInstance();
+        sistema.getListaMedicos().clear();
+
+        Medico nuevo = new Medico("Dr. Julio", "777", "Camelias", "12334567", "Neurología", "1234");
+        sistema.agregarMedico(nuevo);
+
+        Medico medico = sistema.buscarMedicoPorCedula("777");
+        assertNotNull(medico);
+        assertEquals("Dr. Julio", medico.getNombre());
+    }
+
 
 }
