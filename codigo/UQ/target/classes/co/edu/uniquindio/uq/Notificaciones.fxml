@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.uq.viewController.NotificacionesController"
+      spacing="10" alignment="CENTER" prefWidth="600" prefHeight="400">
+
+    <TableView fx:id="tablaCitas" prefWidth="580" prefHeight="350">
+        <columns>
+            <TableColumn text="ID" fx:id="colId" prefWidth="100"/>
+            <TableColumn text="Nombre" fx:id="colNombre" prefWidth="200"/>
+            <TableColumn text="Fecha" fx:id="colFecha" prefWidth="200"/>
+        </columns>
+    </TableView>
+
+</VBox>

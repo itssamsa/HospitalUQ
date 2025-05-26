@@ -2,6 +2,7 @@ package co.edu.uniquindio.uq.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 
 public class SistemaHospitalario {
 
@@ -21,6 +22,7 @@ public class SistemaHospitalario {
         listaMedicos = FXCollections.observableArrayList();
         listaAdministradores = FXCollections.observableArrayList();
         listaSalas = FXCollections.observableArrayList();
+
     }
 
     public Medico getMedicoActual() {
@@ -153,8 +155,6 @@ public class SistemaHospitalario {
     }
 
 
-
-
     // Registrar un nuevo médico
 
 
@@ -206,7 +206,6 @@ public class SistemaHospitalario {
         }
         return null;
     }
-
 
     // Administradores
 
@@ -285,8 +284,6 @@ public class SistemaHospitalario {
     public boolean eliminarCita(Cita cita) {
         return listaCitas.remove(cita);
     }
-
-
 
 
     // Metodo para obtener todas las citas registradas

@@ -43,10 +43,17 @@ public class ConsultorioMedicoController {
     // Acción para ver notificaciones de citas
     @FXML
     private void onVerNotificaciones(ActionEvent event) {
-        // Aquí puedes enlazar con la vista de notificaciones
-        // App.cambiarEscena("/path/to/NotificacionesCitas.fxml", "Notificaciones de Citas");
+        try {
+            // Cargar la vista reportes
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/Notificaciones.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo cargar la vista de consulta de historial.");
+        }
     }
-
     // Acción para volver al login
     @FXML
     private void onVolverAlLogin(ActionEvent event) {
