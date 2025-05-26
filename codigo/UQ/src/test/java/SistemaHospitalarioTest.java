@@ -59,5 +59,13 @@ public class SistemaHospitalarioTest {
         assertNotNull(resultado);
         assertEquals("Cardiologia", resultado.getEspecialidad());
     }
+    @Test
+    void testMedicoNoExiste() {
+        SistemaHospitalario sistema = SistemaHospitalario.getInstance();
+        sistema.getListaMedicos().clear();
+
+        Medico medico = sistema.buscarMedicoPorCedula("999");
+        assertNull(medico, "Debe retornar null si el médico no existe");
+    }
 
 }
