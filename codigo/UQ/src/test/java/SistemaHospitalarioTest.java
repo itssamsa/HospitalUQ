@@ -37,5 +37,15 @@ public class SistemaHospitalarioTest {
         assertNotNull(resultado);
         assertEquals("Andrés Gómez", resultado.getNombre());
     }
+    @Test
+    void testBuscarPacientePorCedula() {
+        SistemaHospitalario sistema = SistemaHospitalario.getInstance();
+        Paciente lucia = new Paciente("Lucía Ramírez", "110", "Calle 123", "3001234567", "seguimiento por migrañas");
+        sistema.agregarPaciente(lucia);
+
+        Paciente paciente = sistema.buscarPaciente("110");
+        assertNotNull(paciente);
+        assertEquals("Lucía Ramírez", paciente.getNombre());
+    }
 
 }
