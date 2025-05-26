@@ -47,5 +47,17 @@ public class SistemaHospitalarioTest {
         assertNotNull(paciente);
         assertEquals("Lucía Ramírez", paciente.getNombre());
     }
+    @Test
+    void testEspecialidadDeMedico() {
+        SistemaHospitalario sistema = SistemaHospitalario.getInstance();
+        sistema.getListaMedicos().clear();
+
+        Medico medico = new Medico("María Fernanda", "206", "Av B", "3131234567", "Cardiologia", "clave456");
+        sistema.agregarMedico(medico);
+
+        Medico resultado = sistema.buscarMedicoPorCedula("206");
+        assertNotNull(resultado);
+        assertEquals("Cardiologia", resultado.getEspecialidad());
+    }
 
 }
