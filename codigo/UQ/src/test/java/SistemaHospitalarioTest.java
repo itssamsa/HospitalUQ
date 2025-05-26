@@ -79,6 +79,15 @@ public class SistemaHospitalarioTest {
         assertNotNull(medico);
         assertEquals("Dr. Julio", medico.getNombre());
     }
+    @Test
+    void testListaMedicosNoVacia() {
+        SistemaHospitalario sistema = SistemaHospitalario.getInstance();
+        sistema.getListaMedicos().clear();
 
+        Medico m = new Medico("Médico X", "300", "Calle X", "3000000000", "Pediatría", "clave");
+        sistema.agregarMedico(m);
 
+        assertFalse(sistema.getListaMedicos().isEmpty(), "La lista de médicos no debe estar vacía");
+    }
+    
 }
