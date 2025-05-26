@@ -146,7 +146,7 @@ public class App extends Application {
         sistema.agregarMedico(m6);
 
 
-
+    // ADMINISTRADORES
 
 
         Administrador a1 = new Administrador("Felipe López", "501", "Carrera 10", "3101112233", "1234");
@@ -172,7 +172,7 @@ public class App extends Application {
         Sala s4 = new Sala("Sala de pediatría", "10:00 AM - 2:00 PM", EstadoSala.DISPONIBLE);
         sistema.agregarSala(s4);
 
-        Sala s5 = new Sala("Sala de emergencias", "24 horas", EstadoSala.OCUPADA);
+        Sala s5 = new Sala("Sala de emergencias", "24 horas", EstadoSala.DISPONIBLE);
         sistema.agregarSala(s5);
     }
 }

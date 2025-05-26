@@ -11,6 +11,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 
 public class GestionSalasController {
 
@@ -60,11 +63,36 @@ public class GestionSalasController {
             if (disponible) {
                 sistema.reservarSala(salaSeleccionada, horarioSeleccionado);
                 labelEstado.setText("Sala reservada con éxito.");
+                labelEstado.setStyle("-fx-text-fill: green;");
+
+                // Mostrar ventana emergente de éxito
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Reserva exitosa");
+                alert.setHeaderText(null);
+                alert.setContentText("La sala ha sido reservada con éxito.");
+                alert.showAndWait();
+
             } else {
                 labelEstado.setText("Sala no disponible en el horario seleccionado.");
+                labelEstado.setStyle("-fx-text-fill: red;");
+
+                // Mostrar alerta de error
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Error de reserva");
+                alert.setHeaderText(null);
+                alert.setContentText("La sala no está disponible en el horario seleccionado.");
+                alert.showAndWait();
             }
         } else {
             labelEstado.setText("Por favor, seleccione una sala y un horario.");
+            labelEstado.setStyle("-fx-text-fill: orange;");
+
+            // Mostrar advertencia
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Datos incompletos");
+            alert.setHeaderText(null);
+            alert.setContentText("Debe seleccionar tanto una sala como un horario.");
+            alert.showAndWait();
         }
     }
 }

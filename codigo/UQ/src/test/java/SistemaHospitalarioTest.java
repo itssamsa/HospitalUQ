@@ -1,2 +1,1 @@
-public class SistemaHospitalarioTest {
-}
+public class SistemaHospitalarioTest {}
