@@ -16,7 +16,13 @@ public class ConsultorioMedicoController {
     @FXML
     private void onRegistrarDiagnostico(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/uq/Diagnostico.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/uq/Diagnostico.fxml"));
+            Parent root = loader.load();
+
+            // Obtener el controlador y pasar los datos del médico
+            DiagnosticoController controller = loader.getController();
+            controller.inicializarDatosMedico("Dr. Juan Pérez", "Cirugía General");
+
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
@@ -25,6 +31,7 @@ public class ConsultorioMedicoController {
             mostrarAlerta("Error", "No se pudo cargar la vista.");
         }
     }
+
 
     // Acción para administrar horarios
     @FXML

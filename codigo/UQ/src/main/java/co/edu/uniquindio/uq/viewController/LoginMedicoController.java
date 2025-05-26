@@ -29,6 +29,8 @@ public class LoginMedicoController {
     @FXML
     private Label lblMensaje;
 
+
+
     @FXML
     public void initialize() {
         ObservableList<Medico> medicos = FXCollections.observableArrayList(
@@ -48,12 +50,16 @@ public class LoginMedicoController {
         }
 
         if (medicoSeleccionado.getPassword().equals(password)) {
+            // ✅ Guardar el médico que inició sesión
+            SistemaHospitalario.getInstance().setMedicoActual(medicoSeleccionado);
+
             lblMensaje.setText("Bienvenido, Dr(a). " + medicoSeleccionado.getNombre());
             abrirConsultorioMedico();
         } else {
             lblMensaje.setText("Contraseña incorrecta.");
         }
     }
+
 
     private void abrirConsultorioMedico() {
         try {

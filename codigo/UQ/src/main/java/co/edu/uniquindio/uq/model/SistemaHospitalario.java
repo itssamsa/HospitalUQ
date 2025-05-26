@@ -11,6 +11,8 @@ public class SistemaHospitalario {
     private ObservableList<Medico> listaMedicos;
     private ObservableList<Administrador> listaAdministradores;
     private ObservableList<Sala> listaSalas;
+    private Medico medicoActual;
+
 
     // Constructor privado para implementar el patrón Singleton
     private SistemaHospitalario() {
@@ -20,6 +22,15 @@ public class SistemaHospitalario {
         listaAdministradores = FXCollections.observableArrayList();
         listaSalas = FXCollections.observableArrayList();
     }
+
+    public Medico getMedicoActual() {
+        return medicoActual;
+    }
+
+    public void setMedicoActual(Medico medicoActual) {
+        this.medicoActual = medicoActual;
+    }
+
 
 
     //  obtener la instancia única de SistemaHospitalario
