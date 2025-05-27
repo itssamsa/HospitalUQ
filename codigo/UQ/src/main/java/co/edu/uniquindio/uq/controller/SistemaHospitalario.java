@@ -398,9 +398,35 @@ public class SistemaHospitalario {
 
     //REPORTES DE LAS CITAS
 
-    public ObservableList<String> generarReporteCitas() {
+    public ObservableList<String> generarReporteGeneral() {
         ObservableList<String> reporte = FXCollections.observableArrayList();
 
+        // Administradores
+        reporte.add("==== ADMINISTRADORES REGISTRADOS ====");
+        for (Administrador admin : listaAdministradores) {
+            reporte.add("Nombre: " + admin.getNombre() + " - Cédula: " + admin.getCedula());
+        }
+
+        // Médicos
+        reporte.add("\n==== MÉDICOS REGISTRADOS ====");
+        for (Medico medico : listaMedicos) {
+            reporte.add("Nombre: " + medico.getNombre() + " - Especialidad: " + medico.getEspecialidad() + " - Cédula: " + medico.getCedula());
+        }
+
+        // Pacientes
+        reporte.add("\n==== PACIENTES REGISTRADOS ====");
+        for (Paciente paciente : listaPacientes) {
+            reporte.add("Nombre: " + paciente.getNombre() + " - Cédula: " + paciente.getCedula());
+        }
+
+        // Salas
+        reporte.add("\n==== SALAS ASIGNADAS ====");
+        for (Sala sala : listaSalas) {
+            reporte.add("Sala: " + sala.getNombreSala() + " - Horario: " + sala.getHorarioSala() + " - Estado: " + sala.getEstadoSala());
+        }
+
+        // Citas
+        reporte.add("\n==== CITAS REGISTRADAS ====");
         for (Paciente paciente : listaPacientes) {
             String historial = paciente.getHistorialMedico();
             if (historial != null && !historial.isEmpty()) {
@@ -412,6 +438,7 @@ public class SistemaHospitalario {
                 }
             }
         }
+
         return reporte;
     }
 

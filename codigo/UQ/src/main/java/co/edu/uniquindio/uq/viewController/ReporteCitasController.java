@@ -20,12 +20,12 @@ public class ReporteCitasController {
 
     @FXML
     public void generarReporteCitas() {
-        ObservableList<String> citas = sistema.generarReporteCitas();
-        if (citas.isEmpty()) {
-            txtReporte.setText("No hay citas registradas.");
+        ObservableList<String> reporteGeneral = sistema.generarReporteGeneral();
+        if (reporteGeneral.isEmpty()) {
+            txtReporte.setText("No hay datos registrados.");
         } else {
             StringBuilder reporte = new StringBuilder();
-            for (String linea : citas) {
+            for (String linea : reporteGeneral) {
                 reporte.append(linea).append("\n");
             }
             txtReporte.setText(reporte.toString());
