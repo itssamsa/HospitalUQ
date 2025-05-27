@@ -7,9 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class App extends Application {
 
@@ -96,57 +94,93 @@ public class App extends Application {
         // Médico 1 - Andrés López (Lunes y Martes)
 
 
+        // Médico 1
         Medico m1 = new Medico("Andrés López", "201", "Carrera 10", "3101112233", "Medicina General", "1234");
-        Map<String, List<String>> agenda1 = new HashMap<>();
-        agenda1.put("Lunes", List.of("08:00", "08:20", "08:40", "09:00"));
-        agenda1.put("Martes", List.of("09:20", "09:40", "10:00", "10:20"));
-        m1.setAgenda(new Agenda(agenda1));
+        Set<String> dias1 = new HashSet<>();
+        dias1.add("Lunes");
+        dias1.add("Martes");
+        dias1.add("Viernes");
+        Map<String, String> turnos1 = new HashMap<>();
+        turnos1.put("Lunes", "06:00-14:00");
+        turnos1.put("Martes", "14:00-22:00");
+        turnos1.put("Viernes", "22:00-06:00");
+        Agenda agenda1 = new Agenda(dias1, turnos1);
+        m1.setAgenda(agenda1);
         sistema.agregarMedico(m1);
 
-
-// Médico 2 - Carolina Rodríguez (Miércoles y Jueves)
-        // Médico 2 - Carolina Rodríguez (Miércoles y Jueves)
+// Médico 2
         Medico m2 = new Medico("Carolina Rodríguez", "202", "Calle 22", "3102223344", "Medicina General", "1234");
-        Map<String, List<String>> agenda2 = new HashMap<>();
-        agenda2.put("Miércoles", List.of("10:00", "10:20", "10:40", "11:00"));
-        agenda2.put("Jueves", List.of("11:20", "11:40", "12:00", "12:20"));
-        m2.setAgenda(new Agenda(agenda2));
+        Set<String> dias2 = new HashSet<>();
+        dias2.add("Lunes");
+        dias2.add("Martes");
+        dias2.add("Viernes");
+        Map<String, String> turnos2 = new HashMap<>();
+        turnos2.put("Lunes", "14:00-22:00");
+        turnos2.put("Martes", "06:00-14:00");
+        turnos2.put("Viernes", "22:00-06:00");
+        Agenda agenda2 = new Agenda(dias2, turnos2);
+        m2.setAgenda(agenda2);
         sistema.agregarMedico(m2);
 
-// Médico 3 - Santiago Ríos (Lunes y Viernes)
+// Médico 3
         Medico m3 = new Medico("Santiago Ríos", "203", "Avenida 15", "3103334455", "Pediatria", "1234");
-        Map<String, List<String>> agenda3 = new HashMap<>();
-        agenda3.put("Lunes", List.of("08:00", "08:20", "08:40", "09:00"));
-        agenda3.put("Viernes", List.of("13:00", "13:20", "13:40", "14:00"));
-        m3.setAgenda(new Agenda(agenda3));
+        Set<String> dias3 = new HashSet<>();
+        dias3.add("Lunes");
+        dias3.add("Martes");
+        dias3.add("Viernes");
+        Map<String, String> turnos3 = new HashMap<>();
+        turnos3.put("Lunes", "06:00-14:00");
+        turnos3.put("Martes", "14:00-22:00");
+        turnos3.put("Viernes", "22:00-06:00");
+        Agenda agenda3 = new Agenda(dias3, turnos3);
+        m3.setAgenda(agenda3);
         sistema.agregarMedico(m3);
 
-// Médico 4 - Luisa Vélez (Martes y Jueves)
+// Médico 4
         Medico m4 = new Medico("Luisa Vélez", "204", "Calle 30", "3104445566", "Pediatria", "1234");
-        Map<String, List<String>> agenda4 = new HashMap<>();
-        agenda4.put("Martes", List.of("08:00", "08:20", "08:40", "09:00"));
-        agenda4.put("Jueves", List.of("10:00", "10:20", "10:40", "11:00"));
-        m4.setAgenda(new Agenda(agenda4));
+        Set<String> dias4 = new HashSet<>();
+        dias4.add("Lunes");
+        dias4.add("Martes");
+        dias4.add("Viernes");
+        Map<String, String> turnos4 = new HashMap<>();
+        turnos4.put("Lunes", "06:00-14:00");
+        turnos4.put("Martes", "14:00-22:00");
+        turnos4.put("Viernes", "22:00-06:00");
+        Agenda agenda4 = new Agenda(dias4, turnos4);
+        m4.setAgenda(agenda4);
         sistema.agregarMedico(m4);
 
-// Médico 5 - Daniel Gutiérrez (Miércoles y Viernes)
+// Médico 5
         Medico m5 = new Medico("Daniel Gutiérrez", "205", "Carrera 5", "3105556677", "Cardiologia", "1234");
-        Map<String, List<String>> agenda5 = new HashMap<>();
-        agenda5.put("Miércoles", List.of("08:00", "08:20", "08:40", "09:00"));
-        agenda5.put("Viernes", List.of("09:20", "09:40", "10:00", "10:20"));
-        m5.setAgenda(new Agenda(agenda5));
+        Set<String> dias5 = new HashSet<>();
+        dias5.add("Lunes");
+        dias5.add("Martes");
+        dias5.add("Viernes");
+        Map<String, String> turnos5 = new HashMap<>();
+        turnos5.put("Lunes", "06:00-14:00");
+        turnos5.put("Martes", "14:00-22:00");
+        turnos5.put("Viernes", "22:00-06:00");
+        Agenda agenda5 = new Agenda(dias5, turnos5);
+        m5.setAgenda(agenda5);
         sistema.agregarMedico(m5);
 
-// Médico 6 - María Fernanda Ruiz (Lunes y Miércoles)
+// Médico 6
         Medico m6 = new Medico("María Fernanda Ruiz", "206", "Avenida 7", "3106667788", "Cardiologia", "1234");
-        Map<String, List<String>> agenda6 = new HashMap<>();
-        agenda6.put("Lunes", List.of("11:00", "11:20", "11:40", "12:00"));
-        agenda6.put("Miércoles", List.of("12:20", "12:40", "13:00", "13:20"));
-        m6.setAgenda(new Agenda(agenda6));
+        Set<String> dias6 = new HashSet<>();
+        dias6.add("Lunes");
+        dias6.add("Martes");
+        dias6.add("Viernes");
+        Map<String, String> turnos6 = new HashMap<>();
+        turnos6.put("Lunes", "06:00-14:00");
+        turnos6.put("Martes", "14:00-22:00");
+        turnos6.put("Viernes", "22:00-06:00");
+        Agenda agenda6 = new Agenda(dias6, turnos6);
+        m6.setAgenda(agenda6);
         sistema.agregarMedico(m6);
 
 
-    // ADMINISTRADORES
+
+        // ADMINISTRADORES
 
 
         Administrador a1 = new Administrador("Felipe López", "501", "Carrera 10", "3101112233", "1234");

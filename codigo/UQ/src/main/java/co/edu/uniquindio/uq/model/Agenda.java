@@ -54,13 +54,33 @@ public class Agenda {
         LocalTime horaInicio = LocalTime.parse(inicio);
         LocalTime horaFin = LocalTime.parse(fin);
 
-        while (horaInicio.isBefore(horaFin)) {
-            citas.add(horaInicio.format(FORMATO_HORA));
-            horaInicio = horaInicio.plusMinutes(INTERVALO_MINUTOS);
+        if (horaInicio.isBefore(horaFin)) {
+            // Rango normal: mismo día
+            while (horaInicio.isBefore(horaFin)) {
+                citas.add(horaInicio.format(FORMATO_HORA));
+                horaInicio = horaInicio.plusMinutes(INTERVALO_MINUTOS);
+            }
+        } else {
+            // Rango cruzado (ej. 22:00 a 06:00)
+            // Primera parte: de horaInicio a medianoche
+            LocalTime finDelDia = LocalTime.MIDNIGHT; // 00:00
+            while (!horaInicio.equals(finDelDia)) {
+                citas.add(horaInicio.format(FORMATO_HORA));
+                horaInicio = horaInicio.plusMinutes(INTERVALO_MINUTOS);
+                if (horaInicio.equals(LocalTime.MIDNIGHT)) break; // evitar bucle infinito
+            }
+
+            // Segunda parte: desde medianoche hasta horaFin
+            horaInicio = LocalTime.MIDNIGHT;
+            while (horaInicio.isBefore(horaFin)) {
+                citas.add(horaInicio.format(FORMATO_HORA));
+                horaInicio = horaInicio.plusMinutes(INTERVALO_MINUTOS);
+            }
         }
 
         return citas;
     }
+
 
     public Map<String, List<String>> getDisponibilidad() {
         return disponibilidad;
