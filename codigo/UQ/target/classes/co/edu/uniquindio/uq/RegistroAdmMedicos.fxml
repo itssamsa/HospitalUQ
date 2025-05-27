@@ -70,13 +70,13 @@
         <!-- Viernes -->
         <CheckBox fx:id="chkViernes" layoutX="103.0" layoutY="425.0" onAction="#onDiaSeleccionado" prefHeight="17.0" prefWidth="89.0" text="Viernes" />
         <CheckBox fx:id="chkViernesTurno1" disable="true" layoutX="230.0" layoutY="425.0" text="Turno 1 (06-14)" />
-        <CheckBox fx:id="chkViernesTurno2" disable="true" layoutX="398.0" layoutY="456.0" text="Turno 2 (14-22)" />
+        <CheckBox fx:id="chkViernesTurno2" disable="true" layoutX="396.0" layoutY="425.0" text="Turno 2 (14-22)" />
         <CheckBox fx:id="chkViernesTurno3" disable="true" layoutX="579.0" layoutY="425.0" text="Turno 3 (22-06)" />
 
         <!-- Sábado -->
         <CheckBox fx:id="chkSabado" layoutX="103.0" layoutY="456.0" onAction="#onDiaSeleccionado" prefHeight="17.0" prefWidth="89.0" text="Sábado" />
         <CheckBox fx:id="chkSabadoTurno1" disable="true" layoutX="230.0" layoutY="456.0" text="Turno 1 (06-14)" />
-        <CheckBox fx:id="chkSabadoTurno2" disable="true" layoutX="396.0" layoutY="425.0" text="Turno 2 (14-22)" />
+        <CheckBox fx:id="chkSabadoTurno2" disable="true" layoutX="396.0" layoutY="456.0" text="Turno 2 (14-22)" />
         <CheckBox fx:id="chkSabadoTurno3" disable="true" layoutX="579.0" layoutY="456.0" text="Turno 3 (22-06)" />
 
         <!-- Domingo -->
