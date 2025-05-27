@@ -181,7 +181,7 @@ public class AdministrarHorarioMedicoController {
     @FXML
     private void guardarAgenda() {
         Set<String> diasSeleccionados = new HashSet<>();
-        Map<String, List<String>> turnosPorDia = new HashMap<>();
+        Map<String, String> turnosPorDia = new HashMap<>();
 
         for (Map.Entry<String, List<CheckBox>> entry : mapaTurnos.entrySet()) {
             String dia = entry.getKey();
@@ -189,22 +189,23 @@ public class AdministrarHorarioMedicoController {
 
             if (chkDia != null && chkDia.isSelected()) {
                 diasSeleccionados.add(dia);
-                List<String> turnos = new ArrayList<>();
+                StringJoiner rangos = new StringJoiner(",");
                 for (CheckBox cb : entry.getValue()) {
                     if (cb.isSelected()) {
-                        turnos.add(obtenerRango(cb));
+                        rangos.add(obtenerRango(cb));
                     }
                 }
-                if (!turnos.isEmpty()) {
-                    turnosPorDia.put(dia, turnos);
+                if (rangos.length() > 0) {
+                    turnosPorDia.put(dia, rangos.toString());
                 }
             }
         }
 
-        // Actualiza la agenda del médico
-        medicoActual.setAgenda(new Agenda(turnosPorDia));
+        // Actualiza la agenda del médico con la disponibilidad procesada
+        medicoActual.setAgenda(new Agenda(diasSeleccionados, turnosPorDia));
         mostrarAlerta("Éxito", "Agenda actualizada correctamente.");
     }
+
 
     // Maneja la acción para volver a la vista anterior
     @FXML

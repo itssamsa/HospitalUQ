@@ -185,7 +185,7 @@ public class RegistroAdmMedicosController implements IRegistroAdmMedicosControll
 
     }
 
-    private Set<String> diasSeleccionados = new HashSet<>();
-    private Map<String, String> turnosPorDia = new HashMap<>(); // Día -> Hora de inicio del turno
+    private final Set<String> diasSeleccionados = new HashSet<>();
+    private final Map<String, String> turnosPorDia = new HashMap<>(); // Día -> Hora de inicio del turno
 
 }
