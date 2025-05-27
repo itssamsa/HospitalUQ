@@ -67,7 +67,7 @@ public class SolicitudCitaController {
         if (paciente != null) {
             Medico medico = sistemaHospitalario.buscarMedicoPorNombre(medicoNombre);
             if (medico != null) {
-                if (!medico.getEspecialidad().equals(especialidad)) {
+                if (!medico.getEspecialidad().equalsIgnoreCase(especialidad.trim())) {
                     mostrarAlerta("Error", "El médico no pertenece a la especialidad seleccionada.");
                     return;
                 }
