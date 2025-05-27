@@ -1,95 +1,143 @@
-import static org.junit.jupiter.api.Assertions.*;
-
 import co.edu.uniquindio.uq.controller.SistemaHospitalario;
-import org.junit.jupiter.api.Test;
 import co.edu.uniquindio.uq.model.*;
+import javafx.collections.ObservableList;
+import javafx.collections.FXCollections;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SistemaHospitalarioTest {
 
+    private SistemaHospitalario sistema;
+
+    @BeforeEach
+    public void setUp() {
+        sistema = SistemaHospitalario.getInstance();
+    }
+
     @Test
-    void testCantidadMedicosRegistrados() {
-        SistemaHospitalario sistema = SistemaHospitalario.getInstance();
-        sistema.getListaMedicos().clear();
+    public void testAgregarPaciente() {
+        Paciente paciente = new Paciente("123", "Juan Perez", "01/01/1990", "Masculino", "1234");
+        sistema.agregarPaciente(paciente);
+        assertTrue(sistema.getListaPacientes().contains(paciente));
+    }
 
-        Medico m1 = new Medico("Médico 1", "101", "Dir1", "Tel1", "Especialidad1", "clave");
-        Medico m2 = new Medico("Médico 2", "102", "Dir2", "Tel2", "Especialidad2", "clave");
-        Medico m3 = new Medico("Médico 3", "103", "Dir3", "Tel3", "Especialidad3", "clave");
-        Medico m4 = new Medico("Médico 4", "104", "Dir4", "Tel4", "Especialidad4", "clave");
-        Medico m5 = new Medico("Médico 5", "105", "Dir5", "Tel5", "Especialidad5", "clave");
-        Medico m6 = new Medico("Médico 6", "106", "Dir6", "Tel6", "Especialidad6", "clave");
-
-        sistema.agregarMedico(m1);
-        sistema.agregarMedico(m2);
-        sistema.agregarMedico(m3);
-        sistema.agregarMedico(m4);
-        sistema.agregarMedico(m5);
-        sistema.agregarMedico(m6);
-
-        assertEquals(6, sistema.getListaMedicos().size(), "Debe haber 6 médicos registrados");
-        }
     @Test
-    void testBuscarMedicoPorCedula() {
-        SistemaHospitalario sistema = SistemaHospitalario.getInstance();
-        sistema.getListaMedicos().clear();
-
-        Medico medico = new Medico("Andrés Gómez", "201", "Calle A", "3123456789", "General", "clave123");
+    public void testAgregarMedico() {
+        Medico medico = new Medico("456", "Dra. Ana", "Cardiologia", "3126985615", "Pediatra", "1234");
         sistema.agregarMedico(medico);
-
-        Medico resultado = sistema.buscarMedicoPorCedula("201");
-        assertNotNull(resultado);
-        assertEquals("Andrés Gómez", resultado.getNombre());
+        assertTrue(sistema.getListaMedicos().contains(medico));
     }
-    @Test
-    void testBuscarPacientePorCedula() {
-        SistemaHospitalario sistema = SistemaHospitalario.getInstance();
-        Paciente lucia = new Paciente("Lucía Ramírez", "110", "Calle 123", "3001234567", "seguimiento por migrañas");
-        sistema.agregarPaciente(lucia);
 
-        Paciente paciente = sistema.buscarPaciente("110");
-        assertNotNull(paciente);
-        assertEquals("Lucía Ramírez", paciente.getNombre());
+    @Test
+    public void testAgregarAdministrador() {
+        Administrador admin = new Administrador("Lina Rodríguez", "502", "Calle 22", "3102223344", "1234");
+        sistema.agregarAdministrador(admin);
+        assertTrue(sistema.getListaAdministradores().contains(admin));
     }
-    @Test
-    void testEspecialidadDeMedico() {
-        SistemaHospitalario sistema = SistemaHospitalario.getInstance();
-        sistema.getListaMedicos().clear();
 
-        Medico medico = new Medico("María Fernanda", "206", "Av B", "3131234567", "Cardiologia", "clave456");
+    @Test
+    public void testAgregarSala() {
+        Sala sala = new Sala("Sala A", "08:00 - 10:00", EstadoSala.DISPONIBLE);
+        sistema.agregarSala(sala);
+        assertTrue(sistema.obtenerSalas().contains(sala));
+    }
+
+    @Test
+    public void testReservarSalaDisponible() {
+        Sala sala = new Sala("Sala B", "10:00 - 12:00", EstadoSala.DISPONIBLE);
+        sistema.agregarSala(sala);
+        assertTrue(sistema.reservarSala("Sala B", "10:00 - 12:00"));
+    }
+
+    @Test
+    public void testReservarSalaNoDisponible() {
+        Sala sala = new Sala("Sala C", "14:00 - 16:00", EstadoSala.OCUPADA);
+        sistema.agregarSala(sala);
+        assertFalse(sistema.reservarSala("Sala C", "14:00 - 16:00"));
+    }
+
+    @Test
+    public void testGenerarReporte() {
+        ObservableList<String> reporte = sistema.generarReporteGeneral();
+        assertTrue(reporte.isEmpty());
+    }
+
+    @Test
+    public void testBuscarPacientePorCedula() {
+        Paciente paciente = new Paciente("999", "Laura", "02/02/1995", "Femenino", "1234");
+        sistema.agregarPaciente(paciente);
+        assertEquals(paciente, sistema.buscarPaciente("999"));
+    }
+
+    @Test
+    public void testBuscarMedicoPorCedula() {
+        Medico medico = new Medico("María Fernanda Ruiz", "206", "Avenida 7", "3106667788", "Cardiologia", "1234");
         sistema.agregarMedico(medico);
-
-        Medico resultado = sistema.buscarMedicoPorCedula("206");
-        assertNotNull(resultado);
-        assertEquals("Cardiologia", resultado.getEspecialidad());
+        assertEquals(medico, sistema.buscarMedicoPorCedula("206"));
     }
+
+
     @Test
-    void testMedicoNoExiste() {
-        SistemaHospitalario sistema = SistemaHospitalario.getInstance();
-        sistema.getListaMedicos().clear();
+    public void testHistorialMedicoPaciente() {
+        Paciente paciente = new Paciente("Pedro Vargas", "109", "Calle 74", "3009990011","1234");
+        paciente.setHistorialMedico("Cita: 12/12/2025 - Revisión");
+        sistema.agregarPaciente(paciente);
 
-        Medico medico = sistema.buscarMedicoPorCedula("999");
-        assertNull(medico, "Debe retornar null si el médico no existe");
+        ObservableList<String> reporte = sistema.generarReporteGeneral();
+        assertFalse(reporte.isEmpty());
     }
+
     @Test
-    void testAgregarNuevoMedico() {
-        SistemaHospitalario sistema = SistemaHospitalario.getInstance();
-        sistema.getListaMedicos().clear();
+    public void testGenerarNotificacionesPorMedico() {
+        Medico medico = new Medico("Daniel Gutiérrez", "205", "Carrera 5", "3105556677", "Cardiologia", "1234");
+        Paciente paciente = new Paciente("Lucio Vasquez", "111", "Calle 51", "3010012335","1234");
+        paciente.setHistorialMedico("Cita: 05/06/2024 - Revisión con médico 001");
 
-        Medico nuevo = new Medico("Dr. Julio", "777", "Camelias", "12334567", "Neurología", "1234");
-        sistema.agregarMedico(nuevo);
+        sistema.agregarMedico(medico);
+        sistema.agregarPaciente(paciente);
 
-        Medico medico = sistema.buscarMedicoPorCedula("777");
-        assertNotNull(medico);
-        assertEquals("Dr. Julio", medico.getNombre());
+        ObservableList<String> notificaciones = sistema.generarNotificacionesPorMedico("001");
+        assertFalse(notificaciones.isEmpty());
     }
+
     @Test
-    void testListaMedicosNoVacia() {
-        SistemaHospitalario sistema = SistemaHospitalario.getInstance();
-        sistema.getListaMedicos().clear();
-
-        Medico m = new Medico("Médico X", "300", "Calle X", "3000000000", "Pediatría", "clave");
-        sistema.agregarMedico(m);
-
-        assertFalse(sistema.getListaMedicos().isEmpty(), "La lista de médicos no debe estar vacía");
+    public void testSalaDisponibleTrue() {
+        Sala sala = new Sala("Sala D", "16:00 - 18:00", EstadoSala.DISPONIBLE);
+        sistema.agregarSala(sala);
+        assertTrue(sistema.estaSalaDisponible("Sala D", "16:00 - 18:00"));
     }
-    
+
+    @Test
+    public void testSalaDisponibleFalse() {
+        Sala sala = new Sala("Sala E", "18:00 - 20:00", EstadoSala.OCUPADA);
+        sistema.agregarSala(sala);
+        assertFalse(sistema.estaSalaDisponible("Sala E", "18:00 - 20:00"));
+    }
+
+
+    @Test
+    public void testAgregarSalaDuplicada() {
+        Sala sala = new Sala("Sala X", "08:00 - 10:00", EstadoSala.DISPONIBLE);
+        sistema.agregarSala(sala);
+        sistema.agregarSala(sala);
+        assertEquals(2, sistema.obtenerSalas().filtered(s -> s.getNombreSala().equals("Sala X")).size());
+    }
+
+    @Test
+    public void testGestorSalas() {
+        sistema.gestionarSalas("Sala Z", "09:00 - 11:00", EstadoSala.DISPONIBLE);
+        assertTrue(sistema.obtenerSalas().stream().anyMatch(s -> s.getNombreSala().equals("Sala Z")));
+    }
+
+    @Test
+    public void testNoEncontrarPaciente() {
+        assertNull(sistema.buscarPaciente("000"));
+    }
+
+    @Test
+    public void testNoEncontrarMedico() {
+        assertNull(sistema.buscarMedicoPorCedula("000"));
+    }
 }
