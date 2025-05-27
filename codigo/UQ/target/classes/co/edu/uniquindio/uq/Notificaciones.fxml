@@ -5,23 +5,55 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.NotificacionesController">
 
     <children>
 
-        <Label layoutX="171.0" layoutY="81.0" text="Cédula del Médico:" />
-        <TextField fx:id="txtCedulaMedico" layoutX="295.0" layoutY="77.0" prefWidth="200" />
+        <Label layoutX="164.0" layoutY="154.0" text="Ingrese su cedula">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font></Label>
+        <TextField fx:id="txtCedulaMedico" layoutX="314.0" layoutY="149.0" prefWidth="200" />
 
-        <Button layoutX="518.0" layoutY="77.0" onAction="#generarNotificacionesMedico" text="Generar Notificaciones" />
+        <Button layoutX="539.0" layoutY="149.0" onAction="#generarNotificacionesMedico" style="-fx-background-color: #263F73;" text="Generar Notificaciones" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font></Button>
 
-        <TextArea fx:id="txtNotificaciones" layoutX="115.0" layoutY="135.0" prefHeight="300" prefWidth="540" wrapText="true" />
-      <Button fx:id="btonVolver" layoutX="682.0" layoutY="545.0" mnemonicParsing="false" onAction="#onVolver" style="-fx-background-color: #263F73;" text="Volver" textFill="WHITE">
+        <TextArea fx:id="txtNotificaciones" layoutX="129.0" layoutY="209.0" prefHeight="300" prefWidth="540" wrapText="true" />
+      <Button fx:id="btonVolver" layoutX="710.0" layoutY="551.0" mnemonicParsing="false" onAction="#onVolver" style="-fx-background-color: #263F73;" text="Volver" textFill="WHITE">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font>
       </Button>
+      <AnchorPane layoutX="-6.0" prefHeight="102.0" prefWidth="804.0" style="-fx-background-color: #263F73;">
+         <children>
+            <Label layoutX="259.0" layoutY="38.0" style="-fx-font-size: 18px;" text="NOTIFICACIONES SOBRE SUS CITAS" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="20.0" />
+               </font>
+            </Label>
+            <Circle fill="WHITE" layoutX="38.0" layoutY="44.0" radius="24.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="#263f73" layoutX="38.0" layoutY="44.0" radius="17.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="104.0" layoutY="51.0" radius="17.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="149.0" layoutY="56.0" radius="14.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="#263f73" layoutX="104.0" layoutY="51.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#263f73" layoutX="149.0" layoutY="56.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="738.0" layoutY="48.0" radius="24.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="#263f73" layoutX="738.0" layoutY="48.0" radius="17.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="682.0" layoutY="51.0" radius="17.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="629.0" layoutY="56.0" radius="14.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="#263f73" layoutX="629.0" layoutY="56.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#263f73" layoutX="682.0" layoutY="51.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+         </children>
+      </AnchorPane>
+      <Circle fill="#263f73" layoutX="45.0" layoutY="560.0" radius="17.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#263f73" layoutX="46.0" layoutY="523.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#263f73" layoutX="82.0" layoutY="563.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#263f73" layoutX="77.0" layoutY="539.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" />
 
     </children>
 
