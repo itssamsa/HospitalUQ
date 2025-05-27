@@ -3,7 +3,7 @@
 package co.edu.uniquindio.uq.viewController;
 
 import co.edu.uniquindio.uq.model.Paciente;
-import co.edu.uniquindio.uq.model.SistemaHospitalario;
+import co.edu.uniquindio.uq.controller.SistemaHospitalario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -145,7 +145,7 @@ public class IngresarPacienteController {
             return;
         }
 
-        // Si todo está correcto, mostrar los datos
+        //
         ObservableList<Paciente> resultado = FXCollections.observableArrayList(paciente);
         tblPacientes.setItems(resultado);
 

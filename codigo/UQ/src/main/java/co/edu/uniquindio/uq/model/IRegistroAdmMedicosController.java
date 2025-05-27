@@ -1,4 +1,4 @@
-package co.edu.uniquindio.uq.controller;
+package co.edu.uniquindio.uq.model;
 
 import java.net.URL;
 import java.util.ResourceBundle;

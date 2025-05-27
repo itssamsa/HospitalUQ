@@ -1,8 +1,8 @@
-package co.edu.uniquindio.uq.model;
+package co.edu.uniquindio.uq.controller;
 
+import co.edu.uniquindio.uq.model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
 
 public class SistemaHospitalario {
 
@@ -23,6 +23,10 @@ public class SistemaHospitalario {
         listaAdministradores = FXCollections.observableArrayList();
         listaSalas = FXCollections.observableArrayList();
 
+    }
+
+    public ObservableList<Paciente> getListaPacientes() {
+        return listaPacientes;
     }
 
     public Medico getMedicoActual() {
@@ -397,7 +401,7 @@ public class SistemaHospitalario {
     public ObservableList<String> generarReporteCitas() {
         ObservableList<String> reporte = FXCollections.observableArrayList();
 
-        for (Paciente paciente : listaPacientes) {  // Asumiendo que tienes listaPacientes
+        for (Paciente paciente : listaPacientes) {
             String historial = paciente.getHistorialMedico();
             if (historial != null && !historial.isEmpty()) {
                 String[] lineas = historial.split("\n");
@@ -412,6 +416,29 @@ public class SistemaHospitalario {
     }
 
     //-------------------------
+    //NOTIFICACIONES DE MEDICO
+    public ObservableList<String> generarNotificacionesPorMedico(String cedulaMedico) {
+        ObservableList<String> notificaciones = FXCollections.observableArrayList();
+
+        for (Paciente paciente : listaPacientes) {
+            String historial = paciente.getHistorialMedico();
+            if (historial != null && !historial.isEmpty()) {
+                String[] lineas = historial.split("\n");
+                for (String linea : lineas) {
+                    if (linea.startsWith("Cita: ") && linea.contains("Médico: " + cedulaMedico)) {
+                        notificaciones.add(
+                                "Paciente: " + paciente.getNombre() + "\n" +
+                                        linea + "\n--------------------------"
+                        );
+                    }
+                }
+            }
+        }
+
+        return notificaciones;
+    }
+//----------------------------
+
 
     public boolean validarLoginMedico(String nombre, String password) {
         Medico medico = buscarMedicoPorNombre(nombre);

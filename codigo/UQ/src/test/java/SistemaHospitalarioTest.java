@@ -1,4 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
+
+import co.edu.uniquindio.uq.controller.SistemaHospitalario;
 import org.junit.jupiter.api.Test;
 import co.edu.uniquindio.uq.model.*;
 

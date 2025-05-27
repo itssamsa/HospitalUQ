@@ -2,7 +2,7 @@ package co.edu.uniquindio.uq.viewController;
 
 import co.edu.uniquindio.uq.model.Medico;
 import co.edu.uniquindio.uq.model.Paciente;
-import co.edu.uniquindio.uq.model.SistemaHospitalario;
+import co.edu.uniquindio.uq.controller.SistemaHospitalario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

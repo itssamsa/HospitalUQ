@@ -10,7 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import co.edu.uniquindio.uq.model.Paciente;
-import co.edu.uniquindio.uq.model.SistemaHospitalario;
+import co.edu.uniquindio.uq.controller.SistemaHospitalario;
 import javafx.stage.Stage;
 
 

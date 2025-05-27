@@ -1,6 +1,6 @@
 package co.edu.uniquindio.uq.viewController;
 
-import co.edu.uniquindio.uq.model.SistemaHospitalario;
+import co.edu.uniquindio.uq.controller.SistemaHospitalario;
 import co.edu.uniquindio.uq.model.Paciente;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

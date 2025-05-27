@@ -1,5 +1,6 @@
 package co.edu.uniquindio.uq;
 
+import co.edu.uniquindio.uq.controller.SistemaHospitalario;
 import co.edu.uniquindio.uq.model.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

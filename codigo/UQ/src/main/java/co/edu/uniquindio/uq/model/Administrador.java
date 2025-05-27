@@ -1,6 +1,5 @@
 package co.edu.uniquindio.uq.model;
 
-import co.edu.uniquindio.uq.controller.IAdministrador;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 

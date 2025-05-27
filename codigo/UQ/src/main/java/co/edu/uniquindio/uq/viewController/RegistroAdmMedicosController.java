@@ -1,8 +1,8 @@
 package co.edu.uniquindio.uq.viewController;
 
-import co.edu.uniquindio.uq.controller.IRegistroAdmMedicosController;
+import co.edu.uniquindio.uq.model.IRegistroAdmMedicosController;
 import co.edu.uniquindio.uq.model.Agenda;
-import co.edu.uniquindio.uq.model.SistemaHospitalario;
+import co.edu.uniquindio.uq.controller.SistemaHospitalario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

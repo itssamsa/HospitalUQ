@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.0" prefWidth="770.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uq.viewController.AdministrarHorarioMedicoController">
+    <children>
+        <Text layoutX="220.0" layoutY="52.0" text="Modifica los días y turnos disponibles del médico" wrappingWidth="370.0">
+            <font>
+                <Font name="Verdana Bold" size="14.0" />
+            </font>
+        </Text>
+
+        <Label layoutX="338.0" layoutY="100.0" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Días y Turnos Disponibles" />
+
+        <!-- Checkboxes por día y turnos -->
+        <!-- Lunes -->
+        <CheckBox fx:id="chkLunes" layoutX="103.0" layoutY="140.0" onAction="#onDiaSeleccionado" text="Lunes" />
+        <CheckBox fx:id="chkLunesTurno1" layoutX="230.0" layoutY="140.0" text="Turno 1 (06-14)" disable="true" />
+        <CheckBox fx:id="chkLunesTurno2" layoutX="396.0" layoutY="140.0" text="Turno 2 (14-22)" disable="true" />
+        <CheckBox fx:id="chkLunesTurno3" layoutX="579.0" layoutY="140.0" text="Turno 3 (22-06)" disable="true" />
+
+        <!-- Martes -->
+        <CheckBox fx:id="chkMartes" layoutX="103.0" layoutY="170.0" onAction="#onDiaSeleccionado" text="Martes" />
+        <CheckBox fx:id="chkMartesTurno1" layoutX="230.0" layoutY="170.0" text="Turno 1 (06-14)" disable="true" />
+        <CheckBox fx:id="chkMartesTurno2" layoutX="396.0" layoutY="170.0" text="Turno 2 (14-22)" disable="true" />
+        <CheckBox fx:id="chkMartesTurno3" layoutX="579.0" layoutY="170.0" text="Turno 3 (22-06)" disable="true" />
+
+        <!-- Miércoles -->
+        <CheckBox fx:id="chkMiercoles" layoutX="103.0" layoutY="200.0" onAction="#onDiaSeleccionado" text="Miércoles" />
+        <CheckBox fx:id="chkMiercolesTurno1" layoutX="230.0" layoutY="200.0" text="Turno 1 (06-14)" disable="true" />
+        <CheckBox fx:id="chkMiercolesTurno2" layoutX="396.0" layoutY="200.0" text="Turno 2 (14-22)" disable="true" />
+        <CheckBox fx:id="chkMiercolesTurno3" layoutX="579.0" layoutY="200.0" text="Turno 3 (22-06)" disable="true" />
+
+        <!-- Jueves -->
+        <CheckBox fx:id="chkJueves" layoutX="103.0" layoutY="230.0" onAction="#onDiaSeleccionado" text="Jueves" />
+        <CheckBox fx:id="chkJuevesTurno1" layoutX="230.0" layoutY="230.0" text="Turno 1 (06-14)" disable="true" />
+        <CheckBox fx:id="chkJuevesTurno2" layoutX="396.0" layoutY="230.0" text="Turno 2 (14-22)" disable="true" />
+        <CheckBox fx:id="chkJuevesTurno3" layoutX="579.0" layoutY="230.0" text="Turno 3 (22-06)" disable="true" />
+
+        <!-- Viernes -->
+        <CheckBox fx:id="chkViernes" layoutX="103.0" layoutY="260.0" onAction="#onDiaSeleccionado" text="Viernes" />
+        <CheckBox fx:id="chkViernesTurno1" layoutX="230.0" layoutY="260.0" text="Turno 1 (06-14)" disable="true" />
+        <CheckBox fx:id="chkViernesTurno2" layoutX="396.0" layoutY="260.0" text="Turno 2 (14-22)" disable="true" />
+        <CheckBox fx:id="chkViernesTurno3" layoutX="579.0" layoutY="260.0" text="Turno 3 (22-06)" disable="true" />
+
+        <!-- Sábado -->
+        <CheckBox fx:id="chkSabado" layoutX="103.0" layoutY="290.0" onAction="#onDiaSeleccionado" text="Sábado" />
+        <CheckBox fx:id="chkSabadoTurno1" layoutX="230.0" layoutY="290.0" text="Turno 1 (06-14)" disable="true" />
+        <CheckBox fx:id="chkSabadoTurno2" layoutX="396.0" layoutY="290.0" text="Turno 2 (14-22)" disable="true" />
+        <CheckBox fx:id="chkSabadoTurno3" layoutX="579.0" layoutY="290.0" text="Turno 3 (22-06)" disable="true" />
+
+        <!-- Domingo -->
+        <CheckBox fx:id="chkDomingo" layoutX="103.0" layoutY="320.0" onAction="#onDiaSeleccionado" text="Domingo" />
+        <CheckBox fx:id="chkDomingoTurno1" layoutX="230.0" layoutY="320.0" text="Turno 1 (06-14)" disable="true" />
+        <CheckBox fx:id="chkDomingoTurno2" layoutX="396.0" layoutY="320.0" text="Turno 2 (14-22)" disable="true" />
+        <CheckBox fx:id="chkDomingoTurno3" layoutX="579.0" layoutY="320.0" text="Turno 3 (22-06)" disable="true" />
+
+        <!-- Botones -->
+        <Button fx:id="btnActualizar" layoutX="385.0" layoutY="400.0" mnemonicParsing="false" onAction="#guardarAgenda" style="-fx-background-color: #263F73;" text="Actualizar" textFill="WHITE">
+            <font><Font name="Verdana Bold" size="12.0" /></font>
+        </Button>
+
+        <Button fx:id="btnVolver" layoutX="683.0" layoutY="400.0" mnemonicParsing="false" onAction="#onVolver" style="-fx-background-color: #263F73;" text="Volver" textFill="WHITE">
+            <font><Font name="Verdana Bold" size="12.0" /></font>
+        </Button>
+
+        <!-- Círculos decorativos -->
+        <Circle fill="#263f73" layoutX="743.0" layoutY="26.0" radius="12.0" />
+        <Circle fill="#263f73" layoutX="722.0" layoutY="47.0" radius="21.0" />
+        <Circle fill="#263f73" layoutX="27.0" layoutY="25.0" radius="12.0" />
+        <Circle fill="#263f73" layoutX="18.0" layoutY="47.0" radius="6.0" />
+    </children>
+</AnchorPane>
