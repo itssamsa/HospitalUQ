@@ -168,14 +168,11 @@ public class SistemaHospitalario {
         }
 
         Medico medico = new Medico(nombre, cedula, direccion, telefono, especialidad, password);
-        medico.setAgenda(agenda); //  Asignación directa de la agenda
-
-        // Aquí deberías guardar el médico en la lista de médicos del sistema
-        listaMedicos.add(medico); // O lo que uses para almacenar
+        medico.setAgenda(agenda); //  aqui asignamosde manera directa de la agenda
+        listaMedicos.add(medico);
 
         return true;
     }
-
 
 
     // Buscar un médico por cédula
@@ -465,6 +462,8 @@ public class SistemaHospitalario {
         return notificaciones;
     }
 //----------------------------
+
+    // CONTRASEÑAS PARA EL ACCESO
 
 
     public boolean validarLoginMedico(String nombre, String password) {

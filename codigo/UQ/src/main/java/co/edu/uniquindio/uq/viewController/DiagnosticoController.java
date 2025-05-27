@@ -53,8 +53,6 @@ public class DiagnosticoController {
         }
     }
 
-
-
     @FXML
     void onGuardar(ActionEvent event) {
         String cedula = txtCedulaConsulta.getText();
@@ -96,8 +94,6 @@ public class DiagnosticoController {
 
         mostrarAlerta("Éxito", "Diagnóstico registrado correctamente.");
     }
-
-
 
 
     @FXML
