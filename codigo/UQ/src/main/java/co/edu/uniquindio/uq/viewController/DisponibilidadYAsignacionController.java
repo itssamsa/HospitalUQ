@@ -54,7 +54,7 @@ public class DisponibilidadYAsignacionController {
 
         // Obtener la especialidad del médico y un horario predeterminado
         String especialidad = medico.getEspecialidad();
-        String horario = "Consulta General";  // Puedes cambiar el horario según corresponda
+        String horario = "8:00 AM";  // Puedes cambiar el horario según corresponda
 
         // Crear la cita con todos los parámetros requeridos
         Cita nuevaCita = new Cita(especialidad, medico.getNombre(), horario, paciente.getCedula());

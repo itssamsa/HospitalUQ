@@ -4,10 +4,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Medico extends Usuario {
 
@@ -88,6 +85,21 @@ public class Medico extends Usuario {
     }
 
 
+    public List<String> getTurnosDisponibles() {
+        List<String> turnos = new ArrayList<>();
+        for (LocalTime turno : agendaTurnos) {
+            turnos.add(turno.toString());
+        }
+        return turnos;
+    }
+
+    public void setDiasDisponibles(Set<String> diasSeleccionados) {
+        agenda.setDiasDisponibles(diasSeleccionados);
+    }
+
+    public void setHorario(String horario) {
+        agenda.setHorario(horario);
+    }
 
 
 }

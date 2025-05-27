@@ -164,7 +164,7 @@ public class SistemaHospitalario {
         }
 
         Medico medico = new Medico(nombre, cedula, direccion, telefono, especialidad, password);
-        medico.setAgenda(agenda); // ✅ Asignación directa de la agenda
+        medico.setAgenda(agenda); //  Asignación directa de la agenda
 
         // Aquí deberías guardar el médico en la lista de médicos del sistema
         listaMedicos.add(medico); // O lo que uses para almacenar

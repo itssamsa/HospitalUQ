@@ -37,7 +37,10 @@ public class LoginMedicoController {
                 SistemaHospitalario.getInstance().getListaMedicos()
         );
         comboMedicos.setItems(medicos);
+
     }
+
+
 
     @FXML
     private void onIniciarSecion() {
@@ -58,6 +61,7 @@ public class LoginMedicoController {
         } else {
             lblMensaje.setText("Contraseña incorrecta.");
         }
+
     }
 
 
@@ -65,6 +69,10 @@ public class LoginMedicoController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/uq/ConsultorioMedico.fxml"));
             Parent root = loader.load();
+
+            // ✅ Obtener el controlador y pasar el médico logueado
+            ConsultorioMedicoController controller = loader.getController();
+            controller.setMedico(SistemaHospitalario.getInstance().getMedicoActual());
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -80,6 +88,7 @@ public class LoginMedicoController {
             e.printStackTrace();
         }
     }
+
 
     // Acción para volver al login
     @FXML

@@ -108,4 +108,21 @@ public class Agenda {
         }
         return sb.toString();
     }
+
+    public Set<String> getDiasDisponibles() {
+        return disponibilidad.keySet();
+    }
+
+    public void setDiasDisponibles(Set<String> diasSeleccionados) {
+        disponibilidad.keySet().retainAll(diasSeleccionados);
+    }
+
+    public void setHorario(String horario) {
+
+    }
+
+    public void actualizarDisponibilidadDia(String dia, List<String> nuevaDisponibilidad) {
+        disponibilidad.put(dia, new ArrayList<>(nuevaDisponibilidad));
+    }
+
 }

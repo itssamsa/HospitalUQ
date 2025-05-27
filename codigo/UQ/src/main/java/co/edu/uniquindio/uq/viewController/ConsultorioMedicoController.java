@@ -1,5 +1,6 @@
 package co.edu.uniquindio.uq.viewController;
 
+import co.edu.uniquindio.uq.model.Medico;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import co.edu.uniquindio.uq.App;
+
+import java.io.IOException;
 
 public class ConsultorioMedicoController {
 
@@ -36,9 +39,37 @@ public class ConsultorioMedicoController {
     // Acción para administrar horarios
     @FXML
     private void onAdministrarHorario(ActionEvent event) {
-        // Aquí puedes enlazar con la vista de administración de horarios
-        // App.cambiarEscena("/path/to/HorarioConsulta.fxml", "Administrar Horarios");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/uq/AdministrarHorarioMedico.fxml"));
+            Parent root = loader.load();
+
+            // Obtener el controlador y pasarle el médico actual
+            AdministrarHorarioMedicoController controller = loader.getController();
+            controller.setMedicoActual(medicoSeleccionado); // Asegúrate de que 'medicoSeleccionado' esté inicializado correctamente
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Administrar Horario Médico");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo cargar la vista de Administrar Horario Médico.");
+        }
     }
+
+
+    private Medico medicoSeleccionado;
+
+
+    public void setMedico(Medico medico) {
+        this.medicoSeleccionado = medico;
+        System.out.println("🟢 Médico recibido en ConsultorioMedicoController: " + medico.getNombre());
+
+    }
+
+
+
+
 
     // Acción para ver notificaciones de citas
     @FXML
@@ -54,6 +85,7 @@ public class ConsultorioMedicoController {
             mostrarAlerta("Error", "No se pudo cargar la vista de consulta de historial.");
         }
     }
+
     // Acción para volver al login
     @FXML
     private void onVolverAlLogin(ActionEvent event) {
